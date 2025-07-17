@@ -1,0 +1,85 @@
+<div class="results-container">
+    <div class="results-header">
+        <h1>2025-2026 Süper Lig Maç Sonuçları</h1>
+        <p>Tüm maç sonuçları ve skorlar</p>
+    </div>
+
+    <div class="results-filters">
+        <div class="filter-group">
+            <label for="weekFilter">Hafta:</label>
+            <select id="weekFilter" class="results-filter">
+                <option value="">Tüm Haftalar</option>
+                <!-- Weeks will be populated by JS -->
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="teamFilter">Takım:</label>
+            <select id="teamFilter" class="results-filter">
+                <option value="">Tüm Takımlar</option>
+                <!-- Teams will be populated by JS -->
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="resultFilter">Sonuç:</label>
+            <select id="resultFilter" class="results-filter">
+                <option value="">Tüm Sonuçlar</option>
+                <option value="home">Ev Sahibi Galibiyet</option>
+                <option value="away">Deplasman Galibiyet</option>
+                <option value="draw">Beraberlik</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="dateFilter">Tarih:</label>
+            <input type="date" id="dateFilter" class="results-filter">
+        </div>
+    </div>
+
+    <div class="results-summary">
+        <div class="summary-card">
+            <i class="fas fa-trophy"></i>
+            <div class="summary-content">
+                <h3>Toplam Maç</h3>
+                <span id="totalMatches">306</span>
+            </div>
+        </div>
+        <div class="summary-card">
+            <i class="fas fa-home"></i>
+            <div class="summary-content">
+                <h3>Ev Sahibi Galibiyet</h3>
+                <span id="homeWins">145</span>
+            </div>
+        </div>
+        <div class="summary-card">
+            <i class="fas fa-plane"></i>
+            <div class="summary-content">
+                <h3>Deplasman Galibiyet</h3>
+                <span id="awayWins">98</span>
+            </div>
+        </div>
+        <div class="summary-card">
+            <i class="fas fa-handshake"></i>
+            <div class="summary-content">
+                <h3>Beraberlik</h3>
+                <span id="draws">63</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="results-list" id="resultsList">
+        <!-- Results will be loaded here -->
+    </div>
+
+    <div class="pagination-container">
+        <button class="pagination-btn" id="prevPage" disabled>
+            <i class="fas fa-chevron-left"></i>
+            Önceki
+        </button>
+        <div class="page-numbers" id="pageNumbers">
+            <!-- Page numbers will be generated here -->
+        </div>
+        <button class="pagination-btn" id="nextPage">
+            Sonraki
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</div>

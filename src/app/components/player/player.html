@@ -1,0 +1,229 @@
+<div class="player-wrapper">
+    <div class="player-container">
+    <div class="player-header">
+        <div class="breadcrumb">
+            <a href="index.html">Ana Sayfa</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="stats.html">İstatistikler</a>
+            <i class="fas fa-chevron-right"></i>
+            <span id="playerName">Oyuncu Adı</span>
+        </div>
+    </div>
+
+    <div class="player-profile">
+        <div class="player-image-section">
+            <div class="player-image">
+                <img id="playerPhoto" src="/players/icardi.png" alt="Player Photo">
+            </div>
+            <div class="player-basic-info">
+                <h1 id="playerFullName">Oyuncu Adı</h1>
+                <div class="player-details">
+                    <div class="detail-item">
+                        <i class="fas fa-tshirt"></i>
+                        <span>Forma No: <span id="playerNumber">10</span></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Pozisyon: <span id="playerPosition">Orta Saha</span></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-birthday-cake"></i>
+                        <span>Yaş: <span id="playerAge">25</span></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-flag"></i>
+                        <span>Ülke: <span id="playerCountry">Türkiye</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="player-stats-overview">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-futbol"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Goller</h3>
+                    <span id="goalsCount">15</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Asistler</h3>
+                    <span id="assistsCount">8</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Maçlar</h3>
+                    <span id="matchesCount">28</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Dakika</h3>
+                    <span id="minutesCount">2520</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="player-tabs">
+        <button class="tab-button active" data-tab="season-stats">
+            <i class="fas fa-chart-bar"></i>
+            Sezon İstatistikleri
+        </button>
+        <button class="tab-button" data-tab="career-stats">
+            <i class="fas fa-history"></i>
+            Kariyer İstatistikleri
+        </button>
+        <button class="tab-button" data-tab="performance">
+            <i class="fas fa-chart-line"></i>
+            Performans Grafikleri
+        </button>
+        <button class="tab-button" data-tab="matches">
+            <i class="fas fa-calendar-alt"></i>
+            Maç Geçmişi
+        </button>
+    </div>
+
+    <div class="player-content">
+        <!-- Season Statistics Tab -->
+        <div id="season-stats" class="tab-content active">
+            <div class="stats-grid">
+                <div class="stats-section">
+                    <h3>Lig İstatistikleri</h3>
+                    <div class="stats-table-container">
+                        <table class="stats-table">
+                            <tbody>
+                                <tr>
+                                    <td>Oynanan Maç</td>
+                                    <td id="leagueMatches">28</td>
+                                </tr>
+                                <tr>
+                                    <td>Başlangıç</td>
+                                    <td id="leagueStarts">25</td>
+                                </tr>
+                                <tr>
+                                    <td>Goller</td>
+                                    <td id="leagueGoals">15</td>
+                                </tr>
+                                <tr>
+                                    <td>Asistler</td>
+                                    <td id="leagueAssists">8</td>
+                                </tr>
+                                <tr>
+                                    <td>Sarı Kart</td>
+                                    <td id="leagueYellowCards">4</td>
+                                </tr>
+                                <tr>
+                                    <td>Kırmızı Kart</td>
+                                    <td id="leagueRedCards">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="stats-section">
+                    <h3>Detaylı İstatistikler</h3>
+                    <div class="stats-table-container">
+                        <table class="stats-table">
+                            <tbody>
+                                <tr>
+                                    <td>Şut</td>
+                                    <td id="shots">45</td>
+                                </tr>
+                                <tr>
+                                    <td>İsabetli Şut</td>
+                                    <td id="shotsOnTarget">22</td>
+                                </tr>
+                                <tr>
+                                    <td>Pas</td>
+                                    <td id="passes">1250</td>
+                                </tr>
+                                <tr>
+                                    <td>Başarılı Pas</td>
+                                    <td id="passesCompleted">1100</td>
+                                </tr>
+                                <tr>
+                                    <td>Pas Başarı Oranı</td>
+                                    <td id="passAccuracy">88%</td>
+                                </tr>
+                                <tr>
+                                    <td>Top Çalma</td>
+                                    <td id="tackles">35</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Statistics Tab -->
+        <div id="career-stats" class="tab-content">
+            <div class="career-timeline">
+                <h3>Kariyer Geçmişi</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            <h4>Galatasaray</h4>
+                            <p>28 maç, 15 gol, 8 asist</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-content">
+                            <h4>Fenerbahçe</h4>
+                            <p>32 maç, 12 gol, 10 asist</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-content">
+                            <h4>Beşiktaş</h4>
+                            <p>30 maç, 8 gol, 6 asist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Graphs Tab -->
+        <div id="performance" class="tab-content">
+            <div class="performance-charts">
+                <div class="chart-container">
+                    <h3>Gol Performansı</h3>
+                    <div class="chart" id="goalsChart">
+                        <!-- Chart will be rendered here -->
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3>Asist Performansı</h3>
+                    <div class="chart" id="assistsChart">
+                        <!-- Chart will be rendered here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Match History Tab -->
+        <div id="matches" class="tab-content">
+            <div class="matches-list" id="matchesList">
+                <!-- Match history will be loaded here -->
+            </div>
+        </div>
+    </div>
+</div>

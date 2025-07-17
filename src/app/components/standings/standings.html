@@ -1,0 +1,70 @@
+<div class="standings-container">
+    <div class="standings-header">
+        <h1>2025-2026 Süper Lig Puan Durumu</h1>
+        <p>Güncel sıralama ve puan durumu</p>
+    </div>
+
+    <div class="standings-info">
+        <div class="info-card">
+            <i class="fas fa-calendar"></i>
+            <span>Son Güncelleme: <span id="lastUpdate">15 Mart 2025</span></span>
+        </div>
+        <div class="info-card">
+            <i class="fas fa-gamepad"></i>
+            <span>Oynanan Maç: <span id="playedMatches">306/306</span></span>
+        </div>
+        <div class="info-card">
+            <i class="fas fa-trophy"></i>
+            <span>Sezon: 2025-2026</span>
+        </div>
+    </div>
+
+    <div class="standings-filters">
+        <button class="filter-btn active" data-filter="all">Tümü</button>
+        <button class="filter-btn" data-filter="champions">Şampiyonlar Ligi</button>
+        <button class="filter-btn" data-filter="europa">Avrupa Ligi</button>
+        <button class="filter-btn" data-filter="relegation">Küme Düşme</button>
+    </div>
+
+    <div class="standings-table-container">
+        <table class="standings-table">
+            <thead>
+                <tr>
+                    <th>Sıra</th>
+                    <th>Takım</th>
+                    <th>O</th>
+                    <th>G</th>
+                    <th>B</th>
+                    <th>M</th>
+                    <th>A</th>
+                    <th>Y</th>
+                    <th>Av</th>
+                    <th>P</th>
+                    <th>Form</th>
+                </tr>
+            </thead>
+            <tbody id="standingsBody">
+                <!-- Standings will be loaded here -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="standings-legend">
+        <div class="legend-item">
+            <div class="legend-color champions"></div>
+            <span>Şampiyonlar Ligi</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color europa"></div>
+            <span>Avrupa Ligi</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color conference"></div>
+            <span>Konferans Ligi</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color relegation"></div>
+            <span>Küme Düşme</span>
+        </div>
+    </div>
+</div>

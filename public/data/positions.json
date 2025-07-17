@@ -1,0 +1,28 @@
+{
+    "positions": [
+        {
+            "value": "",
+            "name": "Hepsi"
+        },
+        {
+            "value": "GK",
+            "name": "Kaleci"
+        },
+        {
+            "value": "DEF",
+            "name": "Defans"
+        },
+        {
+            "value": "MID",
+            "name": "Orta Saha"
+        },
+        {
+            "value": "FW",
+            "name": "Forvet"
+        },
+        {
+            "value": "MAN",
+            "name": "Teknik Direktör"
+        }
+    ]
+} 

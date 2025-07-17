@@ -1,0 +1,25 @@
+{
+    "name": "GENÇLERBİRLİĞİ",
+    "cardTeamName": "genclerbirligi",
+    "logo": "https://tmssl.akamaized.net/images/wappen/head/820.png",
+    "season": "2025-2026 Sezonu",
+    "players": [
+        
+    ],
+    "manager": {
+        "name": "HÜSEYİN EROĞLU",
+        "rating": 75,
+        "image": "managers/eroglu.png",
+        "age": 52,
+        "nationality": {
+            "name": "Turkey",
+            "code": "TUR",
+            "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+        },
+        "stats": {
+            "tactic": 75,
+            "motivation": 76,
+            "leadership": 74
+        }
+    }
+} 

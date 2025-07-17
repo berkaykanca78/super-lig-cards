@@ -1,0 +1,547 @@
+{
+    "name": "KASIMPAŞA A.Ş.",
+    "cardTeamName": "kasimpasa",
+    "logo": "https://tmssl.akamaized.net/images/wappen/head/10484.png",
+    "season": "2025-2026 Sezonu",
+    "players": [
+        {
+            "name": "ANDREAS GIANNIOTIS",
+            "position": "GK",
+            "rating": 72,
+            "ratingPosition": "KALECİ",
+            "image": "assets/players/andreas-gianniotis.png",
+            "nationality": {
+                "name": "GRE",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Greece.svg/1024px-Flag_of_Greece.svg.png"
+            },
+            "age": 32,
+            "number": 1,
+            "stats": {
+                "REF": 73,
+                "DIV": 72,
+                "POS": 70
+            }
+        },
+        {
+            "name": "ALİ EMRE YANAR",
+            "position": "GK",
+            "rating": 68,
+            "ratingPosition": "KALECİ",
+            "image": "assets/players/ali-emre-yanar.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 27,
+            "number": 25,
+            "stats": {
+                "REF": 69,
+                "DIV": 68,
+                "POS": 65
+            }
+        },
+        {
+            "name": "RAMAZAN ÖZKANLI",
+            "position": "GK",
+            "rating": 65,
+            "ratingPosition": "KALECİ",
+            "image": "assets/players/ramazan-ozkanli.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 22,
+            "number": 0,
+            "stats": {
+                "REF": 66,
+                "DIV": 65,
+                "POS": 62
+            }
+        },
+        {
+            "name": "EGE ALBAYRAK",
+            "position": "GK",
+            "rating": 60,
+            "ratingPosition": "KALECİ",
+            "image": "assets/players/ege-albayrak.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 17,
+            "number": 61,
+            "stats": {
+                "REF": 61,
+                "DIV": 60,
+                "POS": 58
+            }
+        },
+        {
+            "name": "ŞANT KAZANCI",
+            "position": "GK",
+            "rating": 55,
+            "ratingPosition": "KALECİ",
+            "image": "assets/players/sant-kazanci.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 16,
+            "number": 98,
+            "stats": {
+                "DEF": 55,
+                "HIZ": 50,
+                "FİZ": 52
+            }
+        },
+        {
+            "name": "ATTILA SZALAI",
+            "position": "CB",
+            "rating": 78,
+            "ratingPosition": "STOPER",
+            "image": "assets/players/attila-szalai.png",
+            "nationality": {
+                "name": "HUN",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/1024px-Flag_of_Hungary.svg.png"
+            },
+            "age": 27,
+            "number": 0,
+            "stats": {
+                "HIZ": 78,
+                "DEF": 85,
+                "FİZ": 89
+            }
+        },
+        {
+            "name": "NICHOLAS OPOKU",
+            "position": "CB",
+            "rating": 76,
+            "ratingPosition": "STOPER",
+            "image": "assets/players/nicholas-opoku.png",
+            "nationality": {
+                "name": "GHA",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/1024px-Flag_of_Ghana.svg.png"
+            },
+            "age": 27,
+            "number": 20,
+            "stats": {
+                "DEF": 83,
+                "FİZ": 81,
+                "HIZ": 79
+            }
+        },
+        {
+            "name": "TAYLAN AYDIN",
+            "position": "CB",
+            "rating": 70,
+            "ratingPosition": "STOPER",
+            "image": "assets/players/taylan-aydin.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 19,
+            "number": 29,
+            "stats": {
+                "DEF": 76,
+                "FİZ": 75,
+                "HIZ": 74
+            }
+        },
+        {
+            "name": "YUNUS ATAKAYA",
+            "position": "CB",
+            "rating": 68,
+            "ratingPosition": "STOPER",
+            "image": "assets/players/yunus-atakaya.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 21,
+            "number": 55,
+            "stats": {
+                "DEF": 70,
+                "HIZ": 65,
+                "FİZ": 68
+            }
+        },
+        {
+            "name": "ADNAN AKTAŞ",
+            "position": "LB",
+            "rating": 65,
+            "ratingPosition": "SOL BEK",
+            "image": "assets/players/adnan-aktas.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 18,
+            "number": 13,
+            "stats": {
+                "HIZ": 81,
+                "DEF": 76,
+                "PAS": 75
+            }
+        },
+        {
+            "name": "CLÁUDIO WINCK",
+            "position": "RB",
+            "rating": 74,
+            "ratingPosition": "SAĞ BEK",
+            "image": "assets/players/claudio-winck.png",
+            "nationality": {
+                "name": "BRA",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/1024px-Flag_of_Brazil.svg.png"
+            },
+            "age": 31,
+            "number": 2,
+            "stats": {
+                "DEF": 82,
+                "FİZ": 81,
+                "HIZ": 79
+            }
+        },
+        {
+            "name": "JHON ESPINOZA",
+            "position": "RB",
+            "rating": 72,
+            "ratingPosition": "SAĞ BEK",
+            "image": "assets/players/jhon-espinoza.png",
+            "nationality": {
+                "name": "ECU",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/1024px-Flag_of_Ecuador.svg.png"
+            },
+            "age": 26,
+            "number": 14,
+            "stats": {
+                "HIZ": 84,
+                "DEF": 80,
+                "PAS": 81
+            }
+        },
+        {
+            "name": "BERKAY MURATOĞLU",
+            "position": "RB",
+            "rating": 60,
+            "ratingPosition": "SAĞ BEK",
+            "image": "assets/players/berkay-muratoglu.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 17,
+            "number": 47,
+            "stats": {
+                "HIZ": 83,
+                "DEF": 77,
+                "PAS": 76
+            }
+        },
+        {
+            "name": "LORET SADIKU",
+            "position": "CDM",
+            "rating": 73,
+            "ratingPosition": "ÖN LİBERO",
+            "image": "assets/players/loret-sadiku.png",
+            "nationality": {
+                "name": "KOS",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Flag_of_Kosovo.svg/1024px-Flag_of_Kosovo.svg.png"
+            },
+            "age": 33,
+            "number": 0,
+            "stats": {
+                "DEF": 85,
+                "PAS": 84,
+                "FİZ": 82
+            }
+        },
+        {
+            "name": "OĞUZHAN YILMAZ",
+            "position": "CDM",
+            "rating": 68,
+            "ratingPosition": "ÖN LİBERO",
+            "image": "assets/players/oguzhan-yilmaz.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 22,
+            "number": 0,
+            "stats": {
+                "PAS": 80,
+                "DEF": 79,
+                "FİZ": 81
+            }
+        },
+        {
+            "name": "CEM ÜSTÜNDAĞ",
+            "position": "CM",
+            "rating": 70,
+            "ratingPosition": "MERKEZ ORTA SAHA",
+            "image": "assets/players/cem-ustundag.png",
+            "nationality": {
+                "name": "AUT",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/1024px-Flag_of_Austria.svg.png"
+            },
+            "age": 24,
+            "number": 0,
+            "stats": {
+                "PAS": 84,
+                "DRİB": 83,
+                "ŞUT": 81
+            }
+        },
+        {
+            "name": "CAFÚ",
+            "position": "CM",
+            "rating": 72,
+            "ratingPosition": "MERKEZ ORTA SAHA",
+            "image": "assets/players/cafu.png",
+            "nationality": {
+                "name": "POR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/1024px-Flag_of_Portugal.svg.png"
+            },
+            "age": 32,
+            "number": 8,
+            "stats": {
+                "PAS": 82,
+                "DRİB": 80,
+                "ŞUT": 78
+            }
+        },
+        {
+            "name": "YAMAN SUAKAR",
+            "position": "CM",
+            "rating": 55,
+            "ratingPosition": "MERKEZ ORTA SAHA",
+            "image": "assets/players/yaman-suakar.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 16,
+            "number": 15,
+            "stats": {
+                "PAS": 58,
+                "DRİB": 55,
+                "ŞUT": 52
+            }
+        },
+        {
+            "name": "ATAKAN MÜJDE",
+            "position": "CM",
+            "rating": 65,
+            "ratingPosition": "MERKEZ ORTA SAHA",
+            "image": "assets/players/atakan-mujde.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 21,
+            "number": 54,
+            "stats": {
+                "PAS": 78,
+                "DRİB": 75,
+                "ŞUT": 72
+            }
+        },
+        {
+            "name": "HARIS HAJRADINOVIC",
+            "position": "CAM",
+            "rating": 75,
+            "ratingPosition": "ON NUMARA",
+            "image": "assets/players/haris-hajradinovic.png",
+            "isCaptain": true,
+            "nationality": {
+                "name": "BIH",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bosnia_and_Herzegovina.svg"
+            },
+            "age": 31,
+            "number": 10,
+            "stats": {
+                "DRİB": 85,
+                "ŞUT": 83,
+                "PAS": 82
+            }
+        },
+        {
+            "name": "MORTADHA BEN OUANES",
+            "position": "LW",
+            "rating": 74,
+            "ratingPosition": "SOL KANAT",
+            "image": "assets/players/mortadha-ben-ouanes.png",
+            "nationality": {
+                "name": "TUN",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/1024px-Flag_of_Tunisia.svg.png"
+            },
+            "age": 31,
+            "number": 0,
+            "stats": {
+                "HIZ": 85,
+                "DRİB": 83,
+                "ŞUT": 82
+            }
+        },
+        {
+            "name": "ALİ YAVUZ KOL",
+            "position": "LW",
+            "rating": 68,
+            "ratingPosition": "SOL KANAT",
+            "image": "assets/players/ali-yavuz-kol.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 24,
+            "number": 0,
+            "stats": {
+                "HIZ": 86,
+                "DRİB": 82,
+                "PAS": 80
+            }
+        },
+        {
+            "name": "ERDEM ÇETİNKAYA",
+            "position": "LW",
+            "rating": 66,
+            "ratingPosition": "SOL KANAT",
+            "image": "assets/players/erdem-cetinkaya.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 24,
+            "number": 0,
+            "stats": {
+                "DRİB": 82,
+                "HIZ": 80,
+                "PAS": 77
+            }
+        },
+        {
+            "name": "MAMADOU FALL",
+            "position": "RW",
+            "rating": 72,
+            "ratingPosition": "SAĞ KANAT",
+            "image": "assets/players/mamadou-fall.png",
+            "nationality": {
+                "name": "SEN",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/1024px-Flag_of_Senegal.svg.png"
+            },
+            "age": 33,
+            "number": 7,
+            "stats": {
+                "HIZ": 84,
+                "DEF": 80,
+                "PAS": 81
+            }
+        },
+        {
+            "name": "YASİN ERATİLLA",
+            "position": "RW",
+            "rating": 65,
+            "ratingPosition": "SAĞ KANAT",
+            "image": "assets/players/yasin-eratilla.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 21,
+            "number": 0,
+            "stats": {
+                "DRİB": 82,
+                "HIZ": 80,
+                "PAS": 77
+            }
+        },
+        {
+            "name": "YUSUF BARASI",
+            "position": "ST",
+            "rating": 73,
+            "ratingPosition": "SANTRAFOR",
+            "image": "assets/players/yusuf-barasi.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 22,
+            "number": 0,
+            "stats": {
+                "ŞUT": 86,
+                "BİT": 85,
+                "HIZ": 83
+            }
+        },
+        {
+            "name": "KUBİLAY KANATSIZKUŞ",
+            "position": "ST",
+            "rating": 70,
+            "ratingPosition": "SANTRAFOR",
+            "image": "assets/players/kubilay-kanatsizkus.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 28,
+            "number": 99,
+            "stats": {
+                "ŞUT": 82,
+                "HIZ": 80,
+                "BİT": 78
+            }
+        },
+        {
+            "name": "BERK CAN YILDIZLI",
+            "position": "ST",
+            "rating": 65,
+            "ratingPosition": "SANTRAFOR",
+            "image": "assets/players/berk-can-yildizli.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 20,
+            "number": 0,
+            "stats": {
+                "ŞUT": 78,
+                "HIZ": 75,
+                "BİT": 72
+            }
+        },
+        {
+            "name": "ALP EFE KILINÇ",
+            "position": "ST",
+            "rating": 62,
+            "ratingPosition": "SANTRAFOR",
+            "image": "assets/players/alp-efe-kilinc.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1024px-Flag_of_Turkey.svg.png"
+            },
+            "age": 21,
+            "number": 89,
+            "stats": {
+                "ŞUT": 75,
+                "HIZ": 70,
+                "BİT": 68
+            }
+        }
+    ],
+    "manager": {
+        "name": "SHOTA ARVELADZE",
+        "rating": 76,
+        "image": "managers/shota.png",
+        "age": 52,
+        "nationality": {
+            "name": "Georgia",
+            "code": "GEO",
+            "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/53.png"
+        },
+        "stats": {
+            "tactic": 76,
+            "motivation": 77,
+            "leadership": 75
+        }
+    }
+} 

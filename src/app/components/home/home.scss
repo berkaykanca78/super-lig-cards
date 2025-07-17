@@ -1,0 +1,193 @@
+.header {
+    &.theme-default.team-galatasaray {
+        background: linear-gradient(135deg, #FFD700 0%, #E60012 100%) !important;
+        box-shadow: 0 4px 20px rgba(230, 0, 18, 0.3) !important;
+        border-color: rgba(230, 0, 18, 0.3) !important;
+    }
+
+    &.theme-default.team-fenerbahce {
+        background: linear-gradient(135deg, #FFD700 0%, #003399 100%) !important;
+        box-shadow: 0 4px 20px rgba(0, 51, 153, 0.3) !important;
+        border-color: rgba(0, 51, 153, 0.3) !important;
+    }
+
+    &.theme-default.team-besiktas {
+        background: linear-gradient(135deg, #FFFFFF 0%, #000000 100%) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+        border-color: rgba(0, 0, 0, 0.3) !important;
+    }
+
+    &.theme-default.team-trabzonspor {
+        background: linear-gradient(135deg, #8B0000 0%, #4B0000 100%) !important;
+        box-shadow: 0 4px 20px rgba(139, 0, 0, 0.3) !important;
+        border-color: rgba(139, 0, 0, 0.3) !important;
+    }
+
+    &.theme-default.team-basaksehir {
+        background: linear-gradient(135deg, #FF4500 0%, #FF6600 100%) !important;
+        box-shadow: 0 4px 20px rgba(255, 69, 0, 0.3) !important;
+        border-color: rgba(255, 69, 0, 0.3) !important;
+    }
+
+    &.theme-default.team-antalyaspor {
+        background: linear-gradient(135deg, #E60012 0%, #8B0000 100%) !important;
+        box-shadow: 0 4px 20px rgba(230, 0, 18, 0.3) !important;
+        border-color: rgba(230, 0, 18, 0.3) !important;
+    }
+
+    &.theme-default.team-konyaspor {
+        background: linear-gradient(135deg, #00AA00 0%, #006600 100%) !important;
+        box-shadow: 0 4px 20px rgba(0, 170, 0, 0.3) !important;
+        border-color: rgba(0, 170, 0, 0.3) !important;
+    }
+
+    &.theme-default.team-alanyaspor {
+        background: linear-gradient(135deg, #FF8C00 0%, #FF6600 100%) !important;
+        box-shadow: 0 4px 20px rgba(255, 140, 0, 0.3) !important;
+        border-color: rgba(255, 140, 0, 0.3) !important;
+    }
+
+    &.theme-default.team-kayserispor {
+        background: linear-gradient(135deg, #FFD700 0%, #E60012 100%) !important;
+        box-shadow: 0 4px 20px rgba(230, 0, 18, 0.3) !important;
+        border-color: rgba(230, 0, 18, 0.3) !important;
+    }
+
+    &.theme-default.team-gaziantep {
+        background: linear-gradient(135deg, #8B0000 0%, #4B0000 100%) !important;
+        box-shadow: 0 4px 20px rgba(139, 0, 0, 0.3) !important;
+        border-color: rgba(139, 0, 0, 0.3) !important;
+    }
+
+    &.theme-default.team-kocaelispor {
+        background: linear-gradient(135deg, #00AA00 0%, #006600 100%) !important;
+        box-shadow: 0 4px 20px rgba(0, 170, 0, 0.3) !important;
+        border-color: rgba(0, 170, 0, 0.3) !important;
+    }
+
+    &.theme-default.team-genclerbirligi {
+        background: linear-gradient(135deg, #E60012 0%, #000000 100%) !important;
+        box-shadow: 0 4px 20px rgba(230, 0, 18, 0.3) !important;
+        border-color: rgba(230, 0, 18, 0.3) !important;
+    }
+
+    &.theme-default.team-karagumruk {
+        background: linear-gradient(135deg, #8B0000 0%, #000000 100%) !important;
+        box-shadow: 0 4px 20px rgba(139, 0, 0, 0.3) !important;
+        border-color: rgba(139, 0, 0, 0.3) !important;
+    }
+
+    &.theme-default.team-kasimpasa {
+        background: linear-gradient(135deg, #0066CC 0%, #003399 100%) !important;
+        box-shadow: 0 4px 20px rgba(0, 102, 204, 0.3) !important;
+        border-color: rgba(0, 102, 204, 0.3) !important;
+    }
+
+    &.theme-default.team-rizespor {
+        background: linear-gradient(135deg, #0066CC 0%, #003399 100%) !important;
+        box-shadow: 0 4px 20px rgba(0, 102, 204, 0.3) !important;
+        border-color: rgba(0, 102, 204, 0.3) !important;
+    }
+
+    &.theme-default.team-goztepe {
+        background: linear-gradient(135deg, #FFD700 0%, #E60012 100%) !important;
+        box-shadow: 0 4px 20px rgba(230, 0, 18, 0.3) !important;
+        border-color: rgba(230, 0, 18, 0.3) !important;
+    }
+
+    &.theme-default.team-samsunspor {
+        background: linear-gradient(135deg, #E60012 0%, #8B0000 100%) !important;
+        box-shadow: 0 4px 20px rgba(230, 0, 18, 0.3) !important;
+        border-color: rgba(230, 0, 18, 0.3) !important;
+    }
+
+    &.theme-default.team-eyupspor {
+        background: linear-gradient(135deg, #6A0DAD 0%, #4B0082 100%) !important;
+        box-shadow: 0 4px 20px rgba(106, 13, 173, 0.3) !important;
+        border-color: rgba(106, 13, 173, 0.3) !important;
+    }
+
+    &.theme-superlig {
+        background: linear-gradient(135deg, #E60012 0%, #8B0000 100%);
+        box-shadow: 0 4px 20px rgba(230, 0, 18, 0.2);
+        border-color: rgba(230, 0, 18, 0.3);
+    }
+    
+    &.theme-championsleague {
+        background: linear-gradient(135deg, #000F2C 0%, #002A5C 100%);
+        box-shadow: 0 4px 20px rgba(0, 15, 44, 0.3);
+        border-color: rgba(0, 15, 44, 0.3);
+    }
+    
+    &.theme-europaleague {
+        background: linear-gradient(135deg, #F28E1C 0%, #D95F0E 100%);
+        box-shadow: 0 4px 20px rgba(242, 142, 28, 0.2);
+        border-color: rgba(242, 142, 28, 0.3);
+    }
+    
+    &.theme-conferenceleague {
+        background: linear-gradient(135deg, #00A651 0%, #006B34 100%);
+        box-shadow: 0 4px 20px rgba(0, 166, 81, 0.2);
+        border-color: rgba(0, 166, 81, 0.3);
+    }
+    
+    &.theme-turkiyekupasi {
+        background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%);
+        box-shadow: 0 4px 20px rgba(230, 0, 18, 0.15);
+        border-color: rgba(230, 0, 18, 0.2);
+    }
+    
+    &.theme-superkupasi {
+        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+        border-color: rgba(255, 215, 0, 0.3);
+    }
+  }
+
+/* Mobile scroll improvements */
+@media (max-width: 768px) {
+  .home-container {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cards-grid {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    /* Ensure proper scroll on mobile devices */
+    overscroll-behavior: contain;
+  }
+
+  /* Improve touch scrolling experience */
+  .cards-grid::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .cards-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  .cards-grid::-webkit-scrollbar-thumb {
+    background: rgba(230, 0, 18, 0.5);
+    border-radius: 3px;
+  }
+
+  .cards-grid::-webkit-scrollbar-thumb:hover {
+    background: rgba(230, 0, 18, 0.7);
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-grid {
+    padding: 8px;
+    gap: 12px;
+    /* Ensure smooth scrolling on small screens */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+}

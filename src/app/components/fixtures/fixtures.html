@@ -1,0 +1,82 @@
+<div class="fixture-container">
+    <div class="fixture-header">
+        <h1>2025-2026 Süper Lig Fikstürü</h1>
+        <p>34 haftalık sezon programı</p>
+    </div>
+
+    <div class="season-info">
+        <p>Sezon: 2025-2026 | Toplam Hafta: 34 | Toplam Maç: 306</p>
+    </div>
+
+    <div class="navigation-buttons">
+        <button class="nav-button" [disabled]="isPreviousWeekDisabled()" (click)="previousWeek()">
+            <i class="fas fa-chevron-left"></i>
+            Önceki Hafta
+        </button>
+        <button class="nav-button" [disabled]="isNextWeekDisabled()" (click)="nextWeek()">
+            Sonraki Hafta
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <div class="week-selector">
+        <button *ngFor="let week of getWeekNumbers()" class="week-button" [class.active]="week === currentWeek"
+            (click)="showWeek(week)">
+            {{ week }}
+        </button>
+    </div>
+
+    <!-- Loading state -->
+    <div *ngIf="isLoading" class="fixture-grid">
+        <div class="loading">
+            <i class="fas fa-spinner fa-spin"></i>
+            Fikstür yükleniyor...
+        </div>
+    </div>
+
+    <!-- Error state -->
+    <div *ngIf="error" class="fixture-grid">
+        <div class="no-matches">{{ error }}</div>
+    </div>
+
+    <!-- Fixture grid -->
+    <div class="fixture-grid" *ngIf="!isLoading && !error">
+        <!-- No matches message -->
+        <div *ngIf="getFilteredMatches().length === 0" class="no-matches">
+            {{ getNoMatchesMessage() }}
+        </div>
+
+        <!-- Match cards -->
+        <div *ngFor="let match of getFilteredMatches()" class="match-card">
+            <div class="match-header">
+                <span class="match-number">Maç {{ match.matchNumber }}</span>
+                <span class="match-date">{{ formatDate(match.date) }}</span>
+            </div>
+
+            <div class="teams-container">
+                <div class="team home" [class.selected]="isMatchTeamSelected(match.homeTeam)">
+                    <img [src]="match.homeTeam.logo" [alt]="match.homeTeam.name" class="team-logo">
+                    <div class="team-name">{{ match.homeTeam.name }}</div>
+                </div>
+
+                <div class="vs">VS</div>
+
+                <div class="team away" [class.selected]="isMatchTeamSelected(match.awayTeam)">
+                    <img [src]="match.awayTeam.logo" [alt]="match.awayTeam.name" class="team-logo">
+                    <div class="team-name">{{ match.awayTeam.name }}</div>
+                </div>
+            </div>
+
+            <div class="match-info">
+                <div class="stadium">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>{{ match.stadium }}</span>
+                </div>
+                <div class="time">
+                    <i class="fas fa-clock"></i>
+                    <span>{{ match.time }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
