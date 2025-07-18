@@ -73,7 +73,8 @@
       <div class="player-image-container">
         <div class="player-image">
           <img [src]="currentTeamData.manager?.image" 
-               [alt]="currentTeamData.manager?.name">
+               [alt]="currentTeamData.manager?.name"
+               (error)="onImageError($event, 'MAN')">
         </div>
       </div>
 
@@ -136,7 +137,8 @@
       <div class="player-image-container">
         <div class="player-image">
           <img [src]="player.image" 
-               [alt]="player.name">
+               [alt]="player.name"
+               (error)="onImageError($event, player.position)">
         </div>
       </div>
 

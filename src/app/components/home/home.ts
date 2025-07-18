@@ -321,6 +321,15 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
     return this.currentPage === 1 && this.currentTeamData?.manager !== undefined;
   }
 
+  onImageError(event: Event, position: string): void {
+    const img = event.target as HTMLImageElement;
+    if (position === 'MAN') {
+      img.src = 'https://cdn-icons-png.flaticon.com/512/4206/4206265.png';
+    } else {
+      img.src = 'https://cdn-icons-png.flaticon.com/512/607/607445.png';
+    }
+  }
+
   // Create player card DOM element
   createPlayerCard(player: Player): HTMLElement {
     const card = document.createElement('div');

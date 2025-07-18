@@ -10,19 +10,24 @@ import { Fixtures } from './components/fixtures/fixtures';
 import { Player } from './components/player/player';
 
 export const routes: Routes = [
-    {
-        path: '',
-        component: MainLayout,
-        children: [
-          { path: '', redirectTo: 'home', pathMatch: 'full' },
-          { path: 'home', component: Home },
-          { path: 'standings', component: Standings },
-          { path: 'results', component: Results },
-          { path: 'news', component: News },
-          { path: 'stats', component: Stats },
-          { path: 'lineup', component: Lineup },
-          { path: 'fixtures', component: Fixtures },
-          { path: 'player/:id', component: Player },
-        ]
-      },
+  {
+    path: '',
+    component: MainLayout,
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: Home },
+      { path: 'standings', component: Standings },
+      { path: 'results', component: Results },
+      { path: 'news', component: News },
+      { path: 'stats', component: Stats },
+      { path: 'fixtures', component: Fixtures },
+      { path: 'player/:id', component: Player },
+    ]
+  },
+  {
+    path: 'lineup',
+    component: Lineup,
+    children: [
+    ]
+  }
 ];

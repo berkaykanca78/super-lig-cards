@@ -1,14 +1,22 @@
+<app-navbar></app-navbar>
+
 <div class="container">
     <div class="left-panel">
         <div class="team-selector">
-            <select id="teamSelect"></select>
-            <select id="positionFilter"></select>
+            <select id="teamSelect" [(ngModel)]="selectedTeam" (change)="filterCards()">
+                <option *ngFor="let team of teams" [value]="team.value">{{ team.name }}</option>
+            </select>
+            <select id="positionFilter" [(ngModel)]="selectedPosition" (change)="filterCards()">
+                <option *ngFor="let position of positions" [value]="position.value">{{ position.name }}</option>
+            </select>
         </div>
         <div class="formation-controls">
-            <select class="formation-select" id="formation"></select>
-            <button class="clear-btn" onclick="clearField()">Temizle</button>
+            <select class="formation-select" id="formation" [(ngModel)]="selectedFormation" (change)="onFormationChange()">
+                <option *ngFor="let formation of formationOptions" [value]="formation.value">{{ formation.name }}</option>
+            </select>
+            <button class="clear-btn" (click)="clearField()">Temizle</button>
         </div>
-        <div class="cards-container" id="cardsContainer">
+        <div class="cards-container" #cardsContainer id="cardsContainer">
             <div class="no-cards-message">
                 Oyuncu kartlarını görmek için takım seçin
             </div>
@@ -16,8 +24,8 @@
     </div>
     <div class="right-panel">
         <div class="field-container">
-            <div id="formationPoints"></div>
-            <div id="cardContainer"></div>
+            <div #formationPoints class="formation-points"></div>
+            <div #cardContainer id="cardContainer"></div>
             <div class="center-circle">
                 <div class="center-dot"></div>
             </div>
@@ -34,7 +42,7 @@
             <div class="corner corner-top-right"></div>
             <div class="corner corner-bottom-left"></div>
             <div class="corner corner-bottom-right"></div>
-            <div id="managerArea" class="manager-area">
+            <div #managerArea id="managerArea" class="manager-area">
                 <div class="manager-placeholder">Teknik Direktör</div>
             </div>
         </div>

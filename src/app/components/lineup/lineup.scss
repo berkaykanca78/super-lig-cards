@@ -735,7 +735,7 @@ body {
     width: 100%;
 }
 
-.player-card {
+:host ::ng-deep .player-card {
     width: 140px;
     height: 200px;
     background: linear-gradient(135deg, #2c2c54 0%, #40407a 50%, #2c2c54 100%);
@@ -749,13 +749,13 @@ body {
     background-clip: padding-box;
 }
 
-.player-card:hover {
+:host ::ng-deep .player-card:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     z-index: 100;
 }
 
-.rating-badge {
+:host ::ng-deep .rating-badge {
     position: absolute;
     top: 8px;
     left: 8px;
@@ -769,7 +769,7 @@ body {
     z-index: 2;
 }
 
-.rating-position {
+:host ::ng-deep .rating-position {
     position: absolute;
     bottom: 8px;
     right: 8px;
@@ -783,21 +783,21 @@ body {
     z-index: 2;
 }
 
-.rating-number {
+:host ::ng-deep .rating-number {
     font-size: 1.2rem;
     font-weight: 700;
     color: #000;
     line-height: 1;
 }
 
-.rating-type {
+:host ::ng-deep .rating-type {
     font-size: 0.7rem;
     font-weight: 500;
     color: #000;
     margin-top: 2px;
 }
 
-.position-badge {
+:host ::ng-deep .position-badge {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -811,7 +811,7 @@ body {
 }
 
 /* Teknik direktör kartları için özel stil */
-.player-card[data-position="MAN"] .position-badge {
+:host ::ng-deep .player-card[data-position="MAN"] .position-badge {
     font-size: 10px;
     right: 0px;
     padding: 3px 6px;
@@ -819,7 +819,7 @@ body {
     letter-spacing: -0.3px;
 }
 
-.player-image-container {
+:host ::ng-deep .player-image-container {
     width: 100%;
     height: 120px;
     position: relative;
@@ -828,17 +828,16 @@ body {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
 }
 
-.player-image {
+:host ::ng-deep .player-image {
     width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.player-image img {
+:host ::ng-deep .player-image img {
     width: 100%;
-    height: 100%;
+    height: 130%;
     object-fit: cover;
     object-position: top center;
     display: flex;
@@ -846,11 +845,10 @@ body {
     align-items: center;
 }
 
-.player-card:hover .player-image img {
-    transform: scale(1.05);
+:host ::ng-deep .player-card:hover .player-image img {
 }
 
-.player-info {
+:host ::ng-deep .player-info {
     padding: 6px;
     position: relative;
     z-index: 2;
@@ -858,7 +856,7 @@ body {
     border-radius: 0 0 12px 12px;
 }
 
-.player-name {
+:host ::ng-deep .player-name {
     font-size: 0.85rem;
     font-weight: 700;
     color: #fff;
@@ -870,21 +868,21 @@ body {
     text-overflow: ellipsis;
 }
 
-.player-stats {
+:host ::ng-deep .player-stats {
     display: flex;
     justify-content: space-around;
     margin-bottom: 4px;
     padding: 0 5px;
 }
 
-.stat {
+:host ::ng-deep .stat {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0px;
 }
 
-.stat-value {
+:host ::ng-deep .stat-value {
     font-size: 0.85rem;
     font-weight: 700;
     color: #FFD700;
@@ -892,7 +890,7 @@ body {
     line-height: 1;
 }
 
-.stat-label {
+:host ::ng-deep .stat-label {
     font-size: 0.55rem;
     font-weight: 500;
     color: #fff;
@@ -900,7 +898,7 @@ body {
     line-height: 1;
 }
 
-.player-details {
+:host ::ng-deep .player-details {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1522,242 +1520,242 @@ body {
 }
 
 /* Takıma özel stiller */
-.player-card.galatasaray {
+:host ::ng-deep .player-card.galatasaray {
     background: linear-gradient(135deg, #8B0000 0%, #FF6B00 50%, #8B0000 100%);
 }
 
-.player-card.fenerbahce {
+:host ::ng-deep .player-card.fenerbahce {
     background: linear-gradient(135deg, #FFD700 0%, #0066FF 50%, #FFD700 100%);
 }
 
-.player-card.besiktas {
+:host ::ng-deep .player-card.besiktas {
     background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 50%, #1a1a1a 100%);
 }
 
-.player-card.trabzonspor {
+:host ::ng-deep .player-card.trabzonspor {
     background: linear-gradient(135deg, #722F37 0%, #2E3A87 50%, #722F37 100%);
 }
 
-.player-card.kasimpasa {
+:host ::ng-deep .player-card.kasimpasa {
     background: linear-gradient(135deg, #0066CC 0%, #003399 50%, #0066CC 100%);
 }
 
-.player-card.konyaspor {
+:host ::ng-deep .player-card.konyaspor {
     background: linear-gradient(135deg, #FFFFFF 0%, #009245 50%, #FFFFFF 100%);
     color: #000000;
     border: 2px solid #009245;
 }
 
-.player-card.konyaspor .rating-badge {
+:host ::ng-deep .player-card.konyaspor .rating-badge {
     background: linear-gradient(145deg, #009245 0%, #007A3D 100%);
     color: #FFFFFF;
 }
 
-.player-card.konyaspor .position-badge {
+:host ::ng-deep .player-card.konyaspor .position-badge {
     background: #009245;
     color: #FFFFFF;
 }
 
-.player-card.alanyaspor {
+:host ::ng-deep .player-card.alanyaspor {
     background: linear-gradient(135deg, #F58220 0%, #000000 50%, #F58220 100%);
     color: #FFFFFF;
     border: 2px solid #F58220;
 }
 
-.player-card.alanyaspor .rating-badge {
+:host ::ng-deep .player-card.alanyaspor .rating-badge {
     background: linear-gradient(145deg, #F58220 0%, #000000 100%);
     color: #FFFFFF;
 }
 
-.player-card.alanyaspor .position-badge {
+:host ::ng-deep .player-card.alanyaspor .position-badge {
     background: #F58220;
     color: #FFFFFF;
 }
 
-.player-card.kayserispor {
+:host ::ng-deep .player-card.kayserispor {
     background: linear-gradient(135deg, #FF0000 0%, #FFD700 50%, #FF0000 100%);
     color: #000000;
     border: 2px solid #FF0000;
 }
 
-.player-card.kayserispor .rating-badge {
+:host ::ng-deep .player-card.kayserispor .rating-badge {
     background: linear-gradient(145deg, #FF0000 0%, #CC0000 100%);
     color: #FFFFFF;
 }
 
-.player-card.kayserispor .position-badge {
+:host ::ng-deep .player-card.kayserispor .position-badge {
     background: #FF0000;
     color: #FFFFFF;
 }
 
-.player-card.antalyaspor {
+:host ::ng-deep .player-card.antalyaspor {
     background: linear-gradient(135deg, #FF0000 0%, #FFFFFF 50%, #FF0000 100%);
     color: #000000;
     border: 2px solid #FF0000;
 }
 
-.player-card.antalyaspor .rating-badge {
+:host ::ng-deep .player-card.antalyaspor .rating-badge {
     background: linear-gradient(145deg, #FF0000 0%, #CC0000 100%);
     color: #FFFFFF;
 }
 
-.player-card.antalyaspor .position-badge {
+:host ::ng-deep .player-card.antalyaspor .position-badge {
     background: #FF0000;
     color: #FFFFFF;
 }
 
-.player-card.kocaelispor {
+:host ::ng-deep .player-card.kocaelispor {
     background: linear-gradient(135deg, #006633 0%, #FFFFFF 50%, #006633 100%);
     color: #000000;
     border: 2px solid #006633;
 }
 
-.player-card.kocaelispor .rating-badge {
+:host ::ng-deep .player-card.kocaelispor .rating-badge {
     background: linear-gradient(145deg, #006633 0%, #004D27 100%);
     color: #FFFFFF;
 }
 
-.player-card.kocaelispor .position-badge {
+:host ::ng-deep .player-card.kocaelispor .position-badge {
     background: #006633;
     color: #FFFFFF;
 }
 
-.player-card.genclerbirligi {
+:host ::ng-deep .player-card.genclerbirligi {
     background: linear-gradient(135deg, #FF0000 0%, #000000 50%, #FF0000 100%);
     color: #FFFFFF;
     border: 2px solid #FF0000;
 }
 
-.player-card.genclerbirligi .rating-badge {
+:host ::ng-deep .player-card.genclerbirligi .rating-badge {
     background: linear-gradient(145deg, #FF0000 0%, #CC0000 100%);
     color: #FFFFFF;
 }
 
-.player-card.genclerbirligi .position-badge {
+:host ::ng-deep .player-card.genclerbirligi .position-badge {
     background: #FF0000;
     color: #FFFFFF;
 }
 
-.player-card.karagumruk {
+:host ::ng-deep .player-card.karagumruk {
     background: linear-gradient(135deg, #FF0000 0%, #000000 50%, #FF0000 100%);
     color: #FFFFFF;
     border: 2px solid #FF0000;
 }
 
-.player-card.karagumruk .rating-badge {
+:host ::ng-deep .player-card.karagumruk .rating-badge {
     background: linear-gradient(145deg, #FF0000 0%, #CC0000 100%);
     color: #FFFFFF;
 }
 
-.player-card.karagumruk .position-badge {
+:host ::ng-deep .player-card.karagumruk .position-badge {
     background: #FF0000;
     color: #FFFFFF;
 }
 
-.player-card.gaziantepfk {
+:host ::ng-deep .player-card.gaziantepfk {
     background: linear-gradient(135deg, #FF0000 0%, #000000 50%, #FF0000 100%);
     color: #FFFFFF;
     border: 2px solid #FF0000;
 }
 
-.player-card.gaziantep {
+:host ::ng-deep .player-card.gaziantep {
     background: linear-gradient(135deg, #E31E24 0%, #000000 50%, #E31E24 100%);
     color: #FFFFFF;
     border: 2px solid #E31E24;
 }
 
-.player-card.gaziantep .rating-badge {
+:host ::ng-deep .player-card.gaziantep .rating-badge {
     background: linear-gradient(145deg, #E31E24 0%, #000000 100%);
     color: #FFFFFF;
 }
 
-.player-card.gaziantep .position-badge {
+:host ::ng-deep .player-card.gaziantep .position-badge {
     background: #E31E24;
     color: #FFFFFF;
 }
 
-.player-card.eyupspor {
+:host ::ng-deep .player-card.eyupspor {
     background: linear-gradient(135deg, #800080 0%, #FFD700 50%, #800080 100%);
     color: #FFFFFF;
     border: 2px solid #FFD700;
 }
 
-.player-card.eyupspor .rating-badge {
+:host ::ng-deep .player-card.eyupspor .rating-badge {
     background: linear-gradient(145deg, #800080 0%, #4B0082 100%);
     color: #FFD700;
 }
 
-.player-card.eyupspor .position-badge {
+:host ::ng-deep .player-card.eyupspor .position-badge {
     background: #800080;
     color: #FFD700;
     border: 1px solid #FFD700;
 }
 
-.player-card.eyupspor .player-name {
+:host ::ng-deep .player-card.eyupspor .player-name {
     color: #FFD700;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.player-card.rizespor {
+:host ::ng-deep .player-card.rizespor {
     background: linear-gradient(135deg, #00529F 0%, #FFFFFF 50%, #00529F 100%);
     color: #000000;
     border: 2px solid #00529F;
 }
 
-.player-card.rizespor .rating-badge {
+:host ::ng-deep .player-card.rizespor .rating-badge {
     background: linear-gradient(145deg, #00529F 0%, #003D7A 100%);
     color: #FFFFFF;
 }
 
-.player-card.rizespor .position-badge {
+:host ::ng-deep .player-card.rizespor .position-badge {
     background: #00529F;
     color: #FFFFFF;
 }
 
-.player-card.goztepe {
+:host ::ng-deep .player-card.goztepe {
     background: linear-gradient(135deg, #FBBD0F 0%, #C60D21 50%, #FBBD0F 100%);
     color: #000000;
     border: 2px solid #FBBD0F;
 }
 
-.player-card.goztepe .rating-badge {
+:host ::ng-deep .player-card.goztepe .rating-badge {
     background: linear-gradient(145deg, #C60D21 0%, #A30A1B 100%);
     color: #FFFFFF;
 }
 
-.player-card.goztepe .position-badge {
+:host ::ng-deep .player-card.goztepe .position-badge {
     background: #C60D21;
     color: #FFFFFF;
 }
 
-.player-card.basaksehir {
+:host ::ng-deep .player-card.basaksehir {
     background: linear-gradient(135deg, #FF6B01 0%, #762241 50%, #FF6B01 100%);
     color: #FFFFFF;
     border: 2px solid #FF6B01;
 }
 
-.player-card.basaksehir .rating-badge {
+:host ::ng-deep .player-card.basaksehir .rating-badge {
     background: linear-gradient(145deg, #FF6B01 0%, #762241 100%);
     color: #FFFFFF;
 }
 
-.player-card.basaksehir .position-badge {
+:host ::ng-deep .player-card.basaksehir .position-badge {
     background: #FF6B01;
     color: #FFFFFF;
 }
 
-.player-card.samsunspor {
+:host ::ng-deep .player-card.samsunspor {
     background: linear-gradient(135deg, #FF0000 0%, #FFFFFF 50%, #FF0000 100%);
     color: #000000;
     border: 2px solid #FF0000;
 }
 
-.player-card.samsunspor .rating-badge {
+:host ::ng-deep .player-card.samsunspor .rating-badge {
     background: linear-gradient(145deg, #FF0000 0%, #CC0000 100%);
     color: #FFFFFF;
 }
 
-.player-card.samsunspor .position-badge {
+:host ::ng-deep .player-card.samsunspor .position-badge {
     background: #FF0000;
     color: #FFFFFF;
 }
