@@ -2,8 +2,6 @@ import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angula
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { 
-  Position, 
-  Formation, 
   Formations, 
   Player, 
   Manager, 
