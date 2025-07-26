@@ -51,4 +51,3 @@ jobs:
           **/angular.json
           **/package*.json
           **/.angular/** 
-        dangerous-clean-slate: true
