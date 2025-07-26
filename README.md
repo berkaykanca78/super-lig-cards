@@ -1,59 +1,127 @@
 # SuperLigCards
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1.
+[English](#english) | [Türkçe](#turkish)
 
-## Development server
+## English
 
-To start a local development server, run:
+### About SuperLigCards
+SuperLigCards is an interactive football card game featuring players and staff from the Turkish Super League. Players can create their dream team using cards of various footballers, managers, and staff members from different clubs in the league.
 
-```bash
-ng serve
-```
+![SuperLigCards Lineup Example](assets/img/lineup.png)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Features
+- **Player Cards**: Each player card includes:
+  - Overall rating (ranging from 80-87)
+  - Position information (ST, LM, CB, etc.)
+  - Key stats (Pace, Shooting, Passing, etc.)
+  - Club affiliation
+  - Player photo
+  - Special categories (e.g., "FORVET", "SOL KANAT", "STOPER")
 
-## Code scaffolding
+- **Card Types and Colors**:
+  - Red Cards: Forward and attacking players (e.g., Mauro Icardi - 86 ST)
+  - Blue Cards: Midfield players (e.g., Anderson Talisca - 84 CAM)
+  - Grey Cards: Defensive players
+  - Manager Cards (e.g., Okan Buruk - 87 MAN)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Team Building**:
+  - Create custom formations (e.g., 4-3-3 Hücum)
+  - Position-specific player placement
+  - Team chemistry system
+  - Multiple squad building options
+  - Interactive pitch display with player positioning
 
-```bash
-ng generate component component-name
-```
+- **Interface Features**:
+  - Modern, user-friendly design
+  - Drag-and-drop functionality
+  - Formation customization
+  - Player card collection management
+  - Filter options ("Hepsi", "Hepsi")
+  - "Temizle" (Clear) button for reset
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Example Players Featured
+- Mauro Icardi (86 ST)
+- Leroy Sané (85 LM)
+- Anderson Talisca (84 CAM)
+- Rafa Silva (85 RM)
+- Mert Günok (81 GK)
+- And many more from the Turkish Super League
 
-```bash
-ng generate --help
-```
+### Technical Stack
+- Frontend framework (details to be added)
+- Card management system
+- Interactive pitch display
+- Player database integration
 
-## Building
+### Installation
+(To be added: Installation steps)
 
-To build the project run:
+### Usage
+(To be added: Usage instructions)
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Turkish
 
-## Running unit tests
+### SuperLigCards Hakkında
+SuperLigCards, Türkiye Süper Ligi'ndeki futbolcuları ve teknik ekipleri içeren interaktif bir futbol kart oyunudur. Oyuncular, ligdeki farklı kulüplerden futbolcu, teknik direktör ve ekip üyelerinin kartlarını kullanarak kendi rüya takımlarını oluşturabilirler.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+![SuperLigCards Diziliş Örneği](assets/img/lineup.png)
 
-```bash
-ng test
-```
+### Özellikler
+- **Oyuncu Kartları**: Her oyuncu kartı şunları içerir:
+  - Genel değerlendirme puanı (80-87 arası)
+  - Pozisyon bilgisi (ST, LM, CB, vb.)
+  - Temel istatistikler (Hız, Şut, Pas, vb.)
+  - Kulüp bilgisi
+  - Oyuncu fotoğrafı
+  - Özel kategoriler (örn. "FORVET", "SOL KANAT", "STOPER")
 
-## Running end-to-end tests
+- **Kart Tipleri ve Renkleri**:
+  - Kırmızı Kartlar: Forvet ve hücum oyuncuları (örn. Mauro Icardi - 86 ST)
+  - Mavi Kartlar: Orta saha oyuncuları (örn. Anderson Talisca - 84 CAM)
+  - Gri Kartlar: Defans oyuncuları
+  - Teknik Direktör Kartları (örn. Okan Buruk - 87 MAN)
 
-For end-to-end (e2e) testing, run:
+- **Takım Oluşturma**:
+  - Özel dizilişler oluşturma (örn. 4-3-3 Hücum)
+  - Pozisyona özel oyuncu yerleştirme
+  - Takım uyum sistemi
+  - Çoklu kadro oluşturma seçenekleri
+  - İnteraktif saha görünümü ve oyuncu konumlandırma
 
-```bash
-ng e2e
-```
+- **Arayüz Özellikleri**:
+  - Modern, kullanıcı dostu tasarım
+  - Sürükle-bırak işlevselliği
+  - Diziliş özelleştirme
+  - Oyuncu kart koleksiyonu yönetimi
+  - Filtreleme seçenekleri ("Hepsi", "Hepsi")
+  - "Temizle" butonu ile sıfırlama
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### Örnek Oyuncular
+- Mauro Icardi (86 ST)
+- Leroy Sané (85 LM)
+- Anderson Talisca (84 CAM)
+- Rafa Silva (85 RM)
+- Mert Günok (81 KL)
+- Ve Süper Lig'den daha birçok oyuncu
 
-## Additional Resources
+### Teknik Altyapı
+- Frontend framework (eklenecek)
+- Kart yönetim sistemi
+- İnteraktif saha görünümü
+- Oyuncu veritabanı entegrasyonu
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Kurulum
+(Eklenecek: Kurulum adımları)
+
+### Kullanım
+(Eklenecek: Kullanım talimatları)
+
+---
+
+## License
+MIT License
+
+## Contributing
+Contributions are welcome! Please feel free to submit a Pull Request. 
