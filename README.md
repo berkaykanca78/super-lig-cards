@@ -7,7 +7,7 @@
 ### About SuperLigCards
 SuperLigCards is an interactive football card game featuring players and staff from the Turkish Super League. Players can create their dream team using cards of various footballers, managers, and staff members from different clubs in the league.
 
-![SuperLigCards Lineup Example](assets/img/lineup.png)
+![SuperLigCards Lineup Example](public/lineup.png)
 
 ### Features
 - **Player Cards**: Each player card includes:
