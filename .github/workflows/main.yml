@@ -1,0 +1,53 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+    types: [ closed ]
+
+jobs:
+  deploy:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Build Angular project
+      run: npm run build
+      
+    - name: Deploy to FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.SRVR }}
+        username: ${{ secrets.USRNM }}
+        password: ${{ secrets.PWD }}
+        port: ${{ secrets.PRT }}
+        local-dir: ${{ secrets.LCLDR }} 
+        server-dir: ${{ secrets.SRVRDIR }}
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/.env
+          **/.env.*
+          **/README.md
+          **/.gitignore
+          **/.editorconfig
+          **/.vscode/**
+          **/tsconfig*.json
+          **/angular.json
+          **/package*.json
+          **/.angular/** 

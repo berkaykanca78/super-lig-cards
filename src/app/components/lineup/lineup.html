@@ -1,0 +1,105 @@
+<app-navbar></app-navbar>
+
+<div class="lineup-wrapper">
+    <div class="container">
+        <div class="left-panel">
+            <div class="team-selector">
+                <select id="teamSelect" [(ngModel)]="selectedTeam" (change)="filterCards()">
+                    <option *ngFor="let team of teams" [value]="team.value">{{ team.name }}</option>
+                </select>
+                <select id="positionFilter" [(ngModel)]="selectedPosition" (change)="filterCards()">
+                    <option *ngFor="let position of positions" [value]="position.value">{{ position.name }}</option>
+                </select>
+            </div>
+            <div class="formation-controls">
+                <select class="formation-select" id="formation" [(ngModel)]="selectedFormation"
+                    (change)="onFormationChange()">
+                    <option *ngFor="let formation of formationOptions" [value]="formation.value">{{ formation.name }}
+                    </option>
+                </select>
+                <button class="clear-btn" (click)="clearField()">Temizle</button>
+            </div>
+            <div class="cards-container" #cardsContainer id="cardsContainer">
+                <div class="no-cards-message">
+                    Oyuncu kartlarını görmek için takım seçin
+                </div>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="field-container">
+                <div #formationPoints class="formation-points"></div>
+                <div #cardContainer id="cardContainer"></div>
+                <div class="center-circle">
+                    <div class="center-dot"></div>
+                </div>
+                <div class="field-center-line"></div>
+                <div class="penalty-area-top"></div>
+                <div class="penalty-area-bottom"></div>
+                <div class="goal-area-top"></div>
+                <div class="goal-area-bottom"></div>
+                <div class="goal-post-top"></div>
+                <div class="goal-post-bottom"></div>
+                <div class="goal-net-top"></div>
+                <div class="goal-net-bottom"></div>
+                <div class="corner corner-top-left"></div>
+                <div class="corner corner-top-right"></div>
+                <div class="corner corner-bottom-left"></div>
+                <div class="corner corner-bottom-right"></div>
+                <div #managerArea id="managerArea" class="manager-area">
+                    <div class="manager-placeholder">Teknik Direktör</div>
+                </div>
+            </div>
+            <div class="mobile-manager-section">
+                <div class="section-title">Teknik Direktör</div>
+                <div class="manager-area">
+                    <div class="manager-placeholder">Teknik Direktör</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bench-section">
+        <div class="bench-title">BENCH</div>
+        <div class="bench-positions">
+            <div class="bench-slot" data-position="GK">
+                <div class="position-label">GK</div>
+                <div class="bench-placeholder">Kaleci</div>
+            </div>
+            <div class="bench-slot" data-position="RB">
+                <div class="position-label">RB</div>
+                <div class="bench-placeholder">Sağ Bek</div>
+            </div>
+            <div class="bench-slot" data-position="CB">
+                <div class="position-label">CB</div>
+                <div class="bench-placeholder">Stoper</div>
+            </div>
+            <div class="bench-slot" data-position="LB">
+                <div class="position-label">LB</div>
+                <div class="bench-placeholder">Sol Bek</div>
+            </div>
+            <div class="bench-slot" data-position="CM">
+                <div class="position-label">CM</div>
+                <div class="bench-placeholder">Orta Saha</div>
+            </div>
+            <div class="bench-slot" data-position="CDM">
+                <div class="position-label">CDM</div>
+                <div class="bench-placeholder">Ön Libero</div>
+            </div>
+            <div class="bench-slot" data-position="CAM">
+                <div class="position-label">CAM</div>
+                <div class="bench-placeholder">On Numara</div>
+            </div>
+            <div class="bench-slot" data-position="RW">
+                <div class="position-label">RW</div>
+                <div class="bench-placeholder">Sağ Kanat</div>
+            </div>
+            <div class="bench-slot" data-position="LW">
+                <div class="position-label">LW</div>
+                <div class="bench-placeholder">Sol Kanat</div>
+            </div>
+            <div class="bench-slot" data-position="ST">
+                <div class="position-label">ST</div>
+                <div class="bench-placeholder">Santrafor</div>
+            </div>
+        </div>
+    </div>
+</div>

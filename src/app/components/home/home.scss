@@ -1,0 +1,564 @@
+.header {
+    &.theme-default.team-galatasaray {
+        background: linear-gradient(135deg, #FFD700 0%, #E60012 100%) !important;
+        box-shadow: 0 4px 20px rgba(230, 0, 18, 0.3) !important;
+        border-color: rgba(230, 0, 18, 0.3) !important;
+    }
+
+    &.theme-default.team-fenerbahce {
+        background: linear-gradient(135deg, #FFD700 0%, #003399 100%) !important;
+        box-shadow: 0 4px 20px rgba(0, 51, 153, 0.3) !important;
+        border-color: rgba(0, 51, 153, 0.3) !important;
+    }
+
+    &.theme-default.team-besiktas {
+        background: linear-gradient(135deg, #FFFFFF 0%, #000000 100%) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+        border-color: rgba(0, 0, 0, 0.3) !important;
+    }
+
+    &.theme-default.team-trabzonspor {
+        background: linear-gradient(135deg, #8B0000 0%, #4B0000 100%) !important;
+        box-shadow: 0 4px 20px rgba(139, 0, 0, 0.3) !important;
+        border-color: rgba(139, 0, 0, 0.3) !important;
+    }
+
+    &.theme-default.team-basaksehir {
+        background: linear-gradient(135deg, #FF4500 0%, #FF6600 100%) !important;
+        box-shadow: 0 4px 20px rgba(255, 69, 0, 0.3) !important;
+        border-color: rgba(255, 69, 0, 0.3) !important;
+    }
+
+    &.theme-default.team-antalyaspor {
+        background: linear-gradient(135deg, #E60012 0%, #8B0000 100%) !important;
+        box-shadow: 0 4px 20px rgba(230, 0, 18, 0.3) !important;
+        border-color: rgba(230, 0, 18, 0.3) !important;
+    }
+
+    &.theme-default.team-konyaspor {
+        background: linear-gradient(135deg, #00AA00 0%, #006600 100%) !important;
+        box-shadow: 0 4px 20px rgba(0, 170, 0, 0.3) !important;
+        border-color: rgba(0, 170, 0, 0.3) !important;
+    }
+
+    &.theme-default.team-alanyaspor {
+        background: linear-gradient(135deg, #FF8C00 0%, #FF6600 100%) !important;
+        box-shadow: 0 4px 20px rgba(255, 140, 0, 0.3) !important;
+        border-color: rgba(255, 140, 0, 0.3) !important;
+    }
+
+    &.theme-default.team-kayserispor {
+        background: linear-gradient(135deg, #FFD700 0%, #E60012 100%) !important;
+        box-shadow: 0 4px 20px rgba(230, 0, 18, 0.3) !important;
+        border-color: rgba(230, 0, 18, 0.3) !important;
+    }
+
+    &.theme-default.team-gaziantep {
+        background: linear-gradient(135deg, #8B0000 0%, #4B0000 100%) !important;
+        box-shadow: 0 4px 20px rgba(139, 0, 0, 0.3) !important;
+        border-color: rgba(139, 0, 0, 0.3) !important;
+    }
+
+    &.theme-default.team-kocaelispor {
+        background: linear-gradient(135deg, #00AA00 0%, #006600 100%) !important;
+        box-shadow: 0 4px 20px rgba(0, 170, 0, 0.3) !important;
+        border-color: rgba(0, 170, 0, 0.3) !important;
+    }
+
+    &.theme-default.team-genclerbirligi {
+        background: linear-gradient(135deg, #E60012 0%, #000000 100%) !important;
+        box-shadow: 0 4px 20px rgba(230, 0, 18, 0.3) !important;
+        border-color: rgba(230, 0, 18, 0.3) !important;
+    }
+
+    &.theme-default.team-karagumruk {
+        background: linear-gradient(135deg, #8B0000 0%, #000000 100%) !important;
+        box-shadow: 0 4px 20px rgba(139, 0, 0, 0.3) !important;
+        border-color: rgba(139, 0, 0, 0.3) !important;
+    }
+
+    &.theme-default.team-kasimpasa {
+        background: linear-gradient(135deg, #0066CC 0%, #003399 100%) !important;
+        box-shadow: 0 4px 20px rgba(0, 102, 204, 0.3) !important;
+        border-color: rgba(0, 102, 204, 0.3) !important;
+    }
+
+    &.theme-default.team-rizespor {
+        background: linear-gradient(135deg, #0066CC 0%, #003399 100%) !important;
+        box-shadow: 0 4px 20px rgba(0, 102, 204, 0.3) !important;
+        border-color: rgba(0, 102, 204, 0.3) !important;
+    }
+
+    &.theme-default.team-goztepe {
+        background: linear-gradient(135deg, #FFD700 0%, #E60012 100%) !important;
+        box-shadow: 0 4px 20px rgba(230, 0, 18, 0.3) !important;
+        border-color: rgba(230, 0, 18, 0.3) !important;
+    }
+
+    &.theme-default.team-samsunspor {
+        background: linear-gradient(135deg, #E60012 0%, #8B0000 100%) !important;
+        box-shadow: 0 4px 20px rgba(230, 0, 18, 0.3) !important;
+        border-color: rgba(230, 0, 18, 0.3) !important;
+    }
+
+    &.theme-default.team-eyupspor {
+        background: linear-gradient(135deg, #6A0DAD 0%, #4B0082 100%) !important;
+        box-shadow: 0 4px 20px rgba(106, 13, 173, 0.3) !important;
+        border-color: rgba(106, 13, 173, 0.3) !important;
+    }
+
+    &.theme-superlig {
+        background: linear-gradient(135deg, #E60012 0%, #8B0000 100%);
+        box-shadow: 0 4px 20px rgba(230, 0, 18, 0.2);
+        border-color: rgba(230, 0, 18, 0.3);
+    }
+    
+    &.theme-championsleague {
+        background: linear-gradient(135deg, #000F2C 0%, #002A5C 100%);
+        box-shadow: 0 4px 20px rgba(0, 15, 44, 0.3);
+        border-color: rgba(0, 15, 44, 0.3);
+    }
+    
+    &.theme-europaleague {
+        background: linear-gradient(135deg, #F28E1C 0%, #D95F0E 100%);
+        box-shadow: 0 4px 20px rgba(242, 142, 28, 0.2);
+        border-color: rgba(242, 142, 28, 0.3);
+    }
+    
+    &.theme-conferenceleague {
+        background: linear-gradient(135deg, #00A651 0%, #006B34 100%);
+        box-shadow: 0 4px 20px rgba(0, 166, 81, 0.2);
+        border-color: rgba(0, 166, 81, 0.3);
+    }
+    
+    &.theme-turkiyekupasi {
+        background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%);
+        box-shadow: 0 4px 20px rgba(230, 0, 18, 0.15);
+        border-color: rgba(230, 0, 18, 0.2);
+    }
+    
+    &.theme-superkupasi {
+        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+        border-color: rgba(255, 215, 0, 0.3);
+    }
+  }
+
+/* Mobile scroll improvements */
+@media (max-width: 768px) {
+  .home-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Ensure proper viewport handling for iPhone */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Mobile header optimizations */
+  .header {
+    padding: 10px 15px !important;
+    min-height: 60px !important;
+    max-height: 70px !important;
+  }
+
+  .header .logo-container {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .header .logo-container .team-logo-container {
+    width: 35px !important;
+    height: 35px !important;
+  }
+
+  .header .header-text h1 {
+    font-size: 1.2rem !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+  }
+
+  .header .header-text .header-actions p {
+    font-size: 0.8rem !important;
+    margin: 2px 0 0 0 !important;
+  }
+
+  .header .league-selector .league-select {
+    font-size: 0.7rem !important;
+    padding: 4px 8px !important;
+    height: 28px !important;
+    min-width: 120px !important;
+  }
+
+  .cards-grid {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    /* Ensure proper scroll on mobile devices */
+    overscroll-behavior: contain;
+    /* Add padding bottom to ensure pagination is visible */
+    padding-bottom: 100px;
+  }
+
+  /* Improve touch scrolling experience */
+  .cards-grid::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .cards-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  .cards-grid::-webkit-scrollbar-thumb {
+    background: rgba(230, 0, 18, 0.5);
+    border-radius: 3px;
+  }
+
+  .cards-grid::-webkit-scrollbar-thumb:hover {
+    background: rgba(230, 0, 18, 0.7);
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container {
+    /* Ensure full height on mobile */
+    min-height: 100vh;
+    /* Prevent horizontal scroll */
+    overflow-x: hidden;
+  }
+
+  /* Smaller header for very small screens */
+  .header {
+    padding: 8px 12px !important;
+    min-height: 50px !important;
+    max-height: 60px !important;
+  }
+
+  .header .logo-container {
+    width: 35px !important;
+    height: 35px !important;
+  }
+
+  .header .logo-container .team-logo-container {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .header .header-text h1 {
+    font-size: 1rem !important;
+    line-height: 1.1 !important;
+    margin: 0 !important;
+  }
+
+  .header .header-text .header-actions p {
+    font-size: 0.7rem !important;
+    margin: 1px 0 0 0 !important;
+  }
+
+  .header .league-selector .league-select {
+    font-size: 0.65rem !important;
+    padding: 3px 6px !important;
+    height: 24px !important;
+    min-width: 100px !important;
+  }
+
+  .cards-grid {
+    padding: 8px;
+    gap: 12px;
+    /* Ensure smooth scrolling on small screens */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    /* Add bottom margin to ensure pagination is visible */
+    margin-bottom: 120px;
+    /* Ensure proper flex behavior */
+    flex: 1;
+    min-height: 0;
+  }
+  
+  /* Ensure pagination is visible on mobile */
+  .pagination {
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(15px) !important;
+    padding: 15px 20px !important;
+    margin: 0 !important;
+    border-radius: 25px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    max-width: 95% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 1000 !important;
+    /* Ensure it's always visible */
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Style pagination buttons for better visibility */
+  .pagination .pagination-button {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    min-width: 35px !important;
+    height: 35px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    margin: 0 2px !important;
+  }
+  
+  .pagination .pagination-button:hover {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+    transform: translateY(-2px) !important;
+  }
+  
+  .pagination .pagination-button.active {
+    background-color: #E60012 !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 12px rgba(230, 0, 18, 0.6) !important;
+    border: 2px solid rgba(255, 255, 255, 0.5) !important;
+    /* Force red color for active state */
+    background: #E60012 !important;
+    background-color: #E60012 !important;
+    color: #ffffff !important;
+    /* Ensure it's visible */
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .pagination .pagination-button:disabled {
+    color: rgba(255, 255, 255, 0.4) !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  /* iPhone specific fixes */
+  @supports (-webkit-touch-callout: none) {
+    .pagination {
+      /* iPhone specific positioning */
+      bottom: 30px !important;
+      /* Ensure it's above the home indicator */
+      padding-bottom: 20px !important;
+    }
+    
+    .cards-grid {
+      /* iPhone specific padding */
+      padding-bottom: 140px !important;
+    }
+  }
+}
+
+/* iPhone 16 specific fixes */
+@media screen and (max-width: 430px) and (max-height: 932px) {
+  /* Even smaller header for iPhone 16 */
+  .header {
+    padding: 6px 10px !important;
+    min-height: 45px !important;
+    max-height: 55px !important;
+  }
+
+  .header .logo-container {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .header .logo-container .team-logo-container {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .header .header-text h1 {
+    font-size: 0.9rem !important;
+    line-height: 1 !important;
+  }
+
+  .header .header-text .header-actions p {
+    font-size: 0.65rem !important;
+  }
+
+  .header .league-selector .league-select {
+    font-size: 0.6rem !important;
+    padding: 2px 5px !important;
+    height: 22px !important;
+    min-width: 90px !important;
+  }
+
+  .pagination {
+    bottom: 25px !important;
+    padding: 12px 16px !important;
+    border-radius: 20px !important;
+  }
+  
+  .pagination .pagination-button {
+    min-width: 32px !important;
+    height: 32px !important;
+    font-size: 13px !important;
+  }
+  
+  .cards-grid {
+    padding-bottom: 130px !important;
+  }
+}
+
+/* Force pagination visibility on all devices */
+.pagination {
+  /* Override any potential hiding */
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  /* Ensure high z-index */
+  z-index: 9999 !important;
+  /* Ensure proper positioning */
+  position: relative !important;
+  /* Ensure it's not clipped */
+  overflow: visible !important;
+  /* Ensure proper stacking context */
+  transform: translateZ(0) !important;
+}
+
+/* Additional iPhone 16 specific fixes */
+@media screen and (max-width: 430px) {
+  .home-container {
+    /* Ensure proper height */
+    min-height: 100vh;
+    /* Prevent overflow issues */
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  .cards-grid {
+    /* Ensure proper spacing */
+    padding-bottom: 150px !important;
+    /* Ensure proper flex behavior */
+    flex: 1;
+    min-height: 0;
+  }
+  
+  .pagination {
+    /* Force visibility and positioning */
+    position: fixed !important;
+    bottom: 30px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    /* Ensure it's above everything */
+    z-index: 10000 !important;
+    /* Better styling for visibility */
+    background: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+    /* Ensure proper sizing */
+    padding: 15px 20px !important;
+    border-radius: 30px !important;
+    /* Ensure it's always visible */
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+  }
+  
+  .pagination .pagination-button {
+    /* Better button styling */
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: #ffffff !important;
+    min-width: 36px !important;
+    height: 36px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    margin: 0 3px !important;
+    border-radius: 50% !important;
+  }
+  
+  .pagination .pagination-button.active {
+    background-color: #E60012 !important;
+    color: #ffffff !important;
+    font-weight: 900 !important;
+    box-shadow: 0 4px 15px rgba(230, 0, 18, 0.8) !important;
+    border: 2px solid rgba(255, 255, 255, 0.7) !important;
+    /* Force red color for active state */
+    background: #E60012 !important;
+    background-color: #E60012 !important;
+    color: #ffffff !important;
+    /* Ensure it stands out */
+    transform: scale(1.05) !important;
+    /* Ensure it's visible */
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .pagination .pagination-button:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+  }
+}
+
+/* Safari/iPhone specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .pagination {
+    /* Safari specific positioning */
+    -webkit-transform: translateX(-50%) !important;
+    transform: translateX(-50%) !important;
+    /* Ensure proper rendering */
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+  }
+  
+  /* Force active state on Safari/iPhone */
+  .pagination .pagination-button.active,
+  .pagination .pagination-button[class*="active"] {
+    background: #E60012 !important;
+    background-color: #E60012 !important;
+    color: #ffffff !important;
+    font-weight: 900 !important;
+    box-shadow: 0 6px 20px rgba(230, 0, 18, 0.8) !important;
+    border: 2px solid rgba(255, 255, 255, 0.7) !important;
+    transform: scale(1.1) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+:host ::ng-deep .rating-badge {
+    top: 9px !important;
+}
+
+/* Ultra strong selectors for mobile pagination active state */
+@media (max-width: 768px) {
+  .pagination .pagination-button.active,
+  .pagination .pagination-button[class*="active"],
+  .pagination button.active,
+  .pagination button[class*="active"] {
+    background: #E60012 !important;
+    background-color: #E60012 !important;
+    color: #ffffff !important;
+    font-weight: 900 !important;
+    box-shadow: 0 6px 20px rgba(230, 0, 18, 0.8) !important;
+    border: 2px solid rgba(255, 255, 255, 0.7) !important;
+    transform: scale(1.1) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination .pagination-button.active,
+  .pagination .pagination-button[class*="active"],
+  .pagination button.active,
+  .pagination button[class*="active"] {
+    background: #E60012 !important;
+    background-color: #E60012 !important;
+    color: #ffffff !important;
+    font-weight: 900 !important;
+    box-shadow: 0 6px 20px rgba(230, 0, 18, 0.8) !important;
+    border: 2px solid rgba(255, 255, 255, 0.7) !important;
+    transform: scale(1.1) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}

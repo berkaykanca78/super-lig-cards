@@ -1,0 +1,209 @@
+<!-- Loading state -->
+<div *ngIf="isLoading" class="loading-container">
+  <div class="loading-spinner"></div>
+  <p>Takım verileri yükleniyor...</p>
+</div>
+
+<!-- Error state -->
+<div *ngIf="error && !isLoading" class="error-container">
+  <h2 style="color: #E60012; font-size: 2.5rem; margin-bottom: 20px;">
+    Hata Oluştu
+  </h2>
+  <p style="color: #333333; font-size: 1.2rem; opacity: 0.8;">
+    {{ error }}
+  </p>
+  <div style="margin-top: 30px; font-size: 4rem;">
+    ⚽🚀
+  </div>
+</div>
+
+<!-- Main content when data is loaded -->
+<div *ngIf="currentTeamData && !isLoading" class="home-container">
+  <!-- Header -->
+  <div class="header" [class]="'theme-' + selectedLeague + ' team-' + currentTeamName">
+    <div class="logo-container">
+      <img [src]="currentTeamData.logo" [alt]="currentTeamData.name" class="team-logo-container">
+    </div>
+    <div class="header-text">
+      <h1 id="team-name">{{ currentTeamData.name }}</h1>
+      <div class="header-actions">
+        <p>{{ currentTeamData.season }}</p>
+      </div>
+    </div>
+    <div class="league-selector">
+      <div class="league-toggle">
+        <select #leagueSelect class="league-select" (change)="handleLeagueChange(leagueSelect.value)" [value]="selectedLeague">
+          <option value="default">Takım Renkleri</option>
+          <option value="superlig">Trendyol Süper Lig</option>
+          <option value="turkiyekupasi">Ziraat Türkiye Kupası</option>
+          <option value="superkupasi">TFF Süper Kupa</option>
+          <option value="championsleague">UEFA Champions League</option>
+          <option value="europaleague">UEFA Europa League</option>
+          <option value="conferenceleague">UEFA Conference League</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards Grid -->
+  <div class="cards-grid" [class]="'theme-' + selectedLeague">
+    <!-- Manager Card (if exists and on first page) -->
+    <div *ngIf="shouldShowManager" class="player-card" [class]="currentTeamData.cardTeamName.toLowerCase()" draggable="true" data-position="MAN">
+      <div class="card-glow"></div>
+      <div class="card-shine"></div>
+      <div class="league-indicator" 
+           [style.background-image]="'url(' + getLeagueLogoUrl(selectedLeague) + ')'"
+           [style.display]="selectedLeague === 'default' ? 'none' : 'block'">
+      </div>
+
+      <button class="info-button" 
+              [routerLink]="['/player', currentTeamData.manager?.name]" 
+              [queryParams]="{team: currentTeamData.cardTeamName, type: 'manager'}"
+              title="Teknik Direktör Detayları">
+        <i class="fas fa-info"></i>
+      </button>
+
+      <div class="rating-badge" style="background: linear-gradient(145deg, #C0C0C0 0%, #A0A0A0 100%)">
+        <div class="rating-number" style="color: #000000">{{ currentTeamData.manager?.rating }}</div>
+        <div class="rating-type" style="color: #000000">MAN</div>
+      </div>
+
+      <div class="position-badge">TEKNİK DİREKTÖR</div>
+
+      <div class="player-image-container">
+        <div class="player-image">
+          <img [src]="currentTeamData.manager?.image" 
+               [alt]="currentTeamData.manager?.name"
+               (error)="onImageError($event, 'MAN')">
+        </div>
+      </div>
+
+      <div class="player-info">
+        <div class="player-name">{{ currentTeamData.manager?.name }}</div>
+
+        <div class="player-stats">
+          <div class="stat">
+            <div class="stat-value">{{ currentTeamData.manager?.stats?.tactic }}</div>
+            <div class="stat-label">TAK</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">{{ currentTeamData.manager?.stats?.motivation }}</div>
+            <div class="stat-label">MOT</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">{{ currentTeamData.manager?.stats?.leadership }}</div>
+            <div class="stat-label">LİD</div>
+          </div>
+        </div>
+
+        <div class="player-details">
+          <div>
+            <img [src]="currentTeamData.manager?.nationality?.flag" 
+                 [alt]="currentTeamData.manager?.nationality?.name" 
+                 class="country-flag">
+            {{ currentTeamData.manager?.nationality?.code }} • {{ currentTeamData.manager?.age }} yaş
+          </div>
+          <div>MAN</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Player Cards -->
+    <div *ngFor="let player of paginatedPlayers" 
+         class="player-card" 
+         [class]="currentTeamData.cardTeamName.toLowerCase()">
+      <div class="card-glow"></div>
+      <div class="card-shine"></div>
+      <div *ngIf="player.isCaptain" class="captain-badge">C</div>
+      <div class="league-indicator" 
+           [style.background-image]="'url(' + getLeagueLogoUrl(selectedLeague) + ')'"
+           [style.display]="selectedLeague === 'default' ? 'none' : 'block'">
+      </div>
+
+      <button class="info-button" 
+              [routerLink]="['/player', player.name]" 
+              [queryParams]="{team: currentTeamData.cardTeamName}"
+              title="Oyuncu Detayları">
+        <i class="fas fa-info"></i>
+      </button>
+
+      <div class="rating-badge">
+        <div class="rating-number">{{ player.rating }}</div>
+        <div class="rating-type">{{ player.position }}</div>
+      </div>
+
+      <div class="position-badge">{{ player.ratingPosition }}</div>
+
+      <div class="player-image-container">
+        <div class="player-image">
+          <img [src]="player.image" 
+               [alt]="player.name"
+               (error)="onImageError($event, player.position)">
+        </div>
+      </div>
+
+      <div class="player-info">
+        <div class="player-name">{{ player.name }}</div>
+
+        <div class="player-stats">
+          <div *ngFor="let stat of player.stats | keyvalue" class="stat">
+            <div class="stat-value">{{ stat.value }}</div>
+            <div class="stat-label">{{ stat.key }}</div>
+          </div>
+        </div>
+
+        <div class="player-details">
+          <div>
+            <img [src]="player.nationality.flag" 
+                 [alt]="player.nationality.name" 
+                 class="country-flag">
+            {{ player.nationality.name }} • {{ player.age }} yaş
+          </div>
+          <div>{{ player.number ? '# ' + player.number : 'MAN' }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination">
+    <button (click)="changePage(1)" 
+            class="pagination-button" 
+            [class.active]="currentPage === 1" 
+            [disabled]="currentPage === 1">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"/>
+      </svg>
+    </button>
+    <button (click)="changePage(currentPage - 1)" 
+            class="pagination-button" 
+            [disabled]="currentPage === 1">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+      </svg>
+    </button>
+    
+    <button *ngFor="let page of generatePageNumbers(currentPage, totalPages)" 
+            (click)="changePage(page)" 
+            class="pagination-button" 
+            [class.active]="currentPage === page">
+      {{ page }}
+    </button>
+    
+    <button (click)="changePage(currentPage + 1)" 
+            class="pagination-button" 
+            [disabled]="currentPage === totalPages">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/>
+      </svg>
+    </button>
+    <button (click)="changePage(totalPages)" 
+            class="pagination-button" 
+            [class.active]="currentPage === totalPages" 
+            [disabled]="currentPage === totalPages">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"/>
+      </svg>
+    </button>
+  </div>
+</div>

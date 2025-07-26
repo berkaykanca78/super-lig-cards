@@ -1,0 +1,113 @@
+<div class="stats-container">
+    <div class="stats-header">
+        <h1>2025-2026 Süper Lig İstatistikleri</h1>
+        <p>Oyuncu ve takım performans verileri</p>
+    </div>
+
+    <div class="stats-tabs">
+        <button class="tab-button active" data-tab="player-stats">
+            <i class="fas fa-user"></i>
+            Oyuncu İstatistikleri
+        </button>
+        <button class="tab-button" data-tab="team-stats">
+            <i class="fas fa-users"></i>
+            Takım İstatistikleri
+        </button>
+    </div>
+
+    <div class="stats-content">
+        <!-- Player Statistics Tab -->
+        <div id="player-stats" class="tab-content active">
+            <div class="stats-filters">
+                <select id="positionFilter" class="stats-filter">
+                    <option value="">Tüm Pozisyonlar</option>
+                    <option value="GK">Kaleci</option>
+                    <option value="DEF">Defans</option>
+                    <option value="MID">Orta Saha</option>
+                    <option value="FWD">Forvet</option>
+                </select>
+                <select id="teamFilter" class="stats-filter">
+                    <option value="">Tüm Takımlar</option>
+                </select>
+                <select id="statType" class="stats-filter">
+                    <option value="goals">Goller</option>
+                    <option value="assists">Asistler</option>
+                    <option value="clean_sheets">Temiz Maçlar</option>
+                    <option value="saves">Kurtarışlar</option>
+                    <option value="passes">Paslar</option>
+                </select>
+            </div>
+
+            <div class="stats-table-container">
+                <table class="stats-table">
+                    <thead>
+                        <tr>
+                            <th>Sıra</th>
+                            <th>Oyuncu</th>
+                            <th>Takım</th>
+                            <th>Pozisyon</th>
+                            <th>Maç</th>
+                            <th id="statHeader">Gol</th>
+                            <th>Asist</th>
+                            <th>Puan</th>
+                        </tr>
+                    </thead>
+                    <tbody id="playerStatsBody">
+                        <!-- Player stats will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Team Statistics Tab -->
+        <div id="team-stats" class="tab-content">
+            <div class="team-stats-grid">
+                <div class="stat-card">
+                    <h3>En Çok Gol Atan</h3>
+                    <div class="stat-content" id="topScoringTeam">
+                        <!-- Will be populated by JS -->
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <h3>En Az Gol Yiyen</h3>
+                    <div class="stat-content" id="bestDefenseTeam">
+                        <!-- Will be populated by JS -->
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <h3>En Çok Asist</h3>
+                    <div class="stat-content" id="topAssistTeam">
+                        <!-- Will be populated by JS -->
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <h3>En Çok Temiz Maç</h3>
+                    <div class="stat-content" id="topCleanSheetTeam">
+                        <!-- Will be populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-stats-table-container">
+                <table class="stats-table">
+                    <thead>
+                        <tr>
+                            <th>Takım</th>
+                            <th>O</th>
+                            <th>G</th>
+                            <th>B</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>Y</th>
+                            <th>Av</th>
+                            <th>P</th>
+                        </tr>
+                    </thead>
+                    <tbody id="teamStatsBody">
+                        <!-- Team stats will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

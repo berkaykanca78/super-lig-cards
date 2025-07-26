@@ -1,0 +1,25 @@
+{
+    "name": "KOCAELİSPOR",
+    "cardTeamName": "kocaelispor",
+    "logo": "https://tmssl.akamaized.net/images/wappen/head/120.png",
+    "season": "2025-2026 Sezonu",
+    "players": [
+        
+    ],
+    "manager": {
+        "name": "SELÇUK İNAN",
+        "rating": 74,
+        "image": "managers/selcuk.png",
+        "age": 40,
+        "nationality": {
+            "name": "Turkey",
+            "code": "TUR",
+            "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+        },
+        "stats": {
+            "tactic": 74,
+            "motivation": 75,
+            "leadership": 73
+        }
+    }
+} 

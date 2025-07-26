@@ -1,0 +1,380 @@
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.fixture-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+}
+
+.fixture-header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.fixture-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #E60012, #FF6B6B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.fixture-header p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.week-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.week-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    min-width: 50px;
+    font-size: 0.9rem;
+}
+
+.week-button:hover {
+    background: rgba(230, 0, 18, 0.3);
+    border-color: #E60012;
+    transform: translateY(-2px);
+}
+
+.week-button.active {
+    background: #E60012;
+    border-color: #E60012;
+    box-shadow: 0 4px 15px rgba(230, 0, 18, 0.3);
+}
+
+.week-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.fixture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.match-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.match-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border-color: rgba(230, 0, 18, 0.3);
+}
+
+.match-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #E60012, #FF6B6B);
+}
+
+.match-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    color: white;
+}
+
+.match-number {
+    background: #E60012;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.match-date {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+}
+
+.teams-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.team.home {
+    justify-content: flex-start;
+}
+
+.team.away {
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+}
+
+.team.selected {
+    background: rgba(230, 0, 18, 0.1);
+    border-radius: 8px;
+    padding: 8px;
+    border: 2px solid #E60012;
+}
+
+.team-logo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    flex-shrink: 0;
+}
+
+.team-name {
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+    flex: 1;
+}
+
+.vs {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 0 12px;
+}
+
+.match-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+}
+
+.stadium {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.time {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.nav-button {
+    background: rgba(230, 0, 18, 0.2);
+    border: 1px solid rgba(230, 0, 18, 0.3);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+}
+
+.nav-button:hover {
+    background: rgba(230, 0, 18, 0.4);
+    transform: translateY(-2px);
+}
+
+.nav-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.season-info {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+}
+
+.loading {
+    text-align: center;
+    color: white;
+    font-size: 1.1rem;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.loading i {
+    font-size: 2rem;
+    color: #E60012;
+}
+
+.no-matches {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+
+/* Mobile responsive navbar */
+@media (max-width: 768px) {
+    .fixture-container {
+        padding: 10px;
+        height: calc(100vh - 45px);
+    }
+
+    .fixture-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .week-selector {
+        gap: 8px;
+    }
+
+    .week-button {
+        padding: 6px 10px;
+        min-width: 45px;
+        font-size: 0.8rem;
+    }
+
+    .fixture-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .match-card {
+        padding: 12px;
+    }
+
+    .team-logo {
+        width: 25px;
+        height: 25px;
+    }
+
+    .team-name {
+        font-size: 0.8rem;
+    }
+
+    .vs {
+        font-size: 0.9rem;
+        margin: 0 8px;
+    }
+
+    .navigation-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .nav-button {
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .fixture-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .week-selector {
+        gap: 6px;
+    }
+
+    .week-button {
+        padding: 5px 8px;
+        min-width: 40px;
+        font-size: 0.75rem;
+    }
+
+    .match-card {
+        padding: 10px;
+    }
+
+    .team-logo {
+        width: 22px;
+        height: 22px;
+    }
+
+    .team-name {
+        font-size: 0.75rem;
+    }
+
+    .match-header {
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+    }
+
+    .teams-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .team {
+        justify-content: center !important;
+        flex-direction: row !important;
+    }
+
+    .vs {
+        display: none;
+    }
+
+    .match-info {
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+    }
+}

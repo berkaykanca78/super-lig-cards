@@ -1,0 +1,25 @@
+{
+    "name": "KAYSERİSPOR FUTBOL A.Ş.",
+    "cardTeamName": "kayserispor",
+    "logo": "https://tmssl.akamaized.net/images/wappen/head/3205.png",
+    "season": "2025-2026 Sezonu",
+    "players": [
+        
+    ],
+    "manager": {
+        "name": "MARKUS GISDOL",
+        "rating": 78,
+        "image": "managers/gisdol.png",
+        "age": 55,
+        "nationality": {
+            "name": "Germany",
+            "code": "GER",
+            "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/40.png"
+        },
+        "stats": {
+            "tactic": 79,
+            "motivation": 78,
+            "leadership": 77
+        }
+    }
+} 

@@ -1,0 +1,484 @@
+{
+    "season": "2025-2026",
+    "league": "Trendyol Süper Lig",
+    "totalWeeks": 34,
+    "totalMatches": 306,
+    "fixtures": [
+        {
+            "week": 1,
+            "matches": [
+                { "home": "Gaziantep F.K. A.Ş.", "away": "Galatasaray A.Ş." },
+                { "home": "Samsunspor A.Ş.", "away": "Gençlerbirliği" },
+                { "home": "Antalyaspor A.Ş.", "away": "Kasımpaşa A.Ş." },
+                { "home": "Fenerbahçe A.Ş.", "away": "C. Alanyaspor" },
+                { "home": "Kayserispor F.A.Ş.", "away": "Beşiktaş A.Ş." },
+                { "home": "İ. Eyüpspor", "away": "Konyaspor" },
+                { "home": "Ç. Rizespor A.Ş.", "away": "Göztepe A.Ş." },
+                { "home": "F. Karagümrük A.Ş.", "away": "R. Başakşehir F.K." },
+                { "home": "Trabzonspor A.Ş.", "away": "Kocaelispor" }
+            ]
+        },
+        {
+            "week": 2,
+            "matches": [
+                { "home": "Galatasaray A.Ş.", "away": "F. Karagümrük A.Ş." },
+                { "home": "C. Alanyaspor", "away": "Ç. Rizespor A.Ş." },
+                { "home": "Göztepe A.Ş.", "away": "Fenerbahçe A.Ş." },
+                { "home": "Kocaelispor", "away": "Samsunspor A.Ş." },
+                { "home": "Gençlerbirliği", "away": "Antalyaspor A.Ş." },
+                { "home": "R. Başakşehir F.K.", "away": "Kayserispor F.A.Ş." },
+                { "home": "Konyaspor", "away": "Gaziantep F.K. A.Ş." },
+                { "home": "Beşiktaş A.Ş.", "away": "İ. Eyüpspor" },
+                { "home": "Kasımpaşa A.Ş.", "away": "Trabzonspor A.Ş." }
+            ]
+        },
+        {
+            "week": 3,
+            "matches": [
+                { "home": "Fenerbahçe A.Ş.", "away": "Kocaelispor" },
+                { "home": "Konyaspor", "away": "Beşiktaş A.Ş." },
+                { "home": "Trabzonspor A.Ş.", "away": "Antalyaspor A.Ş." },
+                { "home": "İ. Eyüpspor", "away": "C. Alanyaspor" },
+                { "home": "Samsunspor A.Ş.", "away": "Kasımpaşa A.Ş." },
+                { "home": "Gaziantep F.K. A.Ş.", "away": "Gençlerbirliği" },
+                { "home": "Kayserispor F.A.Ş.", "away": "Galatasaray A.Ş." },
+                { "home": "F. Karagümrük A.Ş.", "away": "Göztepe A.Ş." },
+                { "home": "Ç. Rizespor A.Ş.", "away": "R. Başakşehir F.K." }
+            ]
+        },
+        {
+            "week": 4,
+            "matches": [
+                { "home": "Galatasaray A.Ş.", "away": "Ç. Rizespor A.Ş." },
+                { "home": "Kasımpaşa A.Ş.", "away": "Gaziantep F.K. A.Ş." },
+                { "home": "R. Başakşehir F.K.", "away": "İ. Eyüpspor" },
+                { "home": "Antalyaspor A.Ş.", "away": "F. Karagümrük A.Ş." },
+                { "home": "Göztepe A.Ş.", "away": "Konyaspor" },
+                { "home": "Trabzonspor A.Ş.", "away": "Samsunspor A.Ş." },
+                { "home": "Kocaelispor", "away": "Kayserispor F.A.Ş." },
+                { "home": "C. Alanyaspor", "away": "Beşiktaş A.Ş." },
+                { "home": "Gençlerbirliği", "away": "Fenerbahçe A.Ş." }
+            ]
+        },
+        {
+            "week": 5,
+            "matches": [
+                { "home": "Fenerbahçe A.Ş.", "away": "Trabzonspor A.Ş." },
+                { "home": "Gaziantep F.K. A.Ş.", "away": "Kocaelispor" },
+                { "home": "Samsunspor A.Ş.", "away": "Antalyaspor A.Ş." },
+                { "home": "F. Karagümrük A.Ş.", "away": "Kasımpaşa A.Ş." },
+                { "home": "Konyaspor", "away": "C. Alanyaspor" },
+                { "home": "İ. Eyüpspor", "away": "Galatasaray A.Ş." },
+                { "home": "Ç. Rizespor A.Ş.", "away": "Gençlerbirliği" },
+                { "home": "Kayserispor F.A.Ş.", "away": "Göztepe A.Ş." },
+                { "home": "Beşiktaş A.Ş.", "away": "R. Başakşehir F.K." }
+            ]
+        },
+        {
+            "week": 6,
+            "matches": [
+                { "home": "Trabzonspor A.Ş.", "away": "Gaziantep F.K. A.Ş." },
+                { "home": "Gençlerbirliği", "away": "İ. Eyüpspor" },
+                { "home": "Samsunspor A.Ş.", "away": "F. Karagümrük A.Ş." },
+                { "home": "Kocaelispor", "away": "Ç. Rizespor A.Ş." },
+                { "home": "Galatasaray A.Ş.", "away": "Konyaspor" },
+                { "home": "R. Başakşehir F.K.", "away": "C. Alanyaspor" },
+                { "home": "Antalyaspor A.Ş.", "away": "Kayserispor F.A.Ş." },
+                { "home": "Kasımpaşa A.Ş.", "away": "Fenerbahçe A.Ş." },
+                { "home": "Göztepe A.Ş.", "away": "Beşiktaş A.Ş." }
+            ]
+        },
+        {
+            "week": 7,
+            "matches": [
+                { "home": "Beşiktaş A.Ş.", "away": "Kocaelispor" },
+                { "home": "F. Karagümrük A.Ş.", "away": "Trabzonspor A.Ş." },
+                { "home": "Fenerbahçe A.Ş.", "away": "Antalyaspor A.Ş." },
+                { "home": "Ç. Rizespor A.Ş.", "away": "Kasımpaşa A.Ş." },
+                { "home": "C. Alanyaspor", "away": "Galatasaray A.Ş." },
+                { "home": "Gaziantep F.K. A.Ş.", "away": "Samsunspor A.Ş." },
+                { "home": "Kayserispor F.A.Ş.", "away": "Gençlerbirliği" },
+                { "home": "İ. Eyüpspor", "away": "Göztepe A.Ş." },
+                { "home": "Konyaspor", "away": "R. Başakşehir F.K." }
+            ]
+        },
+        {
+            "week": 8,
+            "matches": [
+                { "home": "Göztepe A.Ş.", "away": "R. Başakşehir F.K." },
+                { "home": "F. Karagümrük A.Ş.", "away": "Gaziantep F.K. A.Ş." },
+                { "home": "Antalyaspor A.Ş.", "away": "Ç. Rizespor A.Ş." },
+                { "home": "Kocaelispor", "away": "İ. Eyüpspor" },
+                { "home": "Kasımpaşa A.Ş.", "away": "Konyaspor" },
+                { "home": "Gençlerbirliği", "away": "C. Alanyaspor" },
+                { "home": "Trabzonspor A.Ş.", "away": "Kayserispor F.A.Ş." },
+                { "home": "Samsunspor A.Ş.", "away": "Fenerbahçe A.Ş." },
+                { "home": "Galatasaray A.Ş.", "away": "Beşiktaş A.Ş." }
+            ]
+        },
+        {
+            "week": 9,
+            "matches": [
+                { "home": "Konyaspor", "away": "Kocaelispor" },
+                { "home": "Ç. Rizespor A.Ş.", "away": "Trabzonspor A.Ş." },
+                { "home": "Gaziantep F.K. A.Ş.", "away": "Antalyaspor A.Ş." },
+                { "home": "İ. Eyüpspor", "away": "Kasımpaşa A.Ş." },
+                { "home": "Kayserispor F.A.Ş.", "away": "Samsunspor A.Ş." },
+                { "home": "Beşiktaş A.Ş.", "away": "Gençlerbirliği" },
+                { "home": "R. Başakşehir F.K.", "away": "Galatasaray A.Ş." },
+                { "home": "Fenerbahçe A.Ş.", "away": "F. Karagümrük A.Ş." },
+                { "home": "C. Alanyaspor", "away": "Göztepe A.Ş." }
+            ]
+        },
+        {
+            "week": 10,
+            "matches": [
+                { "home": "Samsunspor A.Ş.", "away": "Ç. Rizespor A.Ş." },
+                { "home": "Trabzonspor A.Ş.", "away": "İ. Eyüpspor" },
+                { "home": "Gençlerbirliği", "away": "Konyaspor" },
+                { "home": "Kocaelispor", "away": "C. Alanyaspor" },
+                { "home": "F. Karagümrük A.Ş.", "away": "Kayserispor F.A.Ş." },
+                { "home": "Gaziantep F.K. A.Ş.", "away": "Fenerbahçe A.Ş." },
+                { "home": "Kasımpaşa A.Ş.", "away": "Beşiktaş A.Ş." },
+                { "home": "Antalyaspor A.Ş.", "away": "R. Başakşehir F.K." },
+                { "home": "Galatasaray A.Ş.", "away": "Göztepe A.Ş." }
+            ]
+        },
+        {
+            "week": 11,
+            "matches": [
+                { "home": "R. Başakşehir F.K.", "away": "Kocaelispor" },
+                { "home": "Beşiktaş A.Ş.", "away": "Fenerbahçe A.Ş." },
+                { "home": "Galatasaray A.Ş.", "away": "Trabzonspor A.Ş." },
+                { "home": "İ. Eyüpspor", "away": "Antalyaspor A.Ş." },
+                { "home": "Kayserispor F.A.Ş.", "away": "Kasımpaşa A.Ş." },
+                { "home": "Konyaspor", "away": "Samsunspor A.Ş." },
+                { "home": "Göztepe A.Ş.", "away": "Gençlerbirliği" },
+                { "home": "Ç. Rizespor A.Ş.", "away": "F. Karagümrük A.Ş." },
+                { "home": "C. Alanyaspor", "away": "Gaziantep F.K. A.Ş." }
+            ]
+        },
+        {
+            "week": 12,
+            "matches": [
+                { "home": "Kasımpaşa A.Ş.", "away": "Göztepe A.Ş." },
+                { "home": "Samsunspor A.Ş.", "away": "İ. Eyüpspor" },
+                { "home": "Gaziantep F.K. A.Ş.", "away": "Ç. Rizespor A.Ş." },
+                { "home": "F. Karagümrük A.Ş.", "away": "Konyaspor" },
+                { "home": "Kocaelispor", "away": "Galatasaray A.Ş." },
+                { "home": "Trabzonspor A.Ş.", "away": "C. Alanyaspor" },
+                { "home": "Fenerbahçe A.Ş.", "away": "Kayserispor F.A.Ş." },
+                { "home": "Antalyaspor A.Ş.", "away": "Beşiktaş A.Ş." },
+                { "home": "Gençlerbirliği", "away": "R. Başakşehir F.K." }
+            ]
+        },
+        {
+            "week": 13,
+            "matches": [
+                { "home": "Göztepe A.Ş.", "away": "Kocaelispor" },
+                { "home": "Beşiktaş A.Ş.", "away": "Samsunspor A.Ş." },
+                { "home": "R. Başakşehir F.K.", "away": "Trabzonspor A.Ş." },
+                { "home": "Ç. Rizespor A.Ş.", "away": "Fenerbahçe A.Ş." },
+                { "home": "Konyaspor", "away": "Antalyaspor A.Ş." },
+                { "home": "C. Alanyaspor", "away": "Kasımpaşa A.Ş." },
+                { "home": "Galatasaray A.Ş.", "away": "Gençlerbirliği" },
+                { "home": "İ. Eyüpspor", "away": "F. Karagümrük A.Ş." },
+                { "home": "Kayserispor F.A.Ş.", "away": "Gaziantep F.K. A.Ş." }
+            ]
+        },
+        {
+            "week": 14,
+            "matches": [
+                { "home": "Antalyaspor A.Ş.", "away": "Göztepe A.Ş." },
+                { "home": "Gaziantep F.K. A.Ş.", "away": "İ. Eyüpspor" },
+                { "home": "Fenerbahçe A.Ş.", "away": "Galatasaray A.Ş." },
+                { "home": "Kocaelispor", "away": "Gençlerbirliği" },
+                { "home": "Trabzonspor A.Ş.", "away": "Konyaspor" },
+                { "home": "Samsunspor A.Ş.", "away": "C. Alanyaspor" },
+                { "home": "Ç. Rizespor A.Ş.", "away": "Kayserispor F.A.Ş." },
+                { "home": "F. Karagümrük A.Ş.", "away": "Beşiktaş A.Ş." },
+                { "home": "Kasımpaşa A.Ş.", "away": "R. Başakşehir F.K." }
+            ]
+        },
+        {
+            "week": 15,
+            "matches": [
+                { "home": "R. Başakşehir F.K.", "away": "Fenerbahçe A.Ş." },
+                { "home": "Göztepe A.Ş.", "away": "Trabzonspor A.Ş." },
+                { "home": "İ. Eyüpspor", "away": "Kayserispor F.A.Ş." },
+                { "home": "C. Alanyaspor", "away": "Antalyaspor A.Ş." },
+                { "home": "Kocaelispor", "away": "Kasımpaşa A.Ş." },
+                { "home": "Galatasaray A.Ş.", "away": "Samsunspor A.Ş." },
+                { "home": "Konyaspor", "away": "Ç. Rizespor A.Ş." },
+                { "home": "Beşiktaş A.Ş.", "away": "Gaziantep F.K. A.Ş." },
+                { "home": "Gençlerbirliği", "away": "F. Karagümrük A.Ş." }
+            ]
+        },
+        {
+            "week": 16,
+            "matches": [
+                { "home": "Gaziantep F.K. A.Ş.", "away": "Göztepe A.Ş." },
+                { "home": "Fenerbahçe A.Ş.", "away": "Konyaspor" },
+                { "home": "Antalyaspor A.Ş.", "away": "Galatasaray A.Ş." },
+                { "home": "Kasımpaşa A.Ş.", "away": "Gençlerbirliği" },
+                { "home": "Ç. Rizespor A.Ş.", "away": "İ. Eyüpspor" },
+                { "home": "Kayserispor F.A.Ş.", "away": "C. Alanyaspor" },
+                { "home": "Trabzonspor A.Ş.", "away": "Beşiktaş A.Ş." },
+                { "home": "F. Karagümrük A.Ş.", "away": "Kocaelispor" },
+                { "home": "Samsunspor A.Ş.", "away": "R. Başakşehir F.K." }
+            ]
+        },
+        {
+            "week": 17,
+            "matches": [
+                { "home": "Gençlerbirliği", "away": "Trabzonspor A.Ş." },
+                { "home": "İ. Eyüpspor", "away": "Fenerbahçe A.Ş." },
+                { "home": "Galatasaray A.Ş.", "away": "Kasımpaşa A.Ş." },
+                { "home": "Kocaelispor", "away": "Antalyaspor A.Ş." },
+                { "home": "Konyaspor", "away": "Kayserispor F.A.Ş." },
+                { "home": "Göztepe A.Ş.", "away": "Samsunspor A.Ş." },
+                { "home": "R. Başakşehir F.K.", "away": "Gaziantep F.K. A.Ş." },
+                { "home": "Beşiktaş A.Ş.", "away": "Ç. Rizespor A.Ş." },
+                { "home": "C. Alanyaspor", "away": "F. Karagümrük A.Ş." }
+            ]
+        },
+        {
+            "week": 18,
+            "matches": [
+                { "home": "Konyaspor", "away": "İ. Eyüpspor" },
+                { "home": "R. Başakşehir F.K.", "away": "F. Karagümrük A.Ş." },
+                { "home": "Göztepe A.Ş.", "away": "Ç. Rizespor A.Ş." },
+                { "home": "Galatasaray A.Ş.", "away": "Gaziantep F.K. A.Ş." },
+                { "home": "Gençlerbirliği", "away": "Samsunspor A.Ş." },
+                { "home": "Beşiktaş A.Ş.", "away": "Kayserispor F.A.Ş." },
+                { "home": "Kasımpaşa A.Ş.", "away": "Antalyaspor A.Ş." },
+                { "home": "Kocaelispor", "away": "Trabzonspor A.Ş." },
+                { "home": "C. Alanyaspor", "away": "Fenerbahçe A.Ş." }
+            ]
+        },
+        {
+            "week": 19,
+            "matches": [
+                { "home": "İ. Eyüpspor", "away": "Beşiktaş A.Ş." },
+                { "home": "Samsunspor A.Ş.", "away": "Kocaelispor" },
+                { "home": "Trabzonspor A.Ş.", "away": "Kasımpaşa A.Ş." },
+                { "home": "Ç. Rizespor A.Ş.", "away": "C. Alanyaspor" },
+                { "home": "F. Karagümrük A.Ş.", "away": "Galatasaray A.Ş." },
+                { "home": "Gaziantep F.K. A.Ş.", "away": "Konyaspor" },
+                { "home": "Antalyaspor A.Ş.", "away": "Gençlerbirliği" },
+                { "home": "Fenerbahçe A.Ş.", "away": "Göztepe A.Ş." },
+                { "home": "Kayserispor F.A.Ş.", "away": "R. Başakşehir F.K." }
+            ]
+        },
+        {
+            "week": 20,
+            "matches": [
+                { "home": "Gençlerbirliği", "away": "Gaziantep F.K. A.Ş." },
+                { "home": "R. Başakşehir F.K.", "away": "Ç. Rizespor A.Ş." },
+                { "home": "Göztepe A.Ş.", "away": "F. Karagümrük A.Ş." },
+                { "home": "C. Alanyaspor", "away": "İ. Eyüpspor" },
+                { "home": "Beşiktaş A.Ş.", "away": "Konyaspor" },
+                { "home": "Galatasaray A.Ş.", "away": "Kayserispor F.A.Ş." },
+                { "home": "Kocaelispor", "away": "Fenerbahçe A.Ş." },
+                { "home": "Antalyaspor A.Ş.", "away": "Trabzonspor A.Ş." },
+                { "home": "Kasımpaşa A.Ş.", "away": "Samsunspor A.Ş." }
+            ]
+        },
+        {
+            "week": 21,
+            "matches": [
+                { "home": "Samsunspor A.Ş.", "away": "Trabzonspor A.Ş." },
+                { "home": "Kayserispor F.A.Ş.", "away": "Kocaelispor" },
+                { "home": "F. Karagümrük A.Ş.", "away": "Antalyaspor A.Ş." },
+                { "home": "Beşiktaş A.Ş.", "away": "C. Alanyaspor" },
+                { "home": "Gaziantep F.K. A.Ş.", "away": "Kasımpaşa A.Ş." },
+                { "home": "Ç. Rizespor A.Ş.", "away": "Galatasaray A.Ş." },
+                { "home": "Fenerbahçe A.Ş.", "away": "Gençlerbirliği" },
+                { "home": "Konyaspor", "away": "Göztepe A.Ş." },
+                { "home": "İ. Eyüpspor", "away": "R. Başakşehir F.K." }
+            ]
+        },
+        {
+            "week": 22,
+            "matches": [
+                { "home": "Gençlerbirliği", "away": "Ç. Rizespor A.Ş." },
+                { "home": "Kocaelispor", "away": "Gaziantep F.K. A.Ş." },
+                { "home": "Galatasaray A.Ş.", "away": "İ. Eyüpspor" },
+                { "home": "Kasımpaşa A.Ş.", "away": "F. Karagümrük A.Ş." },
+                { "home": "C. Alanyaspor", "away": "Konyaspor" },
+                { "home": "Göztepe A.Ş.", "away": "Kayserispor F.A.Ş." },
+                { "home": "R. Başakşehir F.K.", "away": "Beşiktaş A.Ş." },
+                { "home": "Antalyaspor A.Ş.", "away": "Samsunspor A.Ş." },
+                { "home": "Trabzonspor A.Ş.", "away": "Fenerbahçe A.Ş." }
+            ]
+        },
+        {
+            "week": 23,
+            "matches": [
+                { "home": "F. Karagümrük A.Ş.", "away": "Samsunspor A.Ş." },
+                { "home": "Gaziantep F.K. A.Ş.", "away": "Trabzonspor A.Ş." },
+                { "home": "Ç. Rizespor A.Ş.", "away": "Kocaelispor" },
+                { "home": "Kayserispor F.A.Ş.", "away": "Antalyaspor A.Ş." },
+                { "home": "Fenerbahçe A.Ş.", "away": "Kasımpaşa A.Ş." },
+                { "home": "İ. Eyüpspor", "away": "Gençlerbirliği" },
+                { "home": "Konyaspor", "away": "Galatasaray A.Ş." },
+                { "home": "Beşiktaş A.Ş.", "away": "Göztepe A.Ş." },
+                { "home": "C. Alanyaspor", "away": "R. Başakşehir F.K." }
+            ]
+        },
+        {
+            "week": 24,
+            "matches": [
+                { "home": "Samsunspor A.Ş.", "away": "Gaziantep F.K. A.Ş." },
+                { "home": "Kasımpaşa A.Ş.", "away": "Ç. Rizespor A.Ş." },
+                { "home": "Trabzonspor A.Ş.", "away": "F. Karagümrük A.Ş." },
+                { "home": "Göztepe A.Ş.", "away": "İ. Eyüpspor" },
+                { "home": "R. Başakşehir F.K.", "away": "Konyaspor" },
+                { "home": "Galatasaray A.Ş.", "away": "C. Alanyaspor" },
+                { "home": "Gençlerbirliği", "away": "Kayserispor F.A.Ş." },
+                { "home": "Kocaelispor", "away": "Beşiktaş A.Ş." },
+                { "home": "Antalyaspor A.Ş.", "away": "Fenerbahçe A.Ş." }
+            ]
+        },
+        {
+            "week": 25,
+            "matches": [
+                { "home": "İ. Eyüpspor", "away": "Kocaelispor" },
+                { "home": "Kayserispor F.A.Ş.", "away": "Trabzonspor A.Ş." },
+                { "home": "Ç. Rizespor A.Ş.", "away": "Antalyaspor A.Ş." },
+                { "home": "Konyaspor", "away": "Kasımpaşa A.Ş." },
+                { "home": "Beşiktaş A.Ş.", "away": "Galatasaray A.Ş." },
+                { "home": "Fenerbahçe A.Ş.", "away": "Samsunspor A.Ş." },
+                { "home": "C. Alanyaspor", "away": "Gençlerbirliği" },
+                { "home": "Gaziantep F.K. A.Ş.", "away": "F. Karagümrük A.Ş." },
+                { "home": "R. Başakşehir F.K.", "away": "Göztepe A.Ş." }
+            ]
+        },
+        {
+            "week": 26,
+            "matches": [
+                { "home": "Trabzonspor A.Ş.", "away": "Ç. Rizespor A.Ş." },
+                { "home": "Antalyaspor A.Ş.", "away": "Gaziantep F.K. A.Ş." },
+                { "home": "Kasımpaşa A.Ş.", "away": "İ. Eyüpspor" },
+                { "home": "Kocaelispor", "away": "Konyaspor" },
+                { "home": "Göztepe A.Ş.", "away": "C. Alanyaspor" },
+                { "home": "Samsunspor A.Ş.", "away": "Kayserispor F.A.Ş." },
+                { "home": "F. Karagümrük A.Ş.", "away": "Fenerbahçe A.Ş." },
+                { "home": "Gençlerbirliği", "away": "Beşiktaş A.Ş." },
+                { "home": "Galatasaray A.Ş.", "away": "R. Başakşehir F.K." }
+            ]
+        },
+        {
+            "week": 27,
+            "matches": [
+                { "home": "İ. Eyüpspor", "away": "Trabzonspor A.Ş." },
+                { "home": "Ç. Rizespor A.Ş.", "away": "Samsunspor A.Ş." },
+                { "home": "C. Alanyaspor", "away": "Kocaelispor" },
+                { "home": "R. Başakşehir F.K.", "away": "Antalyaspor A.Ş." },
+                { "home": "Beşiktaş A.Ş.", "away": "Kasımpaşa A.Ş." },
+                { "home": "Konyaspor", "away": "Gençlerbirliği" },
+                { "home": "Göztepe A.Ş.", "away": "Galatasaray A.Ş." },
+                { "home": "Fenerbahçe A.Ş.", "away": "Gaziantep F.K. A.Ş." },
+                { "home": "Kayserispor F.A.Ş.", "away": "F. Karagümrük A.Ş." }
+            ]
+        },
+        {
+            "week": 28,
+            "matches": [
+                { "home": "F. Karagümrük A.Ş.", "away": "Ç. Rizespor A.Ş." },
+                { "home": "Trabzonspor A.Ş.", "away": "Galatasaray A.Ş." },
+                { "home": "Antalyaspor A.Ş.", "away": "İ. Eyüpspor" },
+                { "home": "Samsunspor A.Ş.", "away": "Konyaspor" },
+                { "home": "Gaziantep F.K. A.Ş.", "away": "C. Alanyaspor" },
+                { "home": "Kasımpaşa A.Ş.", "away": "Kayserispor F.A.Ş." },
+                { "home": "Fenerbahçe A.Ş.", "away": "Beşiktaş A.Ş." },
+                { "home": "Gençlerbirliği", "away": "Göztepe A.Ş." },
+                { "home": "Kocaelispor", "away": "R. Başakşehir F.K." }
+            ]
+        },
+        {
+            "week": 29,
+            "matches": [
+                { "home": "Galatasaray A.Ş.", "away": "Kocaelispor" },
+                { "home": "Kayserispor F.A.Ş.", "away": "Fenerbahçe A.Ş." },
+                { "home": "C. Alanyaspor", "away": "Trabzonspor A.Ş." },
+                { "home": "Beşiktaş A.Ş.", "away": "Antalyaspor A.Ş." },
+                { "home": "Göztepe A.Ş.", "away": "Kasımpaşa A.Ş." },
+                { "home": "İ. Eyüpspor", "away": "Samsunspor A.Ş." },
+                { "home": "R. Başakşehir F.K.", "away": "Gençlerbirliği" },
+                { "home": "Konyaspor", "away": "F. Karagümrük A.Ş." },
+                { "home": "Ç. Rizespor A.Ş.", "away": "Gaziantep F.K. A.Ş." }
+            ]
+        },
+        {
+            "week": 30,
+            "matches": [
+                { "home": "Kocaelispor", "away": "Göztepe A.Ş." },
+                { "home": "Fenerbahçe A.Ş.", "away": "Ç. Rizespor A.Ş." },
+                { "home": "F. Karagümrük A.Ş.", "away": "İ. Eyüpspor" },
+                { "home": "Gençlerbirliği", "away": "Galatasaray A.Ş." },
+                { "home": "Antalyaspor A.Ş.", "away": "Konyaspor" },
+                { "home": "Kasımpaşa A.Ş.", "away": "C. Alanyaspor" },
+                { "home": "Gaziantep F.K. A.Ş.", "away": "Kayserispor F.A.Ş." },
+                { "home": "Samsunspor A.Ş.", "away": "Beşiktaş A.Ş." },
+                { "home": "Trabzonspor A.Ş.", "away": "R. Başakşehir F.K." }
+            ]
+        },
+        {
+            "week": 31,
+            "matches": [
+                { "home": "Gençlerbirliği", "away": "Kocaelispor" },
+                { "home": "C. Alanyaspor", "away": "Samsunspor A.Ş." },
+                { "home": "Konyaspor", "away": "Trabzonspor A.Ş." },
+                { "home": "Galatasaray A.Ş.", "away": "Fenerbahçe A.Ş." },
+                { "home": "Göztepe A.Ş.", "away": "Antalyaspor A.Ş." },
+                { "home": "R. Başakşehir F.K.", "away": "Kasımpaşa A.Ş." },
+                { "home": "Kayserispor F.A.Ş.", "away": "Ç. Rizespor A.Ş." },
+                { "home": "Beşiktaş A.Ş.", "away": "F. Karagümrük A.Ş." },
+                { "home": "İ. Eyüpspor", "away": "Gaziantep F.K. A.Ş." }
+            ]
+        },
+        {
+            "week": 32,
+            "matches": [
+                { "home": "Trabzonspor A.Ş.", "away": "Göztepe A.Ş." },
+                { "home": "Ç. Rizespor A.Ş.", "away": "Konyaspor" },
+                { "home": "Samsunspor A.Ş.", "away": "Galatasaray A.Ş." },
+                { "home": "F. Karagümrük A.Ş.", "away": "Gençlerbirliği" },
+                { "home": "Kayserispor F.A.Ş.", "away": "İ. Eyüpspor" },
+                { "home": "Antalyaspor A.Ş.", "away": "C. Alanyaspor" },
+                { "home": "Kasımpaşa A.Ş.", "away": "Kocaelispor" },
+                { "home": "Gaziantep F.K. A.Ş.", "away": "Beşiktaş A.Ş." },
+                { "home": "Fenerbahçe A.Ş.", "away": "R. Başakşehir F.K." }
+            ]
+        },
+        {
+            "week": 33,
+            "matches": [
+                { "home": "Beşiktaş A.Ş.", "away": "Trabzonspor A.Ş." },
+                { "home": "Konyaspor", "away": "Fenerbahçe A.Ş." },
+                { "home": "C. Alanyaspor", "away": "Kayserispor F.A.Ş." },
+                { "home": "Galatasaray A.Ş.", "away": "Antalyaspor A.Ş." },
+                { "home": "Gençlerbirliği", "away": "Kasımpaşa A.Ş." },
+                { "home": "R. Başakşehir F.K.", "away": "Samsunspor A.Ş." },
+                { "home": "Göztepe A.Ş.", "away": "Gaziantep F.K. A.Ş." },
+                { "home": "Kocaelispor", "away": "F. Karagümrük A.Ş." },
+                { "home": "İ. Eyüpspor", "away": "Ç. Rizespor A.Ş." }
+            ]
+        },
+        {
+            "week": 34,
+            "matches": [
+                { "home": "Fenerbahçe A.Ş.", "away": "İ. Eyüpspor" },
+                { "home": "Samsunspor A.Ş.", "away": "Göztepe A.Ş." },
+                { "home": "Kayserispor F.A.Ş.", "away": "Konyaspor" },
+                { "home": "Kasımpaşa A.Ş.", "away": "Galatasaray A.Ş." },
+                { "home": "Trabzonspor A.Ş.", "away": "Gençlerbirliği" },
+                { "home": "F. Karagümrük A.Ş.", "away": "C. Alanyaspor" },
+                { "home": "Antalyaspor A.Ş.", "away": "Kocaelispor" },
+                { "home": "Ç. Rizespor A.Ş.", "away": "Beşiktaş A.Ş." },
+                { "home": "Gaziantep F.K. A.Ş.", "away": "R. Başakşehir F.K." }
+            ]
+        }
+    ]
+} 

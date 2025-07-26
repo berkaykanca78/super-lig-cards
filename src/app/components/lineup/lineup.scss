@@ -1,0 +1,3529 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #0f172a;
+    min-height: 100vh;
+    color: white;
+}
+
+/* Lineup Wrapper with Scroll Functionality */
+.lineup-wrapper {
+    height: calc(100vh - 40px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(230, 0, 18, 0.8) transparent;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #e60012 80%, #a80000 100%);
+        border-radius: 2.5px;
+        border: none;
+        min-height: 40px;
+        transition: all 0.3s ease;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #e60012 100%, #a80000 100%);
+        box-shadow: 0 0 2px rgba(230, 0, 18, 0.1);
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 2.5px;
+        margin: 0;
+    }
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+    min-height: calc(100vh - 40px);
+    box-sizing: border-box;
+}
+
+/* Bench Section */
+.position-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #E60012;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.bench-placeholder {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+}
+
+.left-panel {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.right-panel {
+    flex: 1;
+    background: linear-gradient(to bottom,
+            #2d5a27 0%,
+            #1e4f14 25%,
+            #2d5a27 50%,
+            #1e4f14 75%,
+            #2d5a27 100%);
+    position: relative;
+    border-radius: 12px;
+    border: 4px solid rgba(255, 255, 255, 0.8);
+    min-height: 800px;
+    box-shadow:
+        0 0 20px rgba(0, 0, 0, 0.3),
+        inset 0 0 50px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.field-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+#cardContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+#cardContainer .player-card {
+    pointer-events: all;
+    position: absolute;
+    transform-origin: center;
+    transition: transform 0.2s ease;
+    z-index: 50;
+}
+
+/* Saha çizgileri */
+.field-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Çim deseni */
+.right-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(45deg,
+            transparent,
+            transparent 40px,
+            rgba(255, 255, 255, 0.03) 40px,
+            rgba(255, 255, 255, 0.03) 80px);
+    pointer-events: none;
+}
+
+.right-panel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(-45deg,
+            transparent,
+            transparent 40px,
+            rgba(255, 255, 255, 0.03) 40px,
+            rgba(255, 255, 255, 0.03) 80px);
+    pointer-events: none;
+}
+
+/* Orta saha çemberi */
+.center-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+}
+
+/* Orta saha çizgisi */
+.field-center-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%);
+}
+
+/* Ceza sahaları */
+.penalty-area-top,
+.penalty-area-bottom {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 25%;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.penalty-area-top {
+    top: 0;
+}
+
+.penalty-area-bottom {
+    bottom: 0;
+}
+
+/* Kaleler */
+.goal-area-top,
+.goal-area-bottom {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 12%;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.goal-area-top {
+    top: 0;
+}
+
+.goal-area-bottom {
+    bottom: 0;
+}
+
+/* Kaleler */
+.goal-post-top,
+.goal-post-bottom {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22%;
+    height: 4%;
+    border: 3px solid rgba(255, 255, 255, 1);
+    box-shadow:
+        0 0 15px rgba(255, 255, 255, 0.5),
+        0 0 30px rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 10;
+}
+
+.goal-post-top {
+    top: -4%;
+}
+
+.goal-post-bottom {
+    bottom: -4%;
+}
+
+/* Kale Fileleri */
+.goal-net-top,
+.goal-net-bottom {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22%;
+    height: 8%;
+    background-image:
+        repeating-linear-gradient(90deg,
+            transparent,
+            transparent 8px,
+            rgba(255, 255, 255, 0.15) 8px,
+            rgba(255, 255, 255, 0.15) 16px),
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 8px,
+            rgba(255, 255, 255, 0.15) 8px,
+            rgba(255, 255, 255, 0.15) 16px);
+    pointer-events: none;
+    z-index: 9;
+}
+
+.goal-net-top {
+    top: -12%;
+    border-left: 3px solid rgba(255, 255, 255, 0.9);
+    border-right: 3px solid rgba(255, 255, 255, 0.9);
+    border-top: 3px solid rgba(255, 255, 255, 0.9);
+    perspective: 100px;
+    transform: translateX(-50%) rotateX(60deg);
+    transform-origin: bottom;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.goal-net-bottom {
+    bottom: -12%;
+    border-left: 3px solid rgba(255, 255, 255, 0.9);
+    border-right: 3px solid rgba(255, 255, 255, 0.9);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.9);
+    perspective: 100px;
+    transform: translateX(-50%) rotateX(-60deg);
+    transform-origin: top;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Kale Direkleri */
+.goal-post-top::before,
+.goal-post-top::after,
+.goal-post-bottom::before,
+.goal-post-bottom::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 8%;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.goal-post-top::before {
+    left: 0;
+    top: 0;
+}
+
+.goal-post-top::after {
+    right: 0;
+    top: 0;
+}
+
+.goal-post-bottom::before {
+    left: 0;
+    bottom: 0;
+}
+
+.goal-post-bottom::after {
+    right: 0;
+    bottom: 0;
+}
+
+/* Köşe yayları */
+.corner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.corner-top-left {
+    top: -2px;
+    left: -2px;
+    border-radius: 0 0 30px 0;
+    border-left: none;
+    border-top: none;
+}
+
+.corner-top-right {
+    top: -2px;
+    right: -2px;
+    border-radius: 0 0 0 30px;
+    border-right: none;
+    border-top: none;
+}
+
+.corner-bottom-left {
+    bottom: -2px;
+    left: -2px;
+    border-radius: 0 30px 0 0;
+    border-left: none;
+    border-bottom: none;
+}
+
+.corner-bottom-right {
+    bottom: -2px;
+    right: -2px;
+    border-radius: 30px 0 0 0;
+    border-right: none;
+    border-bottom: none;
+}
+
+/* Formasyon noktaları */
+.formation-point {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+}
+
+.formation-point.active {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.formation-point.highlight {
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+}
+
+/* Kart container stilleri */
+.card-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.card-container .player-card {
+    position: absolute;
+    pointer-events: auto;
+    cursor: move;
+    transition: all 0.15s ease-out;
+    transform: translate(-50%, -50%) scale(0.4) !important;
+    z-index: 1;
+    will-change: transform;
+    touch-action: none;
+}
+
+.card-container .player-card:hover {
+    transform: translate(-50%, -50%) scale(0.45) !important;
+    z-index: 1000;
+    transition: all 0.2s ease-out;
+}
+
+.card-container .player-card.dragging {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(0.4) !important;
+    z-index: 1001;
+    transition: none;
+    pointer-events: none;
+}
+
+.delete-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    background: rgba(220, 38, 38, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0.9) translateY(5px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    backdrop-filter: blur(4px);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* Show delete button on hover for all player cards */
+.player-card:hover .delete-button,
+#cardContainer .player-card:hover .delete-button,
+.manager-area:hover .delete-button,
+.bench-slot:hover .player-card .delete-button {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.delete-button:hover {
+    background: rgba(220, 38, 38, 1);
+    transform: scale(1.1) translateY(0) !important;
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .delete-button {
+        opacity: 1 !important;
+        transform: none !important;
+        width: 18px;
+        height: 18px;
+        top: -6px;
+        right: -6px;
+        background: #ff3b3b;
+        border: 1.5px solid #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        font-size: 12px;
+        display: flex !important;
+        visibility: visible !important;
+    }
+
+    // Sahadaki kartlar mobilde yuvarlak olsun
+    #cardContainer .player-card {
+        border-radius: 50% !important;
+        width: 60px !important;
+        height: 60px !important;
+        transform: scale(0.7) !important;
+        overflow: hidden;
+    }
+
+    #cardContainer .player-card .player-image-container,
+    #cardContainer .player-card .player-image {
+        display: none;
+    }
+
+    #cardContainer .player-card .player-info {
+        background: none;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #cardContainer .player-card .player-info .player-name {
+        position: absolute !important;
+        bottom: 4px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        font-size: 9px !important;
+        font-weight: 700 !important;
+        text-align: center !important;
+        color: #1a1a1a !important;
+        white-space: nowrap !important;
+        max-width: 90% !important;
+        width: auto !important;
+        z-index: 5 !important;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.8) !important;
+        background: rgba(255, 255, 255, 0.8) !important;
+        padding: 1px 4px !important;
+        border-radius: 8px !important;
+        letter-spacing: -0.2px !important;
+    }
+
+    #cardContainer .player-card .rating-badge {
+        transform: scale(0.6);
+        top: 4px;
+        left: 4px;
+        z-index: 3;
+        position: absolute;
+    }
+
+    #cardContainer .player-card .position-badge,
+    #cardContainer .player-card .player-stats,
+    #cardContainer .player-card .player-details,
+    #cardContainer .player-card .captain-badge {
+        display: none;
+    }
+
+    // Soldaki kartlarda + butonunu mobilde göster
+    :host ::ng-deep .cards-container .player-card .add-button {
+        display: block !important;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 20px;
+        height: 20px;
+        background: #22c55e;
+        border: none;
+        border-radius: 50%;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+    }
+
+    :host ::ng-deep .cards-container .player-card .add-button:hover {
+        background: #16a34a;
+        transform: scale(1.1);
+    }
+}
+
+.bench-slot .player-card .delete-button {
+    opacity: 0;
+    background: rgba(220, 38, 38, 0.9);
+    transform: scale(0.9) translateY(5px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+}
+
+.bench-slot:hover .player-card .delete-button {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.bench-slot:hover .player-card .delete-button:hover {
+    background: rgba(220, 38, 38, 1);
+    transform: scale(1.1) translateY(0) !important;
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    :host ::ng-deep .bench-slot .player-card {
+        border-radius: 50%;
+        overflow: hidden;
+        width: 80px !important;
+        height: 80px !important;
+        transform: none !important;
+        margin: 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        background: linear-gradient(145deg, #f3f4f6 0%, #e5e7eb 100%);
+    }
+
+    :host ::ng-deep .bench-slot .player-card .player-image-container,
+    :host ::ng-deep .bench-slot .player-card .player-image {
+        display: none;
+    }
+
+    :host ::ng-deep .bench-slot .player-card .player-info {
+        background: none;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    :host ::ng-deep .bench-slot .player-card .player-info .player-name {
+        position: absolute !important;
+        top: 95px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        text-align: center !important;
+        color: #1a1a1a !important;
+        white-space: nowrap !important;
+        max-width: 90% !important;
+        width: auto !important;
+        z-index: 5 !important;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.8) !important;
+        background: rgba(255, 255, 255, 0.8) !important;
+        padding: 2px 6px !important;
+        border-radius: 10px !important;
+        letter-spacing: -0.2px !important;
+    }
+
+    :host ::ng-deep .bench-slot .player-card .rating-badge {
+        transform: scale(0.8);
+        left: 8px;
+        z-index: 3;
+        position: absolute;
+    }
+
+    :host ::ng-deep .bench-slot .player-card .position-badge,
+    :host ::ng-deep .bench-slot .player-card .player-stats,
+    :host ::ng-deep .bench-slot .player-card .player-details,
+    :host ::ng-deep .bench-slot .player-card .captain-badge,
+    :host ::ng-deep .bench-slot .player-card .add-button {
+        display: none;
+    }
+
+    :host ::ng-deep .bench-slot .player-card .delete-button {
+        transform: scale(0.8);
+        z-index: 3;
+        position: absolute;
+    }
+
+    :host ::ng-deep .bench-slot {
+        width: 80px !important;
+        height: 80px !important;
+        margin: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        border-radius: 50%;
+    }
+
+    :host ::ng-deep .bench-positions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    :host ::ng-deep .bench-slot .player-card,
+    :host ::ng-deep .bench-slot {
+        width: 70px !important;
+        height: 70px !important;
+    }
+
+    :host ::ng-deep .bench-slot .player-card .player-info .player-name {
+        font-size: 10px !important;
+        padding: 1px 4px !important;
+    }
+
+    :host ::ng-deep .bench-slot .player-card .rating-badge {
+        transform: scale(0.7);
+        left: 3px;
+        bottom: 76px;
+    }
+
+    :host ::ng-deep .bench-slot .player-card .delete-button {
+        transform: none !important;
+        top: 61px !important;
+        right: 8px !important;
+        width: 20px !important;
+        height: 20px !important;
+        background: #ff3b3b !important;
+        border: 2px solid #fff !important;
+        border-radius: 50% !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+        font-size: 14px !important;
+        font-weight: bold !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: white !important;
+        cursor: pointer !important;
+        z-index: 100 !important;
+        opacity: 1 !important;
+        position: absolute !important;
+    }
+}
+
+@media (max-width: 360px) {
+    :host ::ng-deep .bench-slot .player-card,
+    :host ::ng-deep .bench-slot {
+        width: 65px !important;
+        height: 65px !important;
+    }
+
+    :host ::ng-deep .bench-slot .player-card .player-info .player-name {
+        font-size: 9px !important;
+        bottom: 4px !important;
+    }
+
+    :host ::ng-deep .bench-slot .player-card .rating-badge {
+        transform: scale(0.6);
+        left: 4px;
+    }
+
+    :host ::ng-deep .bench-slot .player-card .delete-button {
+        transform: scale(0.6);
+    }
+}
+
+.team-selector,
+.formation-controls {
+    background: #334155;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.team-selector:hover,
+.formation-controls:hover {
+    background: #475569;
+}
+
+.team-selector select,
+.position-filter select,
+.formation-select {
+    padding: 8px 12px;
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    flex: 1;
+    transition: all 0.3s ease;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.team-selector select:hover,
+.position-filter select:hover,
+.formation-select:hover {
+    background: #334155;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.team-selector select option,
+.position-filter select option,
+.formation-select option {
+    background: #334155;
+    color: white;
+    padding: 4px;
+}
+
+.cards-container {
+    flex: 1;
+    background: #334155;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    overflow-y: auto;
+    max-height: calc(100vh - 200px);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+    align-content: start;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.cards-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cards-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.cards-container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+    padding: 10px;
+    width: 100%;
+}
+
+:host ::ng-deep .player-card {
+    width: 140px;
+    height: 200px;
+    background: linear-gradient(135deg, #2c2c54 0%, #40407a 50%, #2c2c54 100%);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+:host ::ng-deep .player-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+:host ::ng-deep .rating-badge {
+    position: absolute;
+    left: 8px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    border-radius: 8px;
+    padding: 4px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+:host ::ng-deep .rating-position {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+:host ::ng-deep .rating-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #000;
+    line-height: 1;
+}
+
+:host ::ng-deep .rating-type {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #000;
+    margin-top: 2px;
+}
+
+:host ::ng-deep .position-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 2;
+}
+
+/* Teknik direktör kartları için özel stil */
+:host ::ng-deep .player-card[data-position="MAN"] .position-badge {
+    font-size: 10px;
+    right: 0px;
+    padding: 3px 6px;
+    top: 12px;
+    letter-spacing: -0.3px;
+}
+
+:host ::ng-deep .player-image-container {
+    width: 100%;
+    height: 120px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 23px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+:host ::ng-deep .player-image {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+:host ::ng-deep .player-image img {
+    width: 100%;
+    height: 130%;
+    object-fit: cover;
+    object-position: top center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:host ::ng-deep .player-info {
+    padding: 6px;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%);
+    border-radius: 0 0 12px 12px;
+}
+
+:host ::ng-deep .player-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 4px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+:host ::ng-deep .player-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 4px;
+    padding: 0 5px;
+}
+
+:host ::ng-deep .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+}
+
+:host ::ng-deep .stat-value {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #FFD700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    line-height: 1;
+}
+
+:host ::ng-deep .stat-label {
+    font-size: 0.55rem;
+    font-weight: 500;
+    color: #fff;
+    opacity: 0.8;
+    line-height: 1;
+}
+
+:host ::ng-deep .player-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0 5px;
+}
+
+.country-flag {
+    width: 16px;
+    height: 12px;
+    margin-right: 4px;
+    vertical-align: middle;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card-glow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, #FF6B00, #FF8F00, #FFA726, #FF6B00);
+    border-radius: 20px;
+    z-index: -2;
+    opacity: 0;
+    transition: all 0.3s ease;
+    filter: blur(15px);
+}
+
+:host ::ng-deep .player-card:hover .card-glow {
+    opacity: 0.6;
+    animation: glowPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+.card-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.1) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    transform: translateY(-100%) rotate(45deg);
+    animation: shine 3s infinite;
+    z-index: 1;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateY(-100%) rotate(45deg);
+    }
+
+    20% {
+        transform: translateY(100%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateY(100%) rotate(45deg);
+    }
+}
+
+.no-cards-message {
+    text-align: center;
+    padding: 20px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin: 10px;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .left-panel {
+        width: 100%;
+        height: auto;
+        min-height: 400px;
+        max-height: none;
+    }
+
+    .cards-container {
+        height: auto;
+        max-height: none;
+        min-height: 200px;
+        overflow-y: auto;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    .right-panel {
+        min-height: 500px;
+        margin-top: 15px;
+    }
+
+    :host ::ng-deep .player-card {
+        position: relative;
+        transform: scale(0.9);
+        margin: 0 auto;
+    }
+
+    .add-to-field-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 5px;
+    }
+
+    .team-selector,
+    .formation-controls {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .team-selector select,
+    .position-filter select,
+    .formation-select {
+        width: 100%;
+        min-width: 0;
+        flex-shrink: 1;
+    }
+
+    .bench-section {
+        padding: 10px 5px;
+    }
+
+    .bench-positions {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 5px;
+    }
+
+    .bench-slot {
+        height: 80px;
+    }
+
+    :host ::ng-deep .player-card {
+        transform: scale(0.85);
+    }
+
+    .field-container {
+        min-height: 400px;
+    }
+
+    .center-circle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .penalty-area-top,
+    .penalty-area-bottom {
+        width: 70%;
+        height: 20%;
+    }
+
+    .goal-area-top,
+    .goal-area-bottom {
+        width: 40%;
+        height: 10%;
+    }
+
+    :host ::ng-deep #cardContainer .player-card {
+        width: 50px !important;
+        height: 50px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        position: absolute !important;
+        transform-origin: center !important;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4) !important;
+        overflow: hidden !important;
+        transform: translate(-50%, -50%) scale(1) !important;
+        border: 3px solid rgba(255, 255, 255, 0.9) !important;
+        aspect-ratio: 1 !important;
+        min-width: 50px !important;
+        min-height: 50px !important;
+        max-width: 50px !important;
+        max-height: 50px !important;
+    }
+
+    :host ::ng-deep #cardContainer .player-card .player-image-container,
+    :host ::ng-deep #cardContainer .player-card .player-stats,
+    :host ::ng-deep #cardContainer .player-card .player-details,
+    :host ::ng-deep #cardContainer .player-card .card-shine,
+    :host ::ng-deep #cardContainer .player-card .card-glow,
+    :host ::ng-deep #cardContainer .player-card .country-flag,
+    :host ::ng-deep #cardContainer .player-card .position-badge,
+    :host ::ng-deep #cardContainer .player-card .rating-type {
+        display: none !important;
+    }
+
+    :host ::ng-deep #cardContainer .player-card .player-info {
+        padding: 6px;
+        position: relative;
+        z-index: 2;
+        background: none !important;
+        border-radius: 0 0 12px 12px;
+    }
+
+    :host ::ng-deep #cardContainer .player-card .captain-badge {
+        display: none !important;
+    }
+
+    /* Ensure perfect circle shape */
+    :host ::ng-deep #cardContainer .player-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: inherit;
+        z-index: 1;
+    }
+
+    /* Ensure all content is properly contained */
+    :host ::ng-deep #cardContainer .player-card > * {
+        position: relative;
+        z-index: 2;
+    }
+
+    :host ::ng-deep #cardContainer .player-card .delete-button {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        width: 18px;
+        height: 18px;
+        background-color: #ff4444;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 100;
+        border: 2px solid white;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        font-size: 12px;
+        font-weight: bold;
+        color: white;
+    }
+
+    :host ::ng-deep #cardContainer .player-card .rating-badge {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: transparent !important;
+        z-index: 2 !important;
+    }
+
+    :host ::ng-deep #cardContainer .player-card .rating-number {
+        font-size: 18px !important;
+        font-weight: 900 !important;
+        line-height: 1 !important;
+        margin: 0 !important;
+        color: #fff !important;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9) !important;
+        text-align: center !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    :host ::ng-deep #cardContainer .player-card .player-name {
+        position: absolute !important;
+        bottom: -20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        font-size: 8px !important;
+        font-weight: 700 !important;
+        text-align: center !important;
+        color: #fff !important;
+        white-space: normal !important;
+        max-width: 60px !important;
+        width: auto !important;
+        z-index: 5 !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        line-height: 1.2 !important;
+    }
+
+    :host ::ng-deep #cardContainer .player-card .player-number {
+        position: absolute !important;
+        top: -10px !important;
+        right: -10px !important;
+        width: 16px !important;
+        height: 16px !important;
+        font-size: 10px !important;
+        font-weight: 700 !important;
+        color: #fff !important;
+        background: rgba(0, 0, 0, 0.7) !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        z-index: 5 !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    }
+
+    .formation-point {
+        width: 40px !important;
+        height: 40px !important;
+        background: rgba(255, 255, 255, 0.15) !important;
+        border: 2px dashed rgba(255, 255, 255, 0.4) !important;
+        font-size: 10px !important;
+        border-radius: 50% !important;
+    }
+
+    .formation-point.occupied {
+        background: rgba(76, 175, 80, 0.2) !important;
+        border: 2px solid rgba(76, 175, 80, 0.6) !important;
+    }
+
+    .formation-point.highlight {
+        background: rgba(255, 255, 255, 0.3) !important;
+        border: 2px solid rgba(255, 255, 255, 0.8) !important;
+    }
+
+    .delete-button {
+        top: 4px;
+        right: 4px;
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+    }
+
+    /* Takım renkleri - mobil için */
+    :host ::ng-deep #cardContainer .player-card.galatasaray {
+        background: linear-gradient(135deg, #E30613 0%, #FDB912 100%) !important;
+    }
+
+    /* Additional mobile optimizations for perfect circles */
+    @media (max-width: 480px) {
+        :host ::ng-deep #cardContainer .player-card {
+            width: 50px !important;
+            height: 50px !important;
+            min-width: 50px !important;
+            min-height: 50px !important;
+            max-width: 50px !important;
+            max-height: 50px !important;
+        }
+
+        :host ::ng-deep #cardContainer .player-card .rating-number {
+            font-size: 16px !important;
+        }
+
+        :host ::ng-deep #cardContainer .player-card .player-name {
+            font-size: 8px !important;
+            bottom: -20px !important;
+            max-width: 60px !important;
+            white-space: normal !important;
+            line-height: 1.2 !important;
+            text-align: center !important;
+            overflow: visible !important;
+            text-overflow: unset !important;
+        }
+
+        .formation-point {
+            width: 35px !important;
+            height: 35px !important;
+        }
+
+        :host ::ng-deep #cardContainer .player-card .delete-button {
+            top: 4px;
+            right: 4px;
+            width: 13px;
+            height: 13px;
+            font-size: 10px;
+        }
+    }
+
+    @media (max-width: 360px) {
+        :host ::ng-deep #cardContainer .player-card {
+            width: 40px !important;
+            height: 40px !important;
+            min-width: 40px !important;
+            min-height: 40px !important;
+            max-width: 40px !important;
+            max-height: 40px !important;
+        }
+
+        :host ::ng-deep #cardContainer .player-card .rating-number {
+            font-size: 14px !important;
+        }
+
+        :host ::ng-deep #cardContainer .player-card .player-name {
+            font-size: 7px !important;
+            bottom: -18px !important;
+            max-width: 55px !important;
+            white-space: normal !important;
+            line-height: 1.2 !important;
+            text-align: center !important;
+            overflow: visible !important;
+            text-overflow: unset !important;
+        }
+
+        .formation-point {
+            width: 30px !important;
+            height: 30px !important;
+        }
+    }
+
+    :host ::ng-deep #cardContainer .player-card.fenerbahce {
+        background: linear-gradient(135deg, #FFED00 0%, #001E87 100%) !important;
+    }
+
+    :host ::ng-deep #cardContainer .player-card.besiktas {
+        background: linear-gradient(135deg, #000000 0%, #FFFFFF 100%) !important;
+    }
+
+    :host ::ng-deep #cardContainer .player-card.trabzonspor {
+        background: linear-gradient(135deg, #7B1FA2 0%, #90CAF9 100%) !important;
+    }
+
+    :host ::ng-deep #cardContainer .player-card.basaksehir {
+        background: linear-gradient(135deg, #FF6B00 0%, #1A237E 100%) !important;
+    }
+
+    :host ::ng-deep #cardContainer .player-card.antalyaspor {
+        background: linear-gradient(135deg, #E53935 0%, #FFFFFF 100%) !important;
+    }
+
+    :host ::ng-deep #cardContainer .player-card.konyaspor {
+        background: linear-gradient(135deg, #43A047 0%, #FFFFFF 100%) !important;
+    }
+
+    :host ::ng-deep #cardContainer .player-card.alanyaspor {
+        background: linear-gradient(135deg, #FF6F00 0%, #1B5E20 100%) !important;
+    }
+
+    :host ::ng-deep #cardContainer .player-card.kayserispor {
+        background: linear-gradient(135deg, #FFD700 0%, #B71C1C 100%) !important;
+    }
+
+    :host ::ng-deep #cardContainer .player-card.kasimpasa {
+        background: linear-gradient(135deg, #0D47A1 0%, #FFFFFF 100%) !important;
+    }
+
+    :host ::ng-deep #cardContainer .player-card.karagumruk {
+        background: linear-gradient(135deg, #B71C1C 0%, #000000 100%) !important;
+    }
+
+    #cardContainer .player-card.gaziantep {
+        background: linear-gradient(135deg, #B71C1C 0%, #000000 100%) !important;
+    }
+
+    #cardContainer .player-card.rizespor {
+        background: linear-gradient(135deg, #1B5E20 0%, #0D47A1 100%) !important;
+    }
+
+    #cardContainer .player-card.samsunspor {
+        background: linear-gradient(135deg, #B71C1C 0%, #FFFFFF 100%) !important;
+    }
+
+    #cardContainer .player-card.kocaelispor {
+        background: linear-gradient(135deg, #43A047 0%, #000000 100%) !important;
+    }
+
+    #cardContainer .player-card.eyupspor {
+        background: linear-gradient(135deg, #795548 0%, #FFFFFF 100%) !important;
+    }
+
+    /* Saha içindeki manager alanını gizle */
+    .field-container .manager-area {
+        display: none;
+    }
+
+    /* Mobil için yeni manager alanı */
+    .right-panel .manager-area {
+        position: absolute;
+        bottom: -90px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 160px;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(8px);
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        z-index: 900;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+
+    .right-panel .manager-area::before {
+        content: '';
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 15px solid rgba(0, 0, 0, 0.75);
+        z-index: 901;
+    }
+
+    .right-panel .manager-area .player-card {
+        transform: scale(0.75) !important;
+        margin: 0 !important;
+    }
+
+    .right-panel .manager-area.drag-over {
+        border-color: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    :host ::ng-deep .right-panel .manager-area.drag-over::before {
+        border-bottom-color: rgba(255, 255, 255, 0.15);
+    }
+
+    :host ::ng-deep .right-panel .manager-area .manager-placeholder {
+        color: #ffffff;
+        text-align: center;
+        font-size: 16px;
+        opacity: 0.7;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Mobilde home butonunun konumunu ayarla */
+    .home-button {
+        bottom: 20px;
+    }
+
+    .mobile-manager-section {
+        display: block;
+        width: 100%;
+        height: 200px;
+        margin-top: 20px;
+        background: linear-gradient(to bottom,
+                rgba(45, 90, 39, 0.9) 0%,
+                rgba(30, 79, 20, 0.9) 100%);
+        border-radius: 12px;
+        padding: 15px;
+        position: relative;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        box-shadow:
+            0 4px 15px rgba(0, 0, 0, 0.2),
+            inset 0 0 30px rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px;
+    }
+
+    .mobile-manager-section .manager-area {
+        position: relative;
+        top: auto;
+        left: auto;
+        bottom: auto;
+        right: auto;
+        transform: none;
+        width: 140px;
+        height: 180px;
+        margin: 0 auto;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(8px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .mobile-manager-section .manager-area .player-card {
+        transform: scale(0.85) !important;
+        margin: 0 !important;
+        position: relative !important;
+        width: 135px !important;
+        height: 190px !important;
+    }
+
+    :host ::ng-deep .mobile-manager-section .manager-area .player-card .delete-button {
+        position: absolute;
+        top: 33px;
+        right: 2px;
+        width: 18px;
+        height: 18px;
+        background-color: #ff4444;
+        border-radius: 50%;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 100;
+        border: 2px solid white;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        font-size: 12px;
+        font-weight: bold;
+        color: white;
+        /* Always visible on mobile */
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+
+    .mobile-manager-section .manager-area .player-card .player-image-container {
+        height: 100px;
+    }
+
+    .mobile-manager-section .manager-area .player-card .player-info {
+        padding: 4px;
+    }
+
+    .mobile-manager-section .manager-area .player-card .player-stats {
+        margin-bottom: 2px;
+    }
+
+    .mobile-manager-section .manager-area .player-card .player-name {
+        font-size: 0.8rem;
+        margin-bottom: 2px;
+    }
+
+    .mobile-manager-section .manager-area .player-card .stat-value {
+        font-size: 0.8rem;
+    }
+
+    .mobile-manager-section .manager-area .player-card .stat-label {
+        font-size: 0.5rem;
+    }
+
+    .mobile-manager-section .manager-area .player-card .player-details {
+        font-size: 0.65rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 3px;
+    }
+
+    .left-panel {
+        padding: 10px;
+    }
+    
+    /* Ensure mobile manager delete button is always visible */
+    .mobile-manager-section .manager-area .player-card .delete-button {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
+        transform: none !important;
+        z-index: 1000 !important;
+        /* Make it slightly larger for better touch interaction */
+        width: 20px !important;
+        height: 20px !important;
+        font-size: 13px !important;
+    }
+
+    .team-selector,
+    .formation-controls {
+        padding: 8px;
+        gap: 6px;
+    }
+
+    .team-selector select,
+    .position-filter select,
+    .formation-select {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+
+    .bench-positions {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .player-card {
+        transform: scale(0.8);
+    }
+
+    .field-container {
+        min-height: 350px;
+    }
+
+    .home-button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .home-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .formation-point {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 360px) {
+    .bench-positions {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .player-card {
+        transform: scale(0.75);
+    }
+
+    .field-container {
+        min-height: 300px;
+    }
+}
+
+/* Takıma özel stiller */
+:host ::ng-deep .player-card.galatasaray {
+    background: linear-gradient(135deg, #8B0000 0%, #FF6B00 50%, #8B0000 100%);
+}
+
+:host ::ng-deep .player-card.fenerbahce {
+    background: linear-gradient(135deg, #FFD700 0%, #0066FF 50%, #FFD700 100%);
+}
+
+:host ::ng-deep .player-card.besiktas {
+    background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 50%, #1a1a1a 100%);
+}
+
+:host ::ng-deep .player-card.trabzonspor {
+    background: linear-gradient(135deg, #722F37 0%, #2E3A87 50%, #722F37 100%);
+}
+
+:host ::ng-deep .player-card.kasimpasa {
+    background: linear-gradient(135deg, #0066CC 0%, #003399 50%, #0066CC 100%);
+}
+
+:host ::ng-deep .player-card.konyaspor {
+    background: linear-gradient(135deg, #FFFFFF 0%, #009245 50%, #FFFFFF 100%);
+    color: #000000;
+    border: 2px solid #009245;
+}
+
+:host ::ng-deep .player-card.konyaspor .rating-badge {
+    background: linear-gradient(145deg, #009245 0%, #007A3D 100%);
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.konyaspor .position-badge {
+    background: #009245;
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.alanyaspor {
+    background: linear-gradient(135deg, #F58220 0%, #000000 50%, #F58220 100%);
+    color: #FFFFFF;
+    border: 2px solid #F58220;
+}
+
+:host ::ng-deep .player-card.alanyaspor .rating-badge {
+    background: linear-gradient(145deg, #F58220 0%, #000000 100%);
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.alanyaspor .position-badge {
+    background: #F58220;
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.kayserispor {
+    background: linear-gradient(135deg, #FF0000 0%, #FFD700 50%, #FF0000 100%);
+    color: #000000;
+    border: 2px solid #FF0000;
+}
+
+:host ::ng-deep .player-card.kayserispor .rating-badge {
+    background: linear-gradient(145deg, #FF0000 0%, #CC0000 100%);
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.kayserispor .position-badge {
+    background: #FF0000;
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.antalyaspor {
+    background: linear-gradient(135deg, #FF0000 0%, #FFFFFF 50%, #FF0000 100%);
+    color: #000000;
+    border: 2px solid #FF0000;
+}
+
+:host ::ng-deep .player-card.antalyaspor .rating-badge {
+    background: linear-gradient(145deg, #FF0000 0%, #CC0000 100%);
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.antalyaspor .position-badge {
+    background: #FF0000;
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.kocaelispor {
+    background: linear-gradient(135deg, #006633 0%, #FFFFFF 50%, #006633 100%);
+    color: #000000;
+    border: 2px solid #006633;
+}
+
+:host ::ng-deep .player-card.kocaelispor .rating-badge {
+    background: linear-gradient(145deg, #006633 0%, #004D27 100%);
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.kocaelispor .position-badge {
+    background: #006633;
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.genclerbirligi {
+    background: linear-gradient(135deg, #FF0000 0%, #000000 50%, #FF0000 100%);
+    color: #FFFFFF;
+    border: 2px solid #FF0000;
+}
+
+:host ::ng-deep .player-card.genclerbirligi .rating-badge {
+    background: linear-gradient(145deg, #FF0000 0%, #CC0000 100%);
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.genclerbirligi .position-badge {
+    background: #FF0000;
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.karagumruk {
+    background: linear-gradient(135deg, #FF0000 0%, #000000 50%, #FF0000 100%);
+    color: #FFFFFF;
+    border: 2px solid #FF0000;
+}
+
+:host ::ng-deep .player-card.karagumruk .rating-badge {
+    background: linear-gradient(145deg, #FF0000 0%, #CC0000 100%);
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.karagumruk .position-badge {
+    background: #FF0000;
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.gaziantepfk {
+    background: linear-gradient(135deg, #FF0000 0%, #000000 50%, #FF0000 100%);
+    color: #FFFFFF;
+    border: 2px solid #FF0000;
+}
+
+:host ::ng-deep .player-card.gaziantep {
+    background: linear-gradient(135deg, #E31E24 0%, #000000 50%, #E31E24 100%);
+    color: #FFFFFF;
+    border: 2px solid #E31E24;
+}
+
+:host ::ng-deep .player-card.gaziantep .rating-badge {
+    background: linear-gradient(145deg, #E31E24 0%, #000000 100%);
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.gaziantep .position-badge {
+    background: #E31E24;
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.eyupspor {
+    background: linear-gradient(135deg, #800080 0%, #FFD700 50%, #800080 100%);
+    color: #FFFFFF;
+    border: 2px solid #FFD700;
+}
+
+:host ::ng-deep .player-card.eyupspor .rating-badge {
+    background: linear-gradient(145deg, #800080 0%, #4B0082 100%);
+    color: #FFD700;
+}
+
+:host ::ng-deep .player-card.eyupspor .position-badge {
+    background: #800080;
+    color: #FFD700;
+    border: 1px solid #FFD700;
+}
+
+:host ::ng-deep .player-card.eyupspor .player-name {
+    color: #FFD700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+:host ::ng-deep .player-card.rizespor {
+    background: linear-gradient(135deg, #00529F 0%, #FFFFFF 50%, #00529F 100%);
+    color: #000000;
+    border: 2px solid #00529F;
+}
+
+:host ::ng-deep .player-card.rizespor .rating-badge {
+    background: linear-gradient(145deg, #00529F 0%, #003D7A 100%);
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.rizespor .position-badge {
+    background: #00529F;
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.goztepe {
+    background: linear-gradient(135deg, #FBBD0F 0%, #C60D21 50%, #FBBD0F 100%);
+    color: #000000;
+    border: 2px solid #FBBD0F;
+}
+
+:host ::ng-deep .player-card.goztepe .rating-badge {
+    background: linear-gradient(145deg, #C60D21 0%, #A30A1B 100%);
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.goztepe .position-badge {
+    background: #C60D21;
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.basaksehir {
+    background: linear-gradient(135deg, #FF6B01 0%, #762241 50%, #FF6B01 100%);
+    color: #FFFFFF;
+    border: 2px solid #FF6B01;
+}
+
+:host ::ng-deep .player-card.basaksehir .rating-badge {
+    background: linear-gradient(145deg, #FF6B01 0%, #762241 100%);
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.basaksehir .position-badge {
+    background: #FF6B01;
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.samsunspor {
+    background: linear-gradient(135deg, #FF0000 0%, #FFFFFF 50%, #FF0000 100%);
+    color: #000000;
+    border: 2px solid #FF0000;
+}
+
+:host ::ng-deep .player-card.samsunspor .rating-badge {
+    background: linear-gradient(145deg, #FF0000 0%, #CC0000 100%);
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .player-card.samsunspor .position-badge {
+    background: #FF0000;
+    color: #FFFFFF;
+}
+
+/* Teknik direktör kartları için özel stil */
+.player-card .rating-badge[style*="C0C0C0"] {
+    background: linear-gradient(145deg, #C0C0C0 0%, #A0A0A0 100%) !important;
+}
+
+.player-card .rating-badge[style*="C0C0C0"] .rating-number,
+.player-card .rating-badge[style*="C0C0C0"] .rating-type {
+    color: #000000 !important;
+}
+
+/* Kart parlaması efekti */
+.player-card.galatasaray .card-glow {
+    background: linear-gradient(45deg, #E30613, #FDB912, #E30613);
+}
+
+.player-card.fenerbahce .card-glow {
+    background: linear-gradient(45deg, #273B8A, #FFED00, #273B8A);
+}
+
+.player-card.besiktas .card-glow {
+    background: linear-gradient(45deg, #1A1A1A, #FFFFFF, #1A1A1A);
+}
+
+.player-card.trabzonspor .card-glow {
+    background: linear-gradient(45deg, #7B2539, #86BBD8, #7B2539);
+}
+
+.player-card.kasimpasa .card-glow {
+    background: linear-gradient(45deg, #0066CC, #FFFFFF, #0066CC);
+}
+
+.player-card.konyaspor .card-glow {
+    background: linear-gradient(45deg, #009245, #FFFFFF, #009245);
+}
+
+.player-card.alanyaspor .card-glow {
+    background: linear-gradient(45deg, #F58220, #000000, #F58220);
+}
+
+.player-card.kayserispor .card-glow {
+    background: linear-gradient(45deg, #FF0000, #FFD700, #FF0000);
+}
+
+.player-card.antalyaspor .card-glow {
+    background: linear-gradient(45deg, #FF0000, #FFFFFF, #FF0000);
+}
+
+.player-card.kocaelispor .card-glow {
+    background: linear-gradient(45deg, #006633, #FFFFFF, #006633);
+}
+
+.player-card.genclerbirligi .card-glow {
+    background: linear-gradient(45deg, #FF0000, #000000, #FF0000);
+}
+
+.player-card.karagumruk .card-glow {
+    background: linear-gradient(45deg, #FF0000, #000000, #FF0000);
+}
+
+.player-card.gaziantep .card-glow {
+    background: linear-gradient(45deg, #E31E24, #000000, #E31E24);
+}
+
+.player-card.eyupspor .card-glow {
+    background: linear-gradient(45deg, #800080, #FFD700, #800080);
+}
+
+.player-card.rizespor .card-glow {
+    background: linear-gradient(45deg, #00529F, #FFFFFF, #00529F);
+}
+
+.player-card.goztepe .card-glow {
+    background: linear-gradient(45deg, #FBBD0F, #C60D21, #FBBD0F);
+}
+
+.player-card.basaksehir .card-glow {
+    background: linear-gradient(45deg, #FF6B01, #762241, #FF6B01);
+}
+
+.player-card.samsunspor .card-glow {
+    background: linear-gradient(45deg, #E30613, #FFFFFF, #E30613);
+}
+
+/* Kartların üst üste binmesini engelle */
+.formation-point.occupied {
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+}
+
+/* Yatay çizgi */
+.horizontal-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Formasyon noktası durumları */
+.formation-point.occupied {
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+}
+
+.formation-point.invalid {
+    background: rgba(255, 0, 0, 0.3);
+    border: 2px solid rgba(255, 0, 0, 0.6);
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(-50%, -50%) rotate(-5deg);
+    }
+
+    75% {
+        transform: translate(-50%, -50%) rotate(5deg);
+    }
+}
+
+/* Kart pozisyon göstergeleri */
+.position-indicator {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.formation-point:hover .position-indicator {
+    opacity: 1;
+}
+
+.formation-controls {
+    background: #334155;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.formation-select {
+    padding: 6px 10px;
+    font-size: 13px;
+}
+
+.clear-btn {
+    padding: 8px 12px;
+    background: #dc2626;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 100px;
+}
+
+.clear-btn:hover {
+    background: #ef4444;
+    transform: translateY(-1px);
+}
+
+.clear-btn:active {
+    transform: translateY(0);
+}
+
+.clear-btn::before {
+    content: '🗑️';
+    font-size: 13px;
+}
+
+.manager-area {
+    position: absolute;
+    bottom: 30px;
+    right: 5px;
+    width: 140px;
+    height: 190px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    backdrop-filter: blur(5px);
+}
+
+.manager-area .player-card {
+    transform: scale(1) !important;
+    margin: 0 !important;
+    position: relative !important;
+}
+
+.manager-placeholder {
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0.7;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.manager-area .drag-over {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+:host ::ng-deep .manager-area .delete-button {
+    opacity: 0;
+    background: rgba(220, 38, 38, 0.8);
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+:host ::ng-deep.manager-area:hover .delete-button {
+    opacity: 1;
+    transform: scale(1);
+    position: absolute;
+    top: 33px;
+    right: 2px;
+    width: 18px;
+    height: 18px;
+    background-color: #ff4444;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    border: 2px solid white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+
+.manager-area .delete-button:hover {
+    background: rgba(220, 38, 38, 1);
+    transform: scale(1.1) !important;
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.captain-badge {
+    position: absolute;
+    top: 32px;
+    right: 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+#cardContainer .player-card .captain-badge {
+    z-index: 100;
+    transform: none;
+}
+
+.substitutes-bench {
+    position: absolute;
+    bottom: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
+
+.bench-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.bench-positions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 15px;
+    background: rgba(30, 41, 59, 0.8);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 40px;
+}
+
+.bench-slot {
+    width: 140px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    margin: 10px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    overflow: hidden;
+}
+
+.bench-slot:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-style: solid;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.bench-slot.drag-over {
+    border-style: solid;
+    border-color: rgba(76, 175, 80, 0.6);
+    background: rgba(76, 175, 80, 0.05);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Ensure clean appearance during drag-over */
+.bench-slot.drag-over .position-label,
+.bench-slot.drag-over .bench-placeholder {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.bench-slot.occupied {
+    border-style: solid;
+    border-color: rgba(76, 175, 80, 0.6);
+    background: rgba(76, 175, 80, 0.05);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.2);
+}
+
+.bench-slot .position-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.bench-slot:hover .position-label {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.bench-slot .bench-placeholder {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.bench-slot:hover .bench-placeholder {
+    opacity: 1;
+    bottom: -22px;
+}
+
+/* Override hover effects during drag operations - but allow bench drag-over */
+.bench-positions.dragging .bench-slot:hover .position-label,
+.bench-positions.dragging .bench-slot:hover .bench-placeholder {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: scale(0) !important;
+}
+
+/* Allow position-labels to show when dragging over bench slots */
+.bench-slot.drag-over:hover .position-label,
+.bench-slot.drag-over:hover .bench-placeholder {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: scale(1) !important;
+}
+
+/* Adjust card styling when in bench slot */
+.bench-slot .player-card {
+    transform: scale(0.8) !important;
+    margin: 0 !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform-origin: center !important;
+    transform: translate(-50%, -50%) scale(0.8) !important;
+    transition: all 0.3s ease !important;
+    width: 140px !important;
+    height: 200px !important;
+    border-radius: 12px !important;
+}
+
+.bench-slot:hover .player-card {
+    transform: translate(-50%, -50%) scale(0.82) !important;
+}
+
+/* Ensure cards fit perfectly in bench slots */
+.bench-slot .player-card .player-image-container {
+    height: 110px !important;
+}
+
+.bench-slot .player-card .player-info {
+    padding: 4px !important;
+    height: 90px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
+
+.bench-slot .player-card .player-name {
+    font-size: 0.75rem !important;
+    margin-bottom: 2px !important;
+    line-height: 1.1 !important;
+    max-height: 20px !important;
+    overflow: hidden !important;
+}
+
+.bench-slot .player-card .player-stats {
+    margin-bottom: 2px !important;
+    padding: 0 2px !important;
+    display: flex !important;
+    justify-content: space-around !important;
+    gap: 2px !important;
+    flex: 1 !important;
+    align-items: center !important;
+}
+
+.bench-slot .player-card .stat {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0 !important;
+    min-width: 0 !important;
+    flex: 1 !important;
+}
+
+.bench-slot .player-card .stat-value {
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+}
+
+.bench-slot .player-card .stat-label {
+    font-size: 0.5rem !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    opacity: 0.8 !important;
+}
+
+.bench-slot .player-card .player-details {
+    font-size: 0.6rem !important;
+    padding: 0 2px !important;
+    margin-top: auto !important;
+    line-height: 1.1 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .bench-positions {
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .bench-slot {
+        width: 120px;
+        height: 170px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bench-positions {
+        gap: 15px;
+        padding: 0 10px;
+    }
+
+    .bench-slot {
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+    }
+
+    .bench-slot .player-card {
+        width: 80px !important;
+        height: 80px !important;
+        border-radius: 50% !important;
+        transform: none !important;
+    }
+
+    .bench-title {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bench-positions {
+        gap: 10px;
+        padding: 0 5px;
+    }
+
+    .bench-slot {
+        width: 70px;
+        height: 70px;
+        margin: 8px;
+        border-radius: 50%;
+    }
+
+    .bench-slot .player-card {
+        width: 70px !important;
+        height: 70px !important;
+    }
+
+    .bench-title {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .bench-slot .position-label {
+        font-size: 14px;
+    }
+}
+
+.add-to-field-btn {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    color: #0f172a;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.add-to-field-btn:hover {
+    background: #ffffff;
+    transform: scale(1.1);
+}
+
+.add-to-field-btn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 1024px) {
+    .add-to-field-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .player-card {
+        position: relative;
+        transform: scale(0.9);
+        margin: 0 auto;
+    }
+}
+
+:host ::ng-deep .add-button {
+    display: none; /* Varsayılan olarak gizli */
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    line-height: 24px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+:host ::ng-deep .add-button:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+}
+
+.delete-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(220, 38, 38, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    line-height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: scale(0.9) translateY(5px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+}
+
+/* Show delete button on hover for desktop */
+:host ::ng-deep .player-card:hover .delete-button,
+:host ::ng-deep .manager-area:hover .delete-button,
+:host ::ng-deep .bench-slot:hover .player-card .delete-button {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    position: absolute;
+    top: 33px;
+    right: 2px;
+    width: 18px;
+    height: 18px;
+    background-color: #ff4444;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    border: 2px solid white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+
+:host ::ng-deep.delete-button:hover {
+    background-color: rgba(220, 38, 38, 1);
+    transform: scale(1.1) translateY(0) !important;
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+:host ::ng-deep .add-button:active,
+:host ::ng-deep .delete-button:active {
+    transform: scale(0.95);
+}
+
+:host ::ng-deep .add-button:active {
+    background-color: #45a049;
+}
+
+:host ::ng-deep.delete-button:active {
+    background-color: #ff3333;
+}
+
+.player-card {
+    position: relative;
+}
+
+/* Mobil cihazlarda + butonunu göster */
+@media (max-width: 768px) {
+    /* Soldaki kartlarda + butonu görünür */
+    :host ::ng-deep .cards-container .player-card .add-button {
+        display: flex !important;
+        position: absolute !important;
+        top: 8px !important;
+        right: 8px !important;
+        width: 20px !important;
+        height: 20px !important;
+        background: #22c55e !important;
+        border: none !important;
+        border-radius: 50% !important;
+        color: white !important;
+        font-size: 14px !important;
+        font-weight: bold !important;
+        cursor: pointer !important;
+        z-index: 10 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    /* Mobilde delete button her zaman görünür - genel kural */
+    .delete-button {
+        opacity: 1 !important;
+        transform: none !important;
+        top: -6px !important;
+        right: -6px !important;
+        width: 18px !important;
+        height: 18px !important;
+        background: #ff3b3b !important;
+        border: 1.5px solid #fff !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+        font-size: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /* Sahadaki kartlarda delete button görünür */
+    #cardContainer .player-card .delete-button {
+        opacity: 1 !important;
+        transform: none !important;
+        top: -6px !important;
+        right: -6px !important;
+        width: 18px !important;
+        height: 18px !important;
+        background: #ff3b3b !important;
+        border: 1.5px solid #fff !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+        font-size: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /* Bench'teki kartlarda delete button görünür */
+    .bench-slot .player-card .delete-button {
+        opacity: 1 !important;
+        transform: none !important;
+        top: -8px !important;
+        right: -8px !important;
+        width: 20px !important;
+        height: 20px !important;
+        background: #ff3b3b !important;
+        border: 2px solid #fff !important;
+        border-radius: 50% !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+        font-size: 14px !important;
+        font-weight: bold !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: white !important;
+        cursor: pointer !important;
+        z-index: 100 !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .bench-slot .player-card .delete-button:hover {
+        background: #ff0000 !important;
+        transform: scale(1.1) !important;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    /* Manager kartında delete button görünür */
+    .manager-area .player-card .delete-button {
+        opacity: 1 !important;
+        transform: none !important;
+        top: -6px !important;
+        right: -6px !important;
+        width: 18px !important;
+        height: 18px !important;
+        background: #ff3b3b !important;
+        border: 1.5px solid #fff !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+        font-size: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+}
+
+/* Dokunmatik cihazlarda hover efektini kaldır */
+@media (hover: none) {
+
+    :host ::ng-deep .add-button:hover,
+    :host ::ng-deep .delete-button:hover {
+        transform: none;
+    }
+
+    :host ::ng-deep .add-button:hover {
+        background-color: #4CAF50;
+    }
+
+    :host ::ng-deep .delete-button:hover {
+        background-color: #ff4444;
+    }
+}
+
+/* Mobilde kesinlikle görünür olması için ek kurallar */
+@media (max-width: 768px) {
+    /* Tüm add-button'ları göster */
+    :host ::ng-deep .player-card .add-button {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Tüm delete-button'ları göster */
+    .player-card .delete-button,
+    .manager-area .player-card .delete-button,
+    .bench-slot .player-card .delete-button,
+    #cardContainer .player-card .delete-button {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* Show position-labels only during drag-over, hide when card is placed */
+.bench-slot.drag-over .position-label,
+.bench-slot.drag-over .bench-placeholder {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: scale(1) !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Hide position-labels when bench slot is occupied - including hover states */
+.bench-slot.occupied .position-label,
+.bench-slot.occupied .bench-placeholder,
+.bench-slot.occupied:hover .position-label,
+.bench-slot.occupied:hover .bench-placeholder {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: scale(0) !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Hide delete button during drag-over */
+.bench-slot.drag-over .player-card .delete-button {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+.bench-slot.drag-over:hover .player-card .delete-button {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: scale(1) translateY(0);
+}
+
+.bench-positions .bench-slot.drag-over .player-card button.delete-button {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+.bench-positions .bench-slot.drag-over:hover .player-card button.delete-button {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: scale(1);
+}
+
+.bench-positions .bench-slot.drag-over:hover .player-card button.delete-button:hover {
+    background-color: #ff3333;
+    transform: scale(1.1);
+}
+
+.mobile-manager-section {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-manager-section {
+        display: block;
+        width: 100%;
+        height: 180px;
+        margin-top: 20px;
+        background: linear-gradient(to bottom,
+                rgba(45, 90, 39, 0.9) 0%,
+                rgba(30, 79, 20, 0.9) 100%);
+        border-radius: 12px;
+        padding: 15px;
+        position: relative;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        box-shadow:
+            0 4px 15px rgba(0, 0, 0, 0.2),
+            inset 0 0 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .mobile-manager-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: repeating-linear-gradient(45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.03) 10px,
+                rgba(255, 255, 255, 0.03) 20px);
+        border-radius: 10px;
+        pointer-events: none;
+    }
+
+    .mobile-manager-section .manager-area {
+        position: relative;
+        top: auto;
+        left: auto;
+        bottom: auto;
+        right: auto;
+        transform: none;
+        width: 140px;
+        height: 180px;
+        margin: 0 auto;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(8px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .mobile-manager-section .manager-area::before {
+        display: none;
+    }
+
+    .mobile-manager-section .section-title {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.8);
+        color: rgba(255, 255, 255, 0.9);
+        padding: 4px 15px;
+        border-radius: 15px;
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(4px);
+        z-index: 2;
+    }
+
+    /* Saha içindeki manager alanını gizle */
+    .field-container .manager-area {
+        display: none;
+    }
+
+    /* Home butonunun konumunu ayarla */
+    .home-button {
+        bottom: 20px;
+    }
+}
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.98));
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+    z-index: 1000;
+    padding: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    padding: 0 30px;
+    position: relative;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar-brand:hover {
+    transform: translateY(-2px);
+}
+
+.navbar-brand::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #3B82F6, #60A5FA);
+    transition: width 0.3s ease;
+}
+
+.navbar-brand:hover::after {
+    width: 100%;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 3px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50px;
+    padding: 3px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 6px 14px;
+    display: block;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav-link:hover::before {
+    left: 100%;
+}
+
+.nav-link:hover {
+    color: white;
+    background: rgba(59, 130, 246, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+}
+
+.nav-link.active {
+    color: white;
+    background: linear-gradient(135deg, #3B82F6, #60A5FA);
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+    transform: translateY(-2px);
+}
+
+.nav-link.active:hover {
+    background: linear-gradient(135deg, #60A5FA, #3B82F6);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(59, 130, 246, 0.5);
+}
+
+/* Adjust main content for navbar */
+.container {
+    margin-top: 20px;
+}
+
+/* Mobile responsive navbar */
+@media (max-width: 1024px) {
+    .navbar-container {
+        padding: 0 20px;
+    }
+
+    .navbar-brand {
+        font-size: 0.95rem;
+    }
+
+    .nav-link {
+        padding: 5px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        height: 35px;
+    }
+
+    .navbar-container {
+        height: 35px;
+        padding: 0 15px;
+    }
+
+    .navbar-brand {
+        font-size: 0.9rem;
+        gap: 8px;
+    }
+
+    .navbar-nav {
+        gap: 2px;
+        padding: 2px;
+    }
+
+    .nav-link {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+    }
+
+    .team-selector {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .team-selector select {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .formation-controls {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .formation-select {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .clear-btn {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .cards-container {
+        max-height: 25vh;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 8px;
+    }
+
+    .player-card {
+        min-height: 120px;
+    }
+
+    .field-container {
+        min-height: 400px;
+    }
+
+    .center-circle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .penalty-area-top,
+    .penalty-area-bottom {
+        width: 70%;
+        height: 20%;
+    }
+
+    .goal-area-top,
+    .goal-area-bottom {
+        width: 35%;
+        height: 10%;
+    }
+
+    #cardContainer .player-card {
+        transform: scale(0.7);
+    }
+
+    #cardContainer .player-card .player-image-container {
+        width: 40px;
+        height: 40px;
+    }
+
+    #cardContainer .player-card .player-info {
+        padding: 5px;
+    }
+
+    #cardContainer .player-card .player-name {
+        font-size: 0.7rem;
+        line-height: 1.2;
+    }
+
+    #cardContainer .player-card .rating-badge {
+        width: 25px;
+        height: 25px;
+        font-size: 0.6rem;
+    }
+
+    .formation-point {
+        width: 30px;
+        height: 30px;
+    }
+
+    .delete-button {
+        width: 20px;
+        height: 20px;
+        font-size: 0.6rem;
+    }
+
+    .bench-section {
+        order: 3;
+        margin-top: 10px;
+    }
+
+    .bench-positions {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+    }
+
+    .bench-slot {
+        min-height: 80px;
+    }
+
+    .bench-slot .player-card {
+        min-height: 80px;
+    }
+
+    .bench-slot .player-card .player-info .player-name {
+        font-size: 0.7rem;
+        line-height: 1.1;
+    }
+
+    .bench-slot .player-card .rating-badge {
+        width: 20px;
+        height: 20px;
+        font-size: 0.6rem;
+    }
+
+    .bench-slot .player-card .delete-button {
+        width: 18px;
+        height: 18px;
+        font-size: 0.5rem;
+    }
+
+    .mobile-manager-section {
+        display: block;
+        order: 4;
+        margin-top: 10px;
+    }
+
+    .field-container .manager-area {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-container {
+        padding: 0 10px;
+    }
+
+    .navbar-brand {
+        font-size: 0.8rem;
+        gap: 6px;
+    }
+
+    .navbar-nav {
+        gap: 1px;
+        padding: 1px;
+    }
+
+    .nav-link {
+        padding: 3px 8px;
+        font-size: 0.7rem;
+    }
+
+    .team-selector select {
+        font-size: 0.8rem;
+    }
+
+    .formation-select {
+        font-size: 0.8rem;
+    }
+
+    .clear-btn {
+        font-size: 0.8rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 6px;
+    }
+
+    .player-card {
+        min-height: 100px;
+    }
+
+    .field-container {
+        min-height: 350px;
+    }
+
+    .center-circle {
+        width: 80px;
+        height: 80px;
+    }
+
+    .penalty-area-top,
+    .penalty-area-bottom {
+        width: 75%;
+        height: 18%;
+    }
+
+    .goal-area-top,
+    .goal-area-bottom {
+        width: 40%;
+        height: 8%;
+    }
+
+    #cardContainer .player-card {
+        transform: scale(0.6);
+    }
+
+    #cardContainer .player-card .player-image-container {
+        width: 35px;
+        height: 35px;
+    }
+
+    #cardContainer .player-card .player-name {
+        font-size: 0.65rem;
+    }
+
+    #cardContainer .player-card .rating-badge {
+        width: 22px;
+        height: 22px;
+        font-size: 0.55rem;
+    }
+
+    .formation-point {
+        width: 25px;
+        height: 25px;
+    }
+
+    .delete-button {
+        width: 18px;
+        height: 18px;
+        font-size: 0.55rem;
+    }
+
+    .bench-positions {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+    }
+
+    .bench-slot {
+        min-height: 70px;
+    }
+
+    .bench-slot .player-card {
+        min-height: 70px;
+    }
+
+    .bench-slot .player-card .player-info .player-name {
+        font-size: 0.65rem;
+    }
+
+    .bench-slot .player-card .rating-badge {
+        width: 18px;
+        height: 18px;
+        font-size: 0.55rem;
+    }
+
+    .bench-slot .player-card .delete-button {
+        width: 16px;
+        height: 16px;
+        font-size: 0.5rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+        gap: 5px;
+    }
+
+    .player-card {
+        min-height: 90px;
+    }
+
+    .field-container {
+        min-height: 300px;
+    }
+
+    .center-circle {
+        width: 70px;
+        height: 70px;
+    }
+
+    .bench-positions {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+    }
+
+    .bench-slot {
+        min-height: 60px;
+    }
+
+    .bench-slot .player-card {
+        min-height: 60px;
+    }
+}
+
+/* Additional rules to ensure delete button visibility on hover */
+.player-card:hover .delete-button,
+#cardContainer .player-card:hover .delete-button,
+.manager-area:hover .delete-button,
+.bench-slot:hover .player-card .delete-button {
+    opacity: 1 !important;
+    transform: scale(1) translateY(0) !important;
+    visibility: visible !important;
+    display: flex !important;
+}
+
+/* Ensure delete button is always visible on mobile */
+@media (max-width: 768px) {
+    .player-card .delete-button,
+    #cardContainer .player-card .delete-button,
+    .manager-area .player-card .delete-button,
+    .bench-slot .player-card .delete-button {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+        display: flex !important;
+    }
+    
+    /* Specifically for mobile manager section */
+    .mobile-manager-section .manager-area .player-card .delete-button {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
+        transform: none !important;
+        /* Ensure it's always on top */
+        z-index: 1000 !important;
+    }
+}

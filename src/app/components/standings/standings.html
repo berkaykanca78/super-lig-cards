@@ -1,0 +1,129 @@
+<div class="standings-wrapper">
+    <div class="standings-container">
+        <div class="standings-header">
+            <h1>2025-2026 Süper Lig Puan Durumu</h1>
+            <p>Güncel sıralama ve puan durumu</p>
+        </div>
+
+        <div class="standings-info">
+            <div class="info-card">
+                <i class="fas fa-calendar"></i>
+                <span>Son Güncelleme: <span id="lastUpdate">{{ getCurrentDate() }}</span></span>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-gamepad"></i>
+                <span>Oynanan Maç: <span id="playedMatches">{{ getTotalMatches() }}</span></span>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-trophy"></i>
+                <span>Sezon: 2025-2026</span>
+            </div>
+        </div>
+
+        <div class="standings-filters">
+            <button 
+                class="filter-btn" 
+                [class.active]="activeFilter === 'all'"
+                (click)="setFilter('all')">
+                Tümü
+            </button>
+            <button 
+                class="filter-btn" 
+                [class.active]="activeFilter === 'champions'"
+                (click)="setFilter('champions')">
+                Şampiyonlar Ligi
+            </button>
+            <button 
+                class="filter-btn" 
+                [class.active]="activeFilter === 'europa'"
+                (click)="setFilter('europa')">
+                Avrupa Ligi
+            </button>
+            <button 
+                class="filter-btn" 
+                [class.active]="activeFilter === 'conference'"
+                (click)="setFilter('conference')">
+                Konferans Ligi
+            </button>
+            <button 
+                class="filter-btn" 
+                [class.active]="activeFilter === 'relegation'"
+                (click)="setFilter('relegation')">
+                Küme Düşme
+            </button>
+        </div>
+
+        <div class="standings-table-container">
+            <div *ngIf="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Veriler yükleniyor...</p>
+            </div>
+
+            <div *ngIf="error" class="error">
+                <p>Veriler yüklenirken bir hata oluştu. Lütfen tekrar deneyin.</p>
+                <button (click)="loadStandings()" class="retry-btn">Tekrar Dene</button>
+            </div>
+
+            <table *ngIf="!loading && !error" class="standings-table">
+                <thead>
+                    <tr>
+                        <th>Sıra</th>
+                        <th>Takım</th>
+                        <th>O</th>
+                        <th>G</th>
+                        <th>B</th>
+                        <th>M</th>
+                        <th>A</th>
+                        <th>Y</th>
+                        <th>Av</th>
+                        <th>P</th>
+                        <th>Form</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr 
+                        *ngFor="let team of getFilteredStandings()" 
+                        [class]="getTeamClass(team)">
+                        <td>{{ team.position }}</td>
+                        <td class="team-name">{{ team.teamName }}</td>
+                        <td>{{ team.played }}</td>
+                        <td>{{ team.won }}</td>
+                        <td>{{ team.drawn }}</td>
+                        <td>{{ team.lost }}</td>
+                        <td>{{ team.goalsFor }}</td>
+                        <td>{{ team.goalsAgainst }}</td>
+                        <td>{{ team.goalDifference > 0 ? '+' + team.goalDifference : team.goalDifference }}</td>
+                        <td class="points">{{ team.points }}</td>
+                        <td class="form">
+                            <span 
+                                *ngFor="let result of team.form" 
+                                class="form-result"
+                                [class]="getFormClass(result)">
+                                {{ result }}
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="standings-legend">
+            <div class="legend-item">
+                <div class="legend-color champions"></div>
+                <span>Şampiyonlar Ligi</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color europa"></div>
+                <span>Avrupa Ligi</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color conference"></div>
+                <span>Konferans Ligi</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color relegation"></div>
+                <span>Küme Düşme</span>
+            </div>
+        </div>
+    </div>
+</div>

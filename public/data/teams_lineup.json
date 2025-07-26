@@ -1,0 +1,80 @@
+{
+    "teams": [
+        {
+            "value": "all",
+            "name": "Hepsi"
+        },
+        {
+            "value": "galatasaray",
+            "name": "Galatasaray"
+        },
+        {
+            "value": "fenerbahce",
+            "name": "Fenerbahçe"
+        },
+        {
+            "value": "besiktas",
+            "name": "Beşiktaş"
+        },
+        {
+            "value": "trabzonspor",
+            "name": "Trabzonspor"
+        },
+        {
+            "value": "basaksehir",
+            "name": "R. Başakşehir F.K."
+        },
+        {
+            "value": "samsunspor",
+            "name": "Samsunspor"
+        },
+        {
+            "value": "eyupspor",
+            "name": "İ. Eyüpspor"
+        },
+        {
+            "value": "goztepe",
+            "name": "Göztepe"
+        },
+        {
+            "value": "rizespor",
+            "name": "Ç. Rizespor"
+        },
+        {
+            "value": "kasimpasa",
+            "name": "Kasımpaşa"
+        },
+        {
+            "value": "konyaspor",
+            "name": "Konyaspor"
+        },
+        {
+            "value": "alanyaspor",
+            "name": "C. Alanyaspor"
+        },
+        {
+            "value": "kayserispor",
+            "name": "Kayserispor"
+        },
+        {
+            "value": "gaziantep",
+            "name": "Gaziantep FK"
+        },
+        {
+            "value": "antalyaspor",
+            "name": "Antalyaspor"
+        },
+        {
+            "value": "kocaelispor",
+            "name": "Kocaelispor"
+        },
+        {
+            "value": "genclerbirligi",
+            "name": "Gençlerbirliği"
+        },
+        {
+            "value": "karagumruk",
+            "name": "F. Karagümrük"
+        }
+    ]
+} 

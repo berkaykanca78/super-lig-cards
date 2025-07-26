@@ -1,0 +1,245 @@
+<div class="player-wrapper">
+    <!-- Loading state -->
+    <div *ngIf="isLoading" class="loading-container">
+        <div class="loading-spinner"></div>
+        <p>Oyuncu bilgileri yükleniyor...</p>
+    </div>
+
+    <!-- Error state -->
+    <div *ngIf="error && !isLoading" class="error-container">
+        <h2 style="color: #E60012; font-size: 2.5rem; margin-bottom: 20px;">
+            Hata Oluştu
+        </h2>
+        <p style="color: #333333; font-size: 1.2rem; opacity: 0.8;">
+            {{ error }}
+        </p>
+        <div style="margin-top: 30px; font-size: 4rem;">
+            ⚽🚀
+        </div>
+    </div>
+
+    <!-- Main content when data is loaded -->
+    <div *ngIf="playerData && !isLoading" class="player-container">
+        <div class="player-header">
+            <div class="breadcrumb">
+                <a routerLink="/home">Ana Sayfa</a>
+                <i class="fas fa-chevron-right"></i>
+                <a routerLink="/stats">İstatistikler</a>
+                <i class="fas fa-chevron-right"></i>
+                <span id="playerName">{{ playerData.name }}</span>
+            </div>
+        </div>
+
+        <div class="player-profile">
+            <div class="player-image-section">
+                <div class="player-image">
+                    <img id="playerPhoto" [src]="playerData.image" [alt]="playerData.name">
+                </div>
+                <div class="player-basic-info">
+                    <h1 id="playerFullName">{{ playerData.name }}</h1>
+                    <div class="player-details">
+                        <div class="detail-item">
+                            <i class="fas fa-tshirt"></i>
+                            <span>Forma No: <span id="playerNumber">{{ getPlayerNumberForTemplate(playerData) }}</span></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Pozisyon: <span id="playerPosition">{{ isManager ? 'Teknik Direktör' : playerData.ratingPosition }}</span></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-birthday-cake"></i>
+                            <span>Yaş: <span id="playerAge">{{ playerData.age }}</span></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-flag"></i>
+                            <span>Ülke: <span id="playerCountry">{{ playerData.nationality.name }}</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="player-stats-overview">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Goller</h3>
+                        <span id="goalsCount">{{ isManager ? 'N/A' : getStat(playerData, 'GOL') }}</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Asistler</h3>
+                        <span id="assistsCount">{{ isManager ? 'N/A' : getStat(playerData, 'AST') }}</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Maçlar</h3>
+                        <span id="matchesCount">{{ isManager ? 'N/A' : getStat(playerData, 'MAC') }}</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Dakika</h3>
+                        <span id="minutesCount">{{ isManager ? 'N/A' : getStat(playerData, 'DAK') }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="player-tabs">
+            <button class="tab-button active" data-tab="season-stats">
+                <i class="fas fa-chart-bar"></i>
+                Sezon İstatistikleri
+            </button>
+            <button class="tab-button" data-tab="career-stats">
+                <i class="fas fa-history"></i>
+                Kariyer İstatistikleri
+            </button>
+            <button class="tab-button" data-tab="performance">
+                <i class="fas fa-chart-line"></i>
+                Performans Grafikleri
+            </button>
+            <button class="tab-button" data-tab="matches">
+                <i class="fas fa-calendar-alt"></i>
+                Maç Geçmişi
+            </button>
+        </div>
+
+        <div class="player-content">
+            <!-- Season Statistics Tab -->
+            <div id="season-stats" class="tab-content active">
+                <div class="stats-grid">
+                    <div class="stats-section">
+                        <h3>Lig İstatistikleri</h3>
+                        <div class="stats-table-container">
+                            <table class="stats-table">
+                                <tbody>
+                                    <tr>
+                                        <td>Oynanan Maç</td>
+                                        <td id="leagueMatches">{{ isManager ? 'N/A' : getStat(playerData, 'MAC') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Başlangıç</td>
+                                        <td id="leagueStarts">{{ isManager ? 'N/A' : getStat(playerData, 'MAC') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Goller</td>
+                                        <td id="leagueGoals">{{ isManager ? 'N/A' : getStat(playerData, 'GOL') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Asistler</td>
+                                        <td id="leagueAssists">{{ isManager ? 'N/A' : getStat(playerData, 'AST') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sarı Kart</td>
+                                        <td id="leagueYellowCards">{{ isManager ? 'N/A' : getStat(playerData, 'SARI') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kırmızı Kart</td>
+                                        <td id="leagueRedCards">{{ isManager ? 'N/A' : getStat(playerData, 'KIRMIZI') }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="stats-section">
+                        <h3>Detaylı İstatistikler</h3>
+                        <div class="stats-table-container">
+                            <table class="stats-table">
+                                <tbody>
+                                    <tr>
+                                        <td>Şut</td>
+                                        <td id="shots">{{ isManager ? 'N/A' : getStat(playerData, 'SUT') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>İsabetli Şut</td>
+                                        <td id="shotsOnTarget">{{ isManager ? 'N/A' : getStat(playerData, 'ISABETLI_SUT') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pas</td>
+                                        <td id="passes">{{ isManager ? 'N/A' : getStat(playerData, 'PAS') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Başarılı Pas</td>
+                                        <td id="passesCompleted">{{ isManager ? 'N/A' : getStat(playerData, 'BASARILI_PAS') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pas Başarı Oranı</td>
+                                        <td id="passAccuracy">{{ isManager ? 'N/A' : getPassAccuracyForTemplate(playerData) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Top Çalma</td>
+                                        <td id="tackles">{{ isManager ? 'N/A' : getStat(playerData, 'TOP_CALMA') }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Career Statistics Tab -->
+            <div id="career-stats" class="tab-content">
+                <div class="career-timeline">
+                    <h3>Kariyer Geçmişi</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">2025</div>
+                            <div class="timeline-content">
+                                <h4>{{ playerData.team || 'Takım' }}</h4>
+                                <p>{{ isManager ? 'Teknik Direktör' : getStat(playerData, 'MAC') + ' maç, ' + getStat(playerData, 'GOL') + ' gol, ' + getStat(playerData, 'AST') + ' asist' }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Graphs Tab -->
+            <div id="performance" class="tab-content">
+                <div class="performance-charts">
+                    <div class="chart-container">
+                        <h3>{{ isManager ? 'Takım Performansı' : 'Gol Performansı' }}</h3>
+                        <div class="chart" id="goalsChart">
+                            <!-- Chart will be rendered here -->
+                            <p style="text-align: center; color: #ccc; padding: 40px;">
+                                {{ isManager ? 'Teknik direktör performans grafikleri yakında eklenecek' : 'Gol performans grafikleri yakında eklenecek' }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h3>{{ isManager ? 'Motivasyon' : 'Asist Performansı' }}</h3>
+                        <div class="chart" id="assistsChart">
+                            <!-- Chart will be rendered here -->
+                            <p style="text-align: center; color: #ccc; padding: 40px;">
+                                {{ isManager ? 'Motivasyon grafikleri yakında eklenecek' : 'Asist performans grafikleri yakında eklenecek' }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Match History Tab -->
+            <div id="matches" class="tab-content">
+                <div class="matches-list" id="matchesList">
+                    <!-- Match history will be loaded here -->
+                    <p style="text-align: center; color: #ccc; padding: 40px;">
+                        Maç geçmişi yakında eklenecek
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

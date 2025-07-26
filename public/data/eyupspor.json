@@ -1,0 +1,511 @@
+{
+    "name": "İKAS EYÜPSPOR",
+    "cardTeamName": "eyupspor",
+    "logo": "https://tmssl.akamaized.net/images/wappen/head/7160.png",
+    "season": "2025-2026 Sezonu",
+    "players": [
+        {
+            "name": "BERKE ÖZER",
+            "position": "GK",
+            "rating": 84,
+            "ratingPosition": "KALECİ",
+            "image": "assets/players/berke_ozer.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 25,
+            "number": 1,
+            "stats": {
+                "REF": 85,
+                "POZ": 83,
+                "FİZ": 82
+            }
+        },
+        {
+            "name": "HALIL YERAL",
+            "position": "GK",
+            "rating": 68,
+            "ratingPosition": "KALECİ",
+            "image": "assets/players/halil_yeral.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 25,
+            "number": 26,
+            "stats": {
+                "REF": 69,
+                "POZ": 67,
+                "FİZ": 70
+            }
+        },
+        {
+            "name": "ALP KÖSEER",
+            "position": "GK",
+            "rating": 65,
+            "ratingPosition": "KALECİ",
+            "image": "assets/players/alp_koseer.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 22,
+            "number": 12,
+            "stats": {
+                "REF": 66,
+                "POZ": 64,
+                "FİZ": 68
+            }
+        },
+        {
+            "name": "BURAK DİKER",
+            "position": "GK",
+            "rating": 62,
+            "ratingPosition": "KALECİ",
+            "image": "assets/players/burak_diker.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 20,
+            "number": 23,
+            "stats": {
+                "REF": 63,
+                "POZ": 61,
+                "FİZ": 65
+            }
+        },
+        {
+            "name": "NIHAD MUJAKIC",
+            "position": "CB",
+            "rating": 77,
+            "ratingPosition": "STOPER",
+            "image": "assets/players/nihad_mujakic.png",
+            "nationality": {
+                "name": "BIH",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/80.png"
+            },
+            "age": 27,
+            "number": 6,
+            "stats": {
+                "DEF": 79,
+                "FİZ": 78,
+                "HIZ": 72
+            }
+        },
+        {
+            "name": "ROBIN YALÇIN",
+            "position": "CB",
+            "rating": 75,
+            "ratingPosition": "STOPER",
+            "image": "assets/players/robin_yalcin.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 31,
+            "number": 3,
+            "stats": {
+                "DEF": 76,
+                "FİZ": 74,
+                "HIZ": 69
+            }
+        },
+        {
+            "name": "EMİR ORTAKAYA",
+            "position": "CB",
+            "rating": 74,
+            "ratingPosition": "STOPER",
+            "image": "assets/players/emir_ortakaya.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 21,
+            "number": 4,
+            "stats": {
+                "DEF": 75,
+                "FİZ": 73,
+                "HIZ": 74
+            }
+        },
+        {
+            "name": "LUCCAS CLARO",
+            "position": "CB",
+            "rating": 73,
+            "ratingPosition": "STOPER",
+            "image": "assets/players/luccas_claro.png",
+            "nationality": {
+                "name": "BRA",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/26.png"
+            },
+            "age": 33,
+            "number": 15,
+            "stats": {
+                "DEF": 74,
+                "FİZ": 72,
+                "HIZ": 67
+            }
+        },
+        {
+            "name": "FETHİ ÖZER",
+            "position": "CB",
+            "rating": 71,
+            "ratingPosition": "STOPER",
+            "image": "assets/players/fethi_ozer.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 28,
+            "number": 25,
+            "stats": {
+                "DEF": 72,
+                "FİZ": 70,
+                "HIZ": 68
+            }
+        },
+        {
+            "name": "UMUT MERAŞ",
+            "position": "LB",
+            "rating": 73,
+            "ratingPosition": "SOL BEK",
+            "image": "assets/players/umut_meras.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 29,
+            "number": 21,
+            "stats": {
+                "HIZ": 75,
+                "DEF": 72,
+                "FİZ": 71
+            }
+        },
+        {
+            "name": "TALHA ÜLVAN",
+            "position": "RB",
+            "rating": 71,
+            "ratingPosition": "SAĞ BEK",
+            "image": "assets/players/talha_ulvan.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 24,
+            "number": 33,
+            "stats": {
+                "HIZ": 73,
+                "DEF": 70,
+                "FİZ": 69
+            }
+        },
+        {
+            "name": "TARAS STEPANENKO",
+            "position": "DM",
+            "rating": 78,
+            "ratingPosition": "ÖN LİBERO",
+            "image": "assets/players/taras_stepanenko.png",
+            "isCaptain": true,
+            "nationality": {
+                "name": "UKR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/180.png"
+            },
+            "age": 35,
+            "number": 57,
+            "stats": {
+                "PAS": 79,
+                "DEF": 77,
+                "FİZ": 76
+            }
+        },
+        {
+            "name": "MELİH KABASAKAL",
+            "position": "DM",
+            "rating": 76,
+            "ratingPosition": "ÖN LİBERO",
+            "image": "assets/players/melih_kabasakal.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 29,
+            "number": 28,
+            "stats": {
+                "PAS": 77,
+                "DEF": 75,
+                "FİZ": 74
+            }
+        },
+        {
+            "name": "TAŞKIN İLTER",
+            "position": "DM",
+            "rating": 72,
+            "ratingPosition": "ÖN LİBERO",
+            "image": "assets/players/taskin_ilter.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 31,
+            "number": 14,
+            "stats": {
+                "PAS": 73,
+                "DEF": 71,
+                "FİZ": 70
+            }
+        },
+        {
+            "name": "KEREM DEMİRBAY",
+            "position": "CM",
+            "rating": 82,
+            "ratingPosition": "MERKEZ ORTA SAHA",
+            "image": "assets/players/kerem_demirbay.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 32,
+            "number": 30,
+            "stats": {
+                "PAS": 84,
+                "ŞUT": 80,
+                "DRİ": 79
+            }
+        },
+        {
+            "name": "YALÇIN KAYAN",
+            "position": "CM",
+            "rating": 75,
+            "ratingPosition": "MERKEZ ORTA SAHA",
+            "image": "assets/players/yalcin_kayan.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 26,
+            "number": 81,
+            "stats": {
+                "PAS": 76,
+                "ŞUT": 73,
+                "DRİ": 74
+            }
+        },
+        {
+            "name": "HAMZA AKMAN",
+            "position": "CM",
+            "rating": 70,
+            "ratingPosition": "MERKEZ ORTA SAHA",
+            "image": "assets/players/hamza_akman.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 20,
+            "number": 22,
+            "stats": {
+                "PAS": 71,
+                "ŞUT": 68,
+                "DRİ": 70
+            }
+        },
+        {
+            "name": "SVIT SESLAR",
+            "position": "AM",
+            "rating": 83,
+            "ratingPosition": "ON NUMARA",
+            "image": "assets/players/svit_seslar.png",
+            "nationality": {
+                "name": "SVN",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/164.png"
+            },
+            "age": 23,
+            "number": 8,
+            "stats": {
+                "PAS": 82,
+                "ŞUT": 81,
+                "DRİ": 84
+            }
+        },
+        {
+            "name": "EMRE AKBABA",
+            "position": "AM",
+            "rating": 78,
+            "ratingPosition": "ON NUMARA",
+            "image": "assets/players/emre_akbaba.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 32,
+            "number": 10,
+            "stats": {
+                "PAS": 79,
+                "ŞUT": 77,
+                "DRİ": 76
+            }
+        },
+        {
+            "name": "SAMU SAIZ",
+            "position": "AM",
+            "rating": 72,
+            "ratingPosition": "ON NUMARA",
+            "image": "assets/players/samu_saiz.png",
+            "nationality": {
+                "name": "ESP",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/157.png"
+            },
+            "age": 34,
+            "number": 40,
+            "stats": {
+                "PAS": 74,
+                "ŞUT": 70,
+                "DRİ": 72
+            }
+        },
+        {
+            "name": "PRINCE AMPEM",
+            "position": "LW",
+            "rating": 79,
+            "ratingPosition": "SOL KANAT",
+            "image": "assets/players/prince_ampem.png",
+            "nationality": {
+                "name": "GHA",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/42.png"
+            },
+            "age": 27,
+            "number": 18,
+            "stats": {
+                "HIZ": 82,
+                "DRİ": 80,
+                "ŞUT": 75
+            }
+        },
+        {
+            "name": "METE DEMİR",
+            "position": "LW",
+            "rating": 73,
+            "ratingPosition": "SOL KANAT",
+            "image": "assets/players/mete_demir.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 27,
+            "number": 11,
+            "stats": {
+                "HIZ": 75,
+                "DRİ": 74,
+                "ŞUT": 70
+            }
+        },
+        {
+            "name": "SERDAR GÜRLER",
+            "position": "LW",
+            "rating": 69,
+            "ratingPosition": "SOL KANAT",
+            "image": "assets/players/serdar_gurler.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 33,
+            "number": 77,
+            "stats": {
+                "HIZ": 71,
+                "DRİ": 70,
+                "ŞUT": 66
+            }
+        },
+        {
+            "name": "HALİL AKBUNAR",
+            "position": "RW",
+            "rating": 78,
+            "ratingPosition": "SAĞ KANAT",
+            "image": "assets/players/halil_akbunar.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 31,
+            "number": 17,
+            "stats": {
+                "HIZ": 80,
+                "DRİ": 78,
+                "ŞUT": 76
+            }
+        },
+        {
+            "name": "HÜSEYİN MALDAR",
+            "position": "RW",
+            "rating": 73,
+            "ratingPosition": "SAĞ KANAT",
+            "image": "assets/players/huseyin_maldar.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 18,
+            "number": 9,
+            "stats": {
+                "HIZ": 76,
+                "DRİ": 74,
+                "ŞUT": 69
+            }
+        },
+        {
+            "name": "MAME THIAM",
+            "position": "ST",
+            "rating": 81,
+            "ratingPosition": "SANTRAFOR",
+            "image": "assets/players/mame_thiam.png",
+            "nationality": {
+                "name": "SEN",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/154.png"
+            },
+            "age": 32,
+            "number": 19,
+            "stats": {
+                "ŞUT": 83,
+                "FİZ": 80,
+                "HIZ": 78
+            }
+        },
+        {
+            "name": "UMUT BOZOK",
+            "position": "ST",
+            "rating": 80,
+            "ratingPosition": "SANTRAFOR",
+            "image": "assets/players/umut_bozok.png",
+            "nationality": {
+                "name": "TUR",
+                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+            },
+            "age": 28,
+            "number": 7,
+            "stats": {
+                "ŞUT": 81,
+                "FİZ": 79,
+                "HIZ": 77
+            }
+        }
+    ],
+    "manager": {
+        "name": "SELÇUK ŞAHİN",
+        "rating": 75,
+        "image": "managers/selcuksahin.png",
+        "age": 44,
+        "nationality": {
+            "name": "Turkey",
+            "code": "TUR",
+            "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/174.png"
+        },
+        "stats": {
+            "tactic": 75,
+            "motivation": 76,
+            "leadership": 74
+        }
+    }
+} 
