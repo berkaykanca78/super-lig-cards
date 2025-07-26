@@ -66,7 +66,7 @@ SuperLigCards is an interactive football card game featuring players and staff f
 ### SuperLigCards Hakkında
 SuperLigCards, Türkiye Süper Ligi'ndeki futbolcuları ve teknik ekipleri içeren interaktif bir futbol kart oyunudur. Oyuncular, ligdeki farklı kulüplerden futbolcu, teknik direktör ve ekip üyelerinin kartlarını kullanarak kendi rüya takımlarını oluşturabilirler.
 
-![SuperLigCards Diziliş Örneği](assets/img/lineup.png)
+![SuperLigCards Diziliş Örneği](public/lineup.png)
 
 ### Özellikler
 - **Oyuncu Kartları**: Her oyuncu kartı şunları içerir:
