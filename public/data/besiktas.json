@@ -132,24 +132,6 @@
             }
         },
         {
-            "name": "BAKHTIYOR ZAYNUTDINOV",
-            "position": "LB",
-            "rating": 79,
-            "ratingPosition": "SOL BEK",
-            "image": "/players/zaynutdinov.png",
-            "nationality": {
-                "name": "KAZ",
-                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/81.png"
-            },
-            "age": 25,
-            "number": 5,
-            "stats": {
-                "HIZ": 81,
-                "DEF": 79,
-                "PAS": 78
-            }
-        },
-        {
             "name": "JONAS SVENNSON",
             "position": "RB",
             "rating": 78,
@@ -219,24 +201,6 @@
                 "FİZ": 82,
                 "DEF": 79,
                 "PAS": 78
-            }
-        },
-        {
-            "name": "GEDSON FERNANDES",
-            "position": "CM",
-            "rating": 82,
-            "ratingPosition": "ORTA SAHA",
-            "image": "/players/gedson.png",
-            "nationality": {
-                "name": "POR",
-                "flag": "https://tmssl.akamaized.net/images/flagge/verysmall/136.png"
-            },
-            "age": 24,
-            "number": 83,
-            "stats": {
-                "HIZ": 85,
-                "DRİB": 83,
-                "PAS": 82
             }
         },
         {
