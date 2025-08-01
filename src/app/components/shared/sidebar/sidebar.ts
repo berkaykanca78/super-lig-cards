@@ -52,7 +52,7 @@ export class SidebarComponent implements OnInit {
   async getVersion() {
     const response = await fetch(`${environment.apiUrl}/api/version`);
     const data = await response.json();
-    this.version = data.version;
+    this.version = data.informationalVersion;
     console.log('Version:', this.version);
   }
 
