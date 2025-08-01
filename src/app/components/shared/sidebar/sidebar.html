@@ -1,29 +1,28 @@
-<button class="menu-toggle" (click)="toggleSidebar()">☰</button> 
+<button class="menu-toggle" (click)="toggleSidebar()">☰</button>
 <div class="sidebar-backdrop" *ngIf="isSidebarOpen" (click)="closeSidebar()"></div>
 <div class="sidebar" [class.active]="isSidebarOpen">
+    <small style="color: white; text-align: center; justify-content: center;">Version {{ version }}</small>
     <div class="league-header">
         <img src="https://www.tff.org/Resources/TFF/Images/0000000015/TFF/TFF-Logolar/2024-2025/trendyol-super-lig-dikey-logo.png"
             alt="Trendyol Süper Lig" class="league-logo">
         <h1>TRENDYOL SÜPER LİG</h1>
     </div>
-    
+
     <ul class="teams-list">
         <!-- Loading state -->
         <li *ngIf="loading" class="loading-item">
             <div class="loading-spinner">Loading teams...</div>
         </li>
-        
+
         <!-- Error state -->
         <li *ngIf="error" class="error-item">
             <div class="error-message">{{ error }}</div>
         </li>
-        
+
         <!-- Teams list -->
         <li *ngFor="let team of teams" class="team-item">
-            <button class="team-button" 
-                    (click)="onTeamSelect(team.id)"
-                    [class.active]="team.id === currentTeamId"
-                    [title]="'Current: ' + currentTeamId + ', Team: ' + team.id">
+            <button class="team-button" (click)="onTeamSelect(team.id)" [class.active]="team.id === currentTeamId"
+                [title]="'Current: ' + currentTeamId + ', Team: ' + team.id">
                 <img [src]="team.logo" [alt]="team.name" class="team-logo" width="16" height="16">
                 {{ team.name }}
             </button>

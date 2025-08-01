@@ -101,7 +101,7 @@
             <img [src]="currentTeamData.manager?.nationality?.flag" 
                  [alt]="currentTeamData.manager?.nationality?.name" 
                  class="country-flag">
-            {{ currentTeamData.manager?.nationality?.code }} • {{ currentTeamData.manager?.age }} yaş
+            {{ currentTeamData.manager?.nationality?.name }} • {{ currentTeamData.manager?.age }} yaş
           </div>
           <div>MAN</div>
         </div>
@@ -146,10 +146,12 @@
         <div class="player-name">{{ player.name }}</div>
 
         <div class="player-stats">
-          <div *ngFor="let stat of player.stats | keyvalue" class="stat">
-            <div class="stat-value">{{ stat.value }}</div>
-            <div class="stat-label">{{ stat.key }}</div>
-          </div>
+          <ng-container *ngFor="let stat of player.stats | keyvalue">
+            <div *ngIf="stat.value" class="stat">
+              <div class="stat-value">{{ stat.value }}</div>
+              <div class="stat-label">{{ stat.key | uppercase }}</div>
+            </div>
+          </ng-container>
         </div>
 
         <div class="player-details">
@@ -159,7 +161,7 @@
                  class="country-flag">
             {{ player.nationality.name }} • {{ player.age }} yaş
           </div>
-          <div>{{ player.number ? '# ' + player.number : 'MAN' }}</div>
+          <div>{{ player.number && player.number > 0 ? '# ' + player.number : '' }}</div>
         </div>
       </div>
     </div>

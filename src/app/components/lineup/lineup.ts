@@ -9,6 +9,7 @@ import {
   DropdownItem 
 } from './lineup.types';
 import { NavbarComponent } from '../shared/navbar/navbar';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-lineup',
@@ -583,7 +584,8 @@ export class Lineup implements OnInit, AfterViewInit {
 
       for (const team of teams) {
         try {
-          const response = await fetch(`/data/${team}.json`);
+          //const response = await fetch(`/data/${team}.json`);
+          const response = await fetch(`${environment.apiUrl}/api/teams/${team}`);
           if (!response.ok) continue;
 
           const data: TeamData = await response.json();
@@ -724,12 +726,13 @@ export class Lineup implements OnInit, AfterViewInit {
               <div class="stat-value">${(card as Manager).stats.leadership}</div>
               <div class="stat-label">LİD</div>
             </div>
-          ` : Object.entries((card as Player).stats).map(([stat, value]) => `
+          ` : Object.entries((card as Player).stats).map(([stat, value]) => 
+            value ? `
             <div class="stat">
               <div class="stat-value">${value}</div>
-              <div class="stat-label">${stat}</div>
+              <div class="stat-label">${stat.toUpperCase()}</div>
             </div>
-          `).join('')}
+          ` : '').join('')}
         </div>
 
         <div class="player-details">

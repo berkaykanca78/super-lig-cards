@@ -8,6 +8,7 @@ import { Stats } from './components/stats/stats';
 import { Lineup } from './components/lineup/lineup';
 import { Fixtures } from './components/fixtures/fixtures';
 import { Player } from './components/player/player';
+import { Transfers } from './components/transfers/transfers';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,7 @@ export const routes: Routes = [
       { path: 'news', component: News },
       { path: 'stats', component: Stats },
       { path: 'fixtures', component: Fixtures },
+      { path: 'transfers', component: Transfers },
       { path: 'player/:id', component: Player },
     ]
   },

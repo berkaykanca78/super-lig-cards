@@ -14,27 +14,24 @@ export class Standings implements OnInit {
   error = false;
   activeFilter = 'all';
 
-  constructor(private standingsService: StandingsService) {}
+  constructor(private standingsService: StandingsService) { }
 
   ngOnInit() {
     this.loadStandings();
   }
 
-  loadStandings() {
+  async loadStandings() {
     this.loading = true;
     this.error = false;
-    
-    this.standingsService.getStandings().subscribe({
-      next: (data) => {
-        this.standings = data;
-        this.loading = false;
-      },
-      error: (error) => {
-        console.error('Error loading standings:', error);
-        this.error = true;
-        this.loading = false;
-      }
-    });
+    try {
+      const data = await this.standingsService.getStandings();
+      this.standings = data;
+      this.loading = false;
+    } catch (error) {
+      console.error('Error loading standings:', error);
+      this.error = true;
+      this.loading = false;
+    }
   }
 
   setFilter(filter: string) {
@@ -45,7 +42,7 @@ export class Standings implements OnInit {
     if (this.activeFilter === 'all') {
       return this.standings;
     }
-    
+
     // Filter based on position ranges
     switch (this.activeFilter) {
       case 'champions':
@@ -81,10 +78,10 @@ export class Standings implements OnInit {
 
   getCurrentDate(): string {
     const now = new Date();
-    const options: Intl.DateTimeFormatOptions = { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
     };
     return now.toLocaleDateString('tr-TR', options);
   }

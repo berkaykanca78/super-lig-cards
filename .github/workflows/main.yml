@@ -37,6 +37,7 @@ jobs:
         port: ${{ secrets.PRT }}
         local-dir: ${{ secrets.LCLDR }} 
         server-dir: ${{ secrets.SRVRDIR }}
+        dangerous-clean-slate: true
         exclude: |
           **/.git*
           **/.git*/**

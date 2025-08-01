@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TeamService } from '../../services/team.service';
 import { Subscription } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 // Interfaces for type safety
 interface Player {
@@ -147,6 +148,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
     try {
       const data = await this.loadTeamDataFromServer(teamName);
       this.currentTeamData = data as TeamData;
+      console.log('currentTeamData', this.currentTeamData);
       this.currentPage = 1; // Reset to first page when loading new team
     } catch (error) {
       console.error('Takım verileri yüklenirken hata oluştu:', error);
@@ -169,7 +171,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
 
       const results = await Promise.all(
         teamFiles.map(teamFile => 
-          fetch(`/data/${teamFile}.json`).then(response => response.json())
+          fetch(`${environment.apiUrl}/api/teams/${teamFile}`).then(response => response.json())
         )
       );
 
@@ -187,7 +189,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
       });
       return { players: allPlayers };
     } else {
-      return fetch(`/data/${team}.json`).then(response => response.json());
+      return fetch(`${environment.apiUrl}/api/teams/${team}`).then(response => response.json());
     }
   }
 
