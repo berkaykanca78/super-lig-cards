@@ -175,6 +175,10 @@ body {
     transform: translateY(-2px);
 }
 
+.menu-toggle.hidden {
+    display: none !important;
+}
+
 /* Sidebar backdrop for mobile */
 .sidebar-backdrop {
     position: fixed;

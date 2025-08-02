@@ -1,7 +1,9 @@
-import { Component, OnInit, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TeamService } from '../../../services/team.service';
+import { NavbarService } from '../../../services/navbar.service';
 import { environment } from '../../../../environments/environment';
+import { Subscription } from 'rxjs';
 
 // TypeScript interfaces for team data
 interface Team {
@@ -21,7 +23,7 @@ interface TeamsData {
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss'
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, OnDestroy {
   @Output() teamSelected = new EventEmitter<string>();
   version: string = '1.0.0';
 
@@ -30,8 +32,14 @@ export class SidebarComponent implements OnInit {
   error: string | null = null;
   isSidebarOpen = false;
   currentTeamId: string = 'galatasaray';
+  isNavbarMobileMenuOpen = false;
+  private navbarSubscription: Subscription | undefined;
 
-  constructor(public teamService: TeamService, private cdr: ChangeDetectorRef) { }
+  constructor(
+    public teamService: TeamService, 
+    private cdr: ChangeDetectorRef,
+    private navbarService: NavbarService
+  ) { }
 
   ngOnInit() {
     this.generateTeamsList();
@@ -47,6 +55,18 @@ export class SidebarComponent implements OnInit {
       console.log('Sidebar currentTeamId set to:', this.currentTeamId);
       this.cdr.detectChanges(); // Force change detection
     });
+
+    // Subscribe to navbar mobile menu state
+    this.navbarSubscription = this.navbarService.mobileMenuOpen$.subscribe(isOpen => {
+      this.isNavbarMobileMenuOpen = isOpen;
+      this.cdr.detectChanges();
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.navbarSubscription) {
+      this.navbarSubscription.unsubscribe();
+    }
   }
 
   async getVersion() {

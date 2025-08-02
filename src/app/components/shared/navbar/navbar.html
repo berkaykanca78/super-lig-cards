@@ -3,30 +3,72 @@
         <a routerLink="/home" class="navbar-brand">
             <span>Trendyol Süper Lig</span>
         </a>
-        <ul class="navbar-nav">
+        
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger-menu" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <ul class="navbar-nav desktop-nav">
             <li class="nav-item">
-                <a routerLink="/home" routerLinkActive="active" class="nav-link">Home</a>
+                <a routerLink="/home" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Home</a>
             </li>
             <li class="nav-item">
-                <a routerLink="/lineup" routerLinkActive="active" class="nav-link">Lineup</a>
+                <a routerLink="/lineup" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Lineup</a>
             </li>
             <li class="nav-item">
-                <a routerLink="/fixtures" routerLinkActive="active" class="nav-link">Fixtures</a>
+                <a routerLink="/fixtures" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Fixtures</a>
             </li>
             <li class="nav-item">
-                <a routerLink="/stats" routerLinkActive="active" class="nav-link">Stats</a>
+                <a routerLink="/stats" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Stats</a>
             </li>
             <li class="nav-item">
-                <a routerLink="/standings" routerLinkActive="active" class="nav-link">Standings</a>
+                <a routerLink="/standings" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Standings</a>
             </li>
             <li class="nav-item">
-                <a routerLink="/results" routerLinkActive="active" class="nav-link">Results</a>
+                <a routerLink="/results" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Results</a>
             </li>
             <li class="nav-item">
-                <a routerLink="/news" routerLinkActive="active" class="nav-link">News</a>
+                <a routerLink="/news" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">News</a>
             </li>
             <li class="nav-item">
-                <a routerLink="/transfers" routerLinkActive="active" class="nav-link">Transfers</a>
+                <a routerLink="/transfers" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Transfers</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" [class.active]="isMobileMenuOpen" (click)="closeMobileMenu()"></div>
+    
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav" [class.active]="isMobileMenuOpen">
+        <ul class="mobile-nav-list">
+            <li class="mobile-nav-item">
+                <a routerLink="/home" routerLinkActive="active" class="mobile-nav-link" (click)="closeMobileMenu()">Home</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a routerLink="/lineup" routerLinkActive="active" class="mobile-nav-link" (click)="closeMobileMenu()">Lineup</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a routerLink="/fixtures" routerLinkActive="active" class="mobile-nav-link" (click)="closeMobileMenu()">Fixtures</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a routerLink="/stats" routerLinkActive="active" class="mobile-nav-link" (click)="closeMobileMenu()">Stats</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a routerLink="/standings" routerLinkActive="active" class="mobile-nav-link" (click)="closeMobileMenu()">Standings</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a routerLink="/results" routerLinkActive="active" class="mobile-nav-link" (click)="closeMobileMenu()">Results</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a routerLink="/news" routerLinkActive="active" class="mobile-nav-link" (click)="closeMobileMenu()">News</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a routerLink="/transfers" routerLinkActive="active" class="mobile-nav-link" (click)="closeMobileMenu()">Transfers</a>
             </li>
         </ul>
     </div>

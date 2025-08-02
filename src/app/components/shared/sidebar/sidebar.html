@@ -1,4 +1,4 @@
-<button class="menu-toggle" (click)="toggleSidebar()">☰</button>
+<button class="menu-toggle" (click)="toggleSidebar()" [class.hidden]="isNavbarMobileMenuOpen">☰</button>
 <div class="sidebar-backdrop" *ngIf="isSidebarOpen" (click)="closeSidebar()"></div>
 <div class="sidebar" [class.active]="isSidebarOpen">
     <small style="color: white; text-align: center; justify-content: center;">Version {{ version }}</small>
