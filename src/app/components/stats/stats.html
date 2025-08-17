@@ -1,112 +1,371 @@
-<div class="stats-container">
-    <div class="stats-header">
-        <h1>2025-2026 Süper Lig İstatistikleri</h1>
-        <p>Oyuncu ve takım performans verileri</p>
-    </div>
-
-    <div class="stats-tabs">
-        <button class="tab-button active" data-tab="player-stats">
-            <i class="fas fa-user"></i>
-            Oyuncu İstatistikleri
-        </button>
-        <button class="tab-button" data-tab="team-stats">
-            <i class="fas fa-users"></i>
-            Takım İstatistikleri
-        </button>
-    </div>
-
-    <div class="stats-content">
-        <!-- Player Statistics Tab -->
-        <div id="player-stats" class="tab-content active">
-            <div class="stats-filters">
-                <select id="positionFilter" class="stats-filter">
-                    <option value="">Tüm Pozisyonlar</option>
-                    <option value="GK">Kaleci</option>
-                    <option value="DEF">Defans</option>
-                    <option value="MID">Orta Saha</option>
-                    <option value="FWD">Forvet</option>
-                </select>
-                <select id="teamFilter" class="stats-filter">
-                    <option value="">Tüm Takımlar</option>
-                </select>
-                <select id="statType" class="stats-filter">
-                    <option value="goals">Goller</option>
-                    <option value="assists">Asistler</option>
-                    <option value="clean_sheets">Temiz Maçlar</option>
-                    <option value="saves">Kurtarışlar</option>
-                    <option value="passes">Paslar</option>
-                </select>
-            </div>
-
-            <div class="stats-table-container">
-                <table class="stats-table">
-                    <thead>
-                        <tr>
-                            <th>Sıra</th>
-                            <th>Oyuncu</th>
-                            <th>Takım</th>
-                            <th>Pozisyon</th>
-                            <th>Maç</th>
-                            <th id="statHeader">Gol</th>
-                            <th>Asist</th>
-                            <th>Puan</th>
-                        </tr>
-                    </thead>
-                    <tbody id="playerStatsBody">
-                        <!-- Player stats will be loaded here -->
-                    </tbody>
-                </table>
-            </div>
+<div class="stats-wrapper">
+    <div class="stats-container">
+        <div class="stats-header">
+            <h1>2025-2026 Süper Lig İstatistikleri</h1>
+            <p>Oyuncu Performans Verileri</p>
         </div>
 
-        <!-- Team Statistics Tab -->
-        <div id="team-stats" class="tab-content">
-            <div class="team-stats-grid">
-                <div class="stat-card">
-                    <h3>En Çok Gol Atan</h3>
-                    <div class="stat-content" id="topScoringTeam">
-                        <!-- Will be populated by JS -->
-                    </div>
+        <div class="stats-tabs">
+            <button class="tab-button active" data-tab="goal-kings">
+                <i class="fas fa-futbol"></i>
+                Gol Krallığı
+            </button>
+            <button class="tab-button" data-tab="assist-kings">
+                <i class="fas fa-hands-helping"></i>
+                Asist Krallığı
+            </button>
+            <!--<button class="tab-button" data-tab="most-cards">
+                <i class="fas fa-id-card"></i>
+                En Çok Kart Görenler
+            </button>
+            <button class="tab-button" data-tab="most-goals-conceded">
+                <i class="fas fa-door-open"></i>
+                Kalesini Gole Kapatanlar
+            </button>-->
+        </div>
+
+        <div class="stats-content mb-5">
+            <!-- Goal Kings Tab -->
+            <div id="goal-kings" class="tab-content active">
+                <div class="tab-header">
+                    <h2>🏆 Gol Krallığı</h2>
+                    <p>En çok gol atan oyuncular</p>
                 </div>
-                <div class="stat-card">
-                    <h3>En Az Gol Yiyen</h3>
-                    <div class="stat-content" id="bestDefenseTeam">
-                        <!-- Will be populated by JS -->
-                    </div>
+                
+                <!-- Loading and Error States -->
+                <div *ngIf="isLoading" class="loading-message">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Veriler yükleniyor...</p>
                 </div>
-                <div class="stat-card">
-                    <h3>En Çok Asist</h3>
-                    <div class="stat-content" id="topAssistTeam">
-                        <!-- Will be populated by JS -->
-                    </div>
+                
+                <div *ngIf="error && !isLoading" class="error-message">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>{{ error }}</p>
                 </div>
-                <div class="stat-card">
-                    <h3>En Çok Temiz Maç</h3>
-                    <div class="stat-content" id="topCleanSheetTeam">
-                        <!-- Will be populated by JS -->
+
+                <div *ngIf="!isLoading && !error" class="stats-content-wrapper">
+                    <div class="stats-controls">
+                        <!--<div class="stats-filters">
+                            <select id="positionFilter" class="stats-filter" [(ngModel)]="selectedPosition" (change)="onPositionFilterChange()">
+                                <option value="">Tüm Pozisyonlar</option>
+                                <option value="GK">Kaleci</option>
+                                <option value="DEF">Defans</option>
+                                <option value="MID">Orta Saha</option>
+                                <option value="FWD">Forvet</option>
+                            </select>
+                            <select id="teamFilter" class="stats-filter" [(ngModel)]="selectedTeam" (change)="onTeamFilterChange()">
+                                <option value="">Tüm Takımlar</option>
+                                <option *ngFor="let team of availableTeams" [value]="team">{{ team }}</option>
+                            </select>
+                            <select id="statType" class="stats-filter" [(ngModel)]="selectedStatType" (change)="onStatTypeChange()">
+                                <option value="goals">Goller</option>
+                                <option value="assists">Asistler</option>
+                                <option value="matches">Maçlar</option>
+                            </select>
+                        </div>-->
+                        <!--<button class="refresh-button" (click)="refreshData()" [disabled]="isLoading">
+                            <i class="fas fa-sync-alt" [class.fa-spin]="isLoading"></i>
+                            Yenile
+                        </button>-->
+                    </div>
+
+                    <div class="stats-summary">
+                        <p>Toplam {{ getTotalPlayers() }} oyuncu bulundu</p>
+                        <div *ngIf="getTopPlayer()" class="top-player-info">
+                            <span class="top-player-label">🏆 Lider:</span>
+                            <span class="top-player-name">{{ getTopPlayer()?.playerName }}</span>
+                            <span class="top-player-team">({{ getTopPlayer()?.club }})</span>
+                            <span class="top-player-stat">{{ getStatValue(getTopPlayer()!) }} {{ getStatHeader() }}</span>
+                        </div>
+                    </div>
+
+                    <div class="stats-table-container">
+                        <table class="stats-table">
+                            <thead>
+                                <tr>
+                                    <th>Sıra</th>
+                                    <th>Oyuncu</th>
+                                    <th>Takım</th>
+                                    <th>Pozisyon</th>
+                                    <th>Maç</th>
+                                    <th [innerHTML]="getStatHeader()"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="goalKingsBody">
+                                <tr *ngFor="let player of filteredPlayers; let i = index" class="player-row">
+                                    <td>{{ i + 1 }}</td>
+                                    <td class="player-name">{{ player.playerName }}</td>
+                                    <td class="player-team">{{ player.club }}</td>
+                                    <td class="player-position">{{ getPositionDisplayName(player.position) }}</td>
+                                    <td class="player-matches">{{ player.matches }}</td>
+                                    <td class="player-goals">{{ getStatValue(player) }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div *ngIf="filteredPlayers.length === 0 && !isLoading && !error" class="no-data-message">
+                            <p>Seçilen kriterlere uygun oyuncu bulunamadı.</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="team-stats-table-container">
-                <table class="stats-table">
-                    <thead>
-                        <tr>
-                            <th>Takım</th>
-                            <th>O</th>
-                            <th>G</th>
-                            <th>B</th>
-                            <th>M</th>
-                            <th>A</th>
-                            <th>Y</th>
-                            <th>Av</th>
-                            <th>P</th>
-                        </tr>
-                    </thead>
-                    <tbody id="teamStatsBody">
-                        <!-- Team stats will be loaded here -->
-                    </tbody>
-                </table>
+            <!-- Assist Kings Tab -->
+            <div id="assist-kings" class="tab-content">
+                <div class="tab-header">
+                    <h2>🎯 Asist Krallığı</h2>
+                    <p>En çok asist yapan oyuncular</p>
+                </div>
+                
+                <!-- Loading and Error States -->
+                <div *ngIf="isLoading" class="loading-message">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Veriler yükleniyor...</p>
+                </div>
+                
+                <div *ngIf="error && !isLoading" class="error-message">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>{{ error }}</p>
+                </div>
+
+                <div *ngIf="!isLoading && !error" class="stats-content-wrapper">
+                    <div class="stats-controls">
+                        <!--<div class="stats-filters">
+                            <select id="positionFilter" class="stats-filter" [(ngModel)]="selectedPosition" (change)="onPositionFilterChange()">
+                                <option value="">Tüm Pozisyonlar</option>
+                                <option value="GK">Kaleci</option>
+                                <option value="DEF">Defans</option>
+                                <option value="MID">Orta Saha</option>
+                                <option value="FWD">Forvet</option>
+                            </select>
+                            <select id="teamFilter" class="stats-filter" [(ngModel)]="selectedTeam" (change)="onTeamFilterChange()">
+                                <option value="">Tüm Takımlar</option>
+                                <option *ngFor="let team of availableTeams" [value]="team">{{ team }}</option>
+                            </select>
+                            <select id="statType" class="stats-filter" [(ngModel)]="selectedStatType" (change)="onStatTypeChange()">
+                                <option value="assists">Asistler</option>
+                                <option value="goals">Goller</option>
+                                <option value="matches">Maçlar</option>
+                            </select>
+                        </div>-->
+                        <!--<button class="refresh-button" (click)="refreshData()" [disabled]="isLoading">
+                            <i class="fas fa-sync-alt" [class.fa-spin]="isLoading"></i>
+                            Yenile
+                        </button>-->
+                    </div>
+
+                    <div class="stats-summary">
+                        <p>Toplam {{ getTotalPlayers() }} oyuncu bulundu</p>
+                        <div *ngIf="getTopPlayer()" class="top-player-info">
+                            <span class="top-player-label">🎯 Lider:</span>
+                            <span class="top-player-name">{{ getTopPlayer()?.playerName }}</span>
+                            <span class="top-player-team">({{ getTopPlayer()?.club }})</span>
+                            <span class="top-player-stat">{{ getStatValue(getTopPlayer()!) }} {{ getStatHeader() }}</span>
+                        </div>
+                    </div>
+
+                    <div class="stats-table-container">
+                        <table class="stats-table">
+                            <thead>
+                                <tr>
+                                    <th>Sıra</th>
+                                    <th>Oyuncu</th>
+                                    <th>Takım</th>
+                                    <th>Pozisyon</th>
+                                    <th>Maç</th>
+                                    <th [innerHTML]="getStatHeader()"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="assistKingsBody">
+                                <tr *ngFor="let player of filteredPlayers; let i = index" class="player-row">
+                                    <td>{{ i + 1 }}</td>
+                                    <td class="player-name">{{ player.playerName }}</td>
+                                    <td class="player-team">{{ player.club }}</td>
+                                    <td class="player-position">{{ getPositionDisplayName(player.position) }}</td>
+                                    <td class="player-matches">{{ player.matches }}</td>
+                                    <td class="player-assists">{{ getStatValue(player) }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div *ngIf="filteredPlayers.length === 0 && !isLoading && !error" class="no-data-message">
+                            <p>Seçilen kriterlere uygun oyuncu bulunamadı.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Most Cards Tab -->
+            <div id="most-cards" class="tab-content">
+                <div class="tab-header">
+                    <h2>🟨 En Çok Kart Görenler</h2>
+                    <p>En çok sarı/kırmızı kart alan oyuncular</p>
+                </div>
+                
+                <!-- Loading and Error States -->
+                <div *ngIf="isLoading" class="loading-message">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Veriler yükleniyor...</p>
+                </div>
+                
+                <div *ngIf="error && !isLoading" class="error-message">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>{{ error }}</p>
+                </div>
+
+                <div *ngIf="!isLoading && !error" class="stats-content-wrapper">
+                    <div class="stats-controls">
+                        <!--<div class="stats-filters">
+                            <select id="positionFilter" class="stats-filter" [(ngModel)]="selectedPosition" (change)="onPositionFilterChange()">
+                                <option value="">Tüm Pozisyonlar</option>
+                                <option value="GK">Kaleci</option>
+                                <option value="DEF">Defans</option>
+                                <option value="MID">Orta Saha</option>
+                                <option value="FWD">Forvet</option>
+                            </select>
+                            <select id="teamFilter" class="stats-filter" [(ngModel)]="selectedTeam" (change)="onTeamFilterChange()">
+                                <option value="">Tüm Takımlar</option>
+                                <option *ngFor="let team of availableTeams" [value]="team">{{ team }}</option>
+                            </select>
+                            <select id="statType" class="stats-filter" [(ngModel)]="selectedStatType" (change)="onStatTypeChange()">
+                                <option value="cards">Kartlar</option>
+                                <option value="matches">Maçlar</option>
+                            </select>
+                        </div>-->
+                        <button class="refresh-button" (click)="refreshData()" [disabled]="isLoading">
+                            <i class="fas fa-sync-alt" [class.fa-spin]="isLoading"></i>
+                            Yenile
+                        </button>
+                    </div>
+
+                    <div class="stats-summary">
+                        <p>Toplam {{ getTotalPlayers() }} oyuncu bulundu</p>
+                        <div *ngIf="getTopPlayer()" class="top-player-info">
+                            <span class="top-player-label">🟨 Lider:</span>
+                            <span class="top-player-name">{{ getTopPlayer()?.playerName }}</span>
+                            <span class="top-player-team">({{ getTopPlayer()?.club }})</span>
+                            <span class="top-player-stat">{{ getStatValue(getTopPlayer()!) }} {{ getStatHeader() }}</span>
+                        </div>
+                    </div>
+
+                    <div class="stats-table-container">
+                        <table class="stats-table">
+                            <thead>
+                                <tr>
+                                    <th>Sıra</th>
+                                    <th>Oyuncu</th>
+                                    <th>Takım</th>
+                                    <th>Pozisyon</th>
+                                    <th>Maç</th>
+                                    <th [innerHTML]="getStatHeader()"></th>
+                                    <th>Gol</th>
+                                    <th>Asist</th>
+                                </tr>
+                            </thead>
+                            <tbody id="mostCardsBody">
+                                <tr *ngFor="let player of filteredPlayers; let i = index" class="player-row">
+                                    <td>{{ i + 1 }}</td>
+                                    <td class="player-name">{{ player.playerName }}</td>
+                                    <td class="player-team">{{ player.club }}</td>
+                                    <td class="player-position">{{ getPositionDisplayName(player.position) }}</td>
+                                    <td class="player-matches">{{ player.matches }}</td>
+                                    <td class="player-cards">{{ getStatValue(player) }}</td>
+                                    <td class="player-goals">{{ player.goals }}</td>
+                                    <td class="player-assists">{{ player.assists }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div *ngIf="filteredPlayers.length === 0 && !isLoading && !error" class="no-data-message">
+                            <p>Seçilen kriterlere uygun oyuncu bulunamadı.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Most Goals Conceded Tab -->
+            <div id="most-goals-conceded" class="tab-content">
+                <div class="tab-header">
+                    <h2>Kalesini Gole Kapatanlar</h2>
+                    <p>En çok gol yiyen kaleciler</p>
+                </div>
+                
+                <!-- Loading and Error States -->
+                <div *ngIf="isLoading" class="loading-message">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Veriler yükleniyor...</p>
+                </div>
+                
+                <div *ngIf="error && !isLoading" class="error-message">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>{{ error }}</p>
+                </div>
+
+                <div *ngIf="!isLoading && !error" class="stats-content-wrapper">
+                    <div class="stats-controls">
+                        <div class="stats-filters">
+                            <select id="positionFilter" class="stats-filter" [(ngModel)]="selectedPosition" (change)="onPositionFilterChange()">
+                                <option value="">Tüm Pozisyonlar</option>
+                                <option value="GK">Kaleci</option>
+                            </select>
+                            <select id="teamFilter" class="stats-filter" [(ngModel)]="selectedTeam" (change)="onTeamFilterChange()">
+                                <option value="">Tüm Takımlar</option>
+                                <option *ngFor="let team of availableTeams" [value]="team">{{ team }}</option>
+                            </select>
+                            <select id="statType" class="stats-filter" [(ngModel)]="selectedStatType" (change)="onStatTypeChange()">
+                                <option value="goals_conceded">Gol Kaptı</option>
+                                <option value="matches">Maçlar</option>
+                            </select>
+                        </div>
+                        <button class="refresh-button" (click)="refreshData()" [disabled]="isLoading">
+                            <i class="fas fa-sync-alt" [class.fa-spin]="isLoading"></i>
+                            Yenile
+                        </button>
+                    </div>
+
+                    <div class="stats-summary">
+                        <p>Toplam {{ getTotalPlayers() }} oyuncu bulundu</p>
+                        <div *ngIf="getTopPlayer()" class="top-player-info">
+                            <span class="top-player-label">🚪 Lider:</span>
+                            <span class="top-player-name">{{ getTopPlayer()?.playerName }}</span>
+                            <span class="top-player-team">({{ getTopPlayer()?.club }})</span>
+                            <span class="top-player-stat">{{ getStatValue(getTopPlayer()!) }} {{ getStatHeader() }}</span>
+                        </div>
+                    </div>
+
+                    <div class="stats-table-container">
+                        <table class="stats-table">
+                            <thead>
+                                <tr>
+                                    <th>Sıra</th>
+                                    <th>Oyuncu</th>
+                                    <th>Takım</th>
+                                    <th>Pozisyon</th>
+                                    <th>Maç</th>
+                                    <th [innerHTML]="getStatHeader()"></th>
+                                    <th>Kurtarış</th>
+                                    <th>Puan</th>
+                                </tr>
+                            </thead>
+                            <tbody id="mostGoalsConcededBody">
+                                <tr *ngFor="let player of filteredPlayers; let i = index" class="player-row">
+                                    <td>{{ i + 1 }}</td>
+                                    <td class="player-name">{{ player.playerName }}</td>
+                                    <td class="player-team">{{ player.club }}</td>
+                                    <td class="player-position">{{ getPositionDisplayName(player.position) }}</td>
+                                    <td class="player-matches">{{ player.matches }}</td>
+                                    <td class="player-goals-conceded">{{ getStatValue(player) }}</td>
+                                    <td class="player-points">{{ player.points }}</td>
+                                    <td class="player-points">{{ player.points }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div *ngIf="filteredPlayers.length === 0 && !isLoading && !error" class="no-data-message">
+                            <p>Seçilen kriterlere uygun oyuncu bulunamadı.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
