@@ -18,12 +18,12 @@ export const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: Home },
       { path: 'standings', component: Standings },
-      { path: 'results', component: Results },
-      { path: 'news', component: News },
+      //{ path: 'results', component: Results },
+      //{ path: 'news', component: News },
       { path: 'stats', component: Stats },
       { path: 'fixtures', component: Fixtures },
       { path: 'transfers', component: Transfers },
-      { path: 'player/:id', component: Player },
+      //{ path: 'player/:id', component: Player },
     ]
   },
   {

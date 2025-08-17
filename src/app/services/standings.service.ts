@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { map, catchError, timeout } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
 export interface TeamStanding {
+  matchesPlayed: number;
   position: number;
   teamName: string;
-  played: number;
-  won: number;
-  drawn: number;
-  lost: number;
+  wins: number;
+  draws: number;
+  losses: number;
   goalsFor: number;
   goalsAgainst: number;
   goalDifference: number;

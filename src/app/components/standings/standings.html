@@ -56,7 +56,7 @@
         <div class="standings-table-container">
             <div *ngIf="loading" class="loading">
                 <div class="spinner"></div>
-                <p>Veriler yükleniyor...</p>
+                <p>Sıralama Yükleniyor...</p>
             </div>
 
             <div *ngIf="error" class="error">
@@ -77,7 +77,7 @@
                         <th>Y</th>
                         <th>Av</th>
                         <th>P</th>
-                        <th>Form</th>
+                        <!--<th>Form</th>-->
                     </tr>
                 </thead>
                 <tbody>
@@ -86,28 +86,28 @@
                         [class]="getTeamClass(team)">
                         <td>{{ team.position }}</td>
                         <td class="team-name">{{ team.teamName }}</td>
-                        <td>{{ team.played }}</td>
-                        <td>{{ team.won }}</td>
-                        <td>{{ team.drawn }}</td>
-                        <td>{{ team.lost }}</td>
+                        <td>{{ team.matchesPlayed }}</td>
+                        <td>{{ team.wins }}</td>
+                        <td>{{ team.draws }}</td>
+                        <td>{{ team.losses }}</td>
                         <td>{{ team.goalsFor }}</td>
                         <td>{{ team.goalsAgainst }}</td>
                         <td>{{ team.goalDifference > 0 ? '+' + team.goalDifference : team.goalDifference }}</td>
                         <td class="points">{{ team.points }}</td>
-                        <td class="form">
+                        <!--<td class="form">
                             <span 
                                 *ngFor="let result of team.form" 
                                 class="form-result"
                                 [class]="getFormClass(result)">
                                 {{ result }}
                             </span>
-                        </td>
+                        </td>-->
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <div class="standings-legend">
+        <div class="standings-legend mb-5">
             <div class="legend-item">
                 <div class="legend-color champions"></div>
                 <span>Şampiyonlar Ligi</span>

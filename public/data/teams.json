@@ -3,109 +3,109 @@
         {
             "id": "galatasaray",
             "name": "Galatasaray A.Ş.",
-            "logo": "https://images.seeklogo.com/logo-png/61/2/galatasaray-spor-kulubu-5-yildizli-arma-logo-png_seeklogo-618786.png",
+            "logo": "/teams/141.png",
             "stadium": "Ali Sami Yen Spor Kompleksi Rams Park"
         },
         {
             "id": "fenerbahce",
             "name": "Fenerbahçe A.Ş.",
-            "logo": "https://www.freepnglogos.com/uploads/fenerbahce-logo-png/fenerbahce-super-lig-takimi-logo-9.png",
+            "logo": "/teams/36.png",
             "stadium": "Ülker Stadyumu Fb Şükrü Saracoğlu Spor Kompleksi"
         },
         {
             "id": "besiktas",
             "name": "Beşiktaş A.Ş.",
-            "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/BesiktasJK-Logo.svg/250px-BesiktasJK-Logo.svg.png",
+            "logo": "/teams/114.png",
             "stadium": "Beşiktaş Park"
         },
         {
             "id": "trabzonspor",
             "name": "Trabzonspor A.Ş.",
-            "logo": "https://sortitoutsi.b-cdn.net/uploads/team/1879.png",
+            "logo": "/teams/449.png",
             "stadium": "Papara Park"
         },
         {
             "id": "basaksehir",
             "name": "R. Başakşehir F.K.",
-            "logo": "https://tmssl.akamaized.net/images/wappen/head/6890.png",
+            "logo": "/teams/6890.png",
             "stadium": "Başakşehir Fatih Terim Stadyumu"
         },
         {
             "id": "samsunspor",
             "name": "Samsunspor A.Ş.",
-            "logo": "https://tmssl.akamaized.net/images/wappen/head/152.png",
+            "logo": "/teams/152.png",
             "stadium": "Samsun Yeni 19 Mayıs Stadyumu"
         },
         {
             "id": "eyupspor",
             "name": "İ. Eyüpspor",
-            "logo": "https://tmssl.akamaized.net/images/wappen/head/7160.png",  
+            "logo": "/teams/7160.png",  
             "stadium": "Recep Tayyip Erdoğan Stadyumu"
         },
         {
             "id": "goztepe",
             "name": "Göztepe A.Ş.",
-            "logo": "https://tmssl.akamaized.net/images/wappen/head/1467.png",
+            "logo": "/teams/1467.png",
             "stadium": "Gürsel Aksel Stadyumu"
         },
         {
             "id": "rizespor",
             "name": "Ç. Rizespor A.Ş.",
-            "logo": "https://tmssl.akamaized.net/images/wappen/head/126.png",
+            "logo": "/teams/126.png",
             "stadium": "Çaykur Didi Stadyumu"
         },
         {
             "id": "kasimpasa",
             "name": "Kasımpaşa A.Ş.",
-            "logo": "https://tmssl.akamaized.net/images/wappen/head/10484.png",
+            "logo": "/teams/10484.png",
             "stadium": "Recep Tayyip Erdoğan Stadyumu"
         },
         {
             "id": "konyaspor",
             "name": "Konyaspor",
-            "logo": "https://tmssl.akamaized.net/images/wappen/head/2293.png",
+            "logo": "/teams/2293.png",
             "stadium": "Medaş Konya Büyükşehi̇r Stadyumu"
         },
         {
             "id": "alanyaspor",
             "name": "C. Alanyaspor",
-            "logo": "https://tmssl.akamaized.net/images/wappen/head/11282.png",
+            "logo": "/teams/11282.png",
             "stadium": "Alanya Oba Stadyumu"
         },
         {
             "id": "kayserispor",
             "name": "Kayserispor F.A.Ş.",
-            "logo": "https://tmssl.akamaized.net/images/wappen/head/3205.png",
+            "logo": "/teams/3205.png",
             "stadium": "Rhg Enertürk Enerji̇ Stadyumu"
         },
         {
             "id": "gaziantep",
             "name": "Gaziantep F.K. A.Ş.",
-            "logo": "https://tmssl.akamaized.net/images/wappen/head/2832.png",
+            "logo": "/teams/2832.png",
             "stadium": "Gaziantep Stadyumu"
         },
         {
             "id": "antalyaspor",
             "name": "Antalyaspor A.Ş.",
-            "logo": "https://tmssl.akamaized.net/images/wappen/head/589.png",
+            "logo": "/teams/589.png",
             "stadium": "Corendon Airlines Park Antalya Stadı"
         },
         {
             "id": "kocaelispor",
             "name": "Kocaelispor",
-            "logo": "https://tmssl.akamaized.net/images/wappen/head/120.png",
+            "logo": "/teams/120.png",
             "stadium": "Kocaeli Stadyumu"
         },
         {
             "id": "genclerbirligi",
             "name": "Gençlerbirliği",
-            "logo": "https://tmssl.akamaized.net/images/wappen/head/820.png",
+            "logo": "/teams/820.png",
             "stadium": "Eryaman Stadyumu"
         },
         {
             "id": "karagumruk",
             "name": "F. Karagümrük A.Ş.",
-            "logo": "https://tmssl.akamaized.net/images/wappen/head/6646.png",
+            "logo": "/teams/6646.png",
             "stadium": "Atatürk Olimpiyat Stadyumu"
         }
     ]

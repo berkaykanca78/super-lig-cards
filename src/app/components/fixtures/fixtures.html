@@ -1,4 +1,4 @@
-<div class="fixture-container">
+<div class="fixtures-container">
     <div class="fixture-header">
         <h1>2025-2026 Süper Lig Fikstürü</h1>
         <p>34 haftalık sezon programı</p>
@@ -20,17 +20,25 @@
     </div>
 
     <div class="week-selector">
-        <button *ngFor="let week of getWeekNumbers()" class="week-button" [class.active]="week === currentWeek"
-            (click)="showWeek(week)">
-            {{ week }}
-        </button>
+        <div class="week-row">
+            <button *ngFor="let week of getWeekNumbers().slice(0, 17)" class="week-button" [class.active]="week === currentWeek"
+                (click)="showWeek(week)">
+                {{ week }}
+            </button>
+        </div>
+        <div class="week-row">
+            <button *ngFor="let week of getWeekNumbers().slice(17)" class="week-button" [class.active]="week === currentWeek"
+                (click)="showWeek(week)">
+                {{ week }}
+            </button>
+        </div>
     </div>
 
     <!-- Loading state -->
     <div *ngIf="isLoading" class="fixture-grid">
         <div class="loading">
             <i class="fas fa-spinner fa-spin"></i>
-            Fikstür yükleniyor...
+            Fikstür Yükleniyor...
         </div>
     </div>
 
@@ -41,40 +49,61 @@
 
     <!-- Fixture grid -->
     <div class="fixture-grid" *ngIf="!isLoading && !error">
-        <!-- No matches message -->
-        <div *ngIf="getFilteredMatches().length === 0" class="no-matches">
-            {{ getNoMatchesMessage() }}
+        <!-- Loading state for no matches -->
+        <div *ngIf="getFilteredMatches().length === 0" class="loading">
+            <i class="fas fa-spinner fa-spin"></i>
+            Fikstür Yükleniyor...
         </div>
 
         <!-- Match cards -->
         <div *ngFor="let match of getFilteredMatches()" class="match-card">
             <div class="match-header">
                 <span class="match-number">Maç {{ match.matchNumber }}</span>
-                <span class="match-date">{{ formatDate(match.date) }}</span>
+                <span class="match-date">{{ formatDate(match.date) || 'Belirsiz' }}</span>
             </div>
 
             <div class="teams-container">
                 <div class="team home" [class.selected]="isMatchTeamSelected(match.homeTeam)">
-                    <img [src]="match.homeTeam.logo" [alt]="match.homeTeam.name" class="team-logo">
-                    <div class="team-name">{{ match.homeTeam.name }}</div>
+                    <div class="team-logo-container">
+                        <img [src]="match.homeTeamLogo" [alt]="match.homeTeam" class="team-logo"
+                            (error)="onImageError($event)">
+                    </div>
+                    <div class="team-name">{{ match.homeTeam }}</div>
                 </div>
 
-                <div class="vs">VS</div>
+                <div class="match-result">
+                    <div *ngIf="match.isPlayed && match.scoreDisplay" class="score-display">
+                        {{ match.scoreDisplay }}
+                    </div>
+                    <div *ngIf="match.isPlayed && !match.scoreDisplay" class="score">
+                        <span class="home-score">{{ match.homeScore || 0 }}</span>
+                        <span class="score-separator">-</span>
+                        <span class="away-score">{{ match.awayScore || 0 }}</span>
+                    </div>
+                    <div *ngIf="!match.isPlayed" class="vs">VS</div>
+                </div>
 
                 <div class="team away" [class.selected]="isMatchTeamSelected(match.awayTeam)">
-                    <img [src]="match.awayTeam.logo" [alt]="match.awayTeam.name" class="team-logo">
-                    <div class="team-name">{{ match.awayTeam.name }}</div>
+                    <div class="team-logo-container">
+                        <img [src]="match.awayTeamLogo" [alt]="match.awayTeam" class="team-logo"
+                            (error)="onImageError($event)">
+                    </div>
+                    <div class="team-name">{{ match.awayTeam }}</div>
                 </div>
             </div>
 
             <div class="match-info">
                 <div class="stadium">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>{{ match.stadium }}</span>
+                    <span>{{ match.stadium || 'Belirsiz' }}</span>
                 </div>
                 <div class="time">
                     <i class="fas fa-clock"></i>
-                    <span>{{ match.time }}</span>
+                    <span>{{ match.time || 'Belirsiz' }}</span>
+                </div>
+                <div *ngIf="match.isPlayed" class="match-status">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Tamamlandı</span>
                 </div>
             </div>
         </div>

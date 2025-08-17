@@ -3,12 +3,23 @@
     100% { transform: translateX(100%); }
 }
 
-.fixture-container {
-    max-width: 1200px;
-    margin: 0 auto;
+// Component root styles for full screen
+:host {
+    display: block;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
     padding: 15px;
-    height: calc(100vh - 70px);
-    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.fixtures-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .fixture-header {
@@ -34,10 +45,17 @@
 
 .week-selector {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.week-row {
+    display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-bottom: 20px;
     flex-wrap: wrap;
 }
 
@@ -73,7 +91,7 @@
 
 .fixture-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     margin-bottom: 20px;
 }
@@ -162,14 +180,48 @@
     object-fit: contain;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     flex-shrink: 0;
+    transition: opacity 0.3s ease;
+}
+
+.team-logo.error {
+    opacity: 0.3;
+}
+
+.team-logo-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    min-height: 20px;
 }
 
 .team-name {
     color: white;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.62rem;
     text-align: center;
     flex: 1;
+    line-height: 1.2;
+    text-transform: none;
+    padding: 0 4px;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+// Responsive font sizing
+@media (max-width: 768px) {
+    .team-name {
+        font-size: 0.7rem;
+        padding: 0 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-name {
+        font-size: 0.65rem;
+        padding: 0 1px;
+    }
 }
 
 .vs {
@@ -177,6 +229,64 @@
     font-weight: 700;
     font-size: 1rem;
     margin: 0 12px;
+}
+
+.match-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 12px;
+    min-width: 80px;
+}
+
+.score-display {
+    color: #E60012;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-align: center;
+    background: rgba(230, 0, 18, 0.1);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(230, 0, 18, 0.3);
+}
+
+.score {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.home-score {
+    color: #4CAF50;
+    min-width: 20px;
+    text-align: center;
+}
+
+.away-score {
+    color: #FF9800;
+    min-width: 20px;
+    text-align: center;
+}
+
+.score-separator {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+}
+
+.match-status {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #4CAF50;
+    font-weight: 500;
+}
+
+.match-status i {
+    font-size: 0.9rem;
 }
 
 .match-info {
@@ -248,6 +358,11 @@
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    grid-column: 1 / -1;
+    justify-self: center;
+    align-self: center;
+    min-height: 200px;
+    justify-content: center;
 }
 
 .loading i {
@@ -269,9 +384,13 @@
 
 /* Mobile responsive navbar */
 @media (max-width: 768px) {
-    .fixture-container {
+    :host {
         padding: 10px;
-        height: calc(100vh - 45px);
+    }
+
+    .fixtures-container {
+        max-width: 100%;
+        padding: 0 10px;
     }
 
     .fixture-header h1 {
@@ -279,6 +398,10 @@
     }
 
     .week-selector {
+        gap: 12px;
+    }
+
+    .week-row {
         gap: 8px;
     }
 
@@ -289,8 +412,8 @@
     }
 
     .fixture-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
     }
 
     .match-card {
@@ -325,11 +448,19 @@
 }
 
 @media (max-width: 480px) {
+    .fixtures-container {
+        padding: 0 5px;
+    }
+
     .fixture-header h1 {
         font-size: 1.6rem;
     }
 
     .week-selector {
+        gap: 10px;
+    }
+
+    .week-row {
         gap: 6px;
     }
 
@@ -337,6 +468,11 @@
         padding: 5px 8px;
         min-width: 40px;
         font-size: 0.75rem;
+    }
+
+    .fixture-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
     }
 
     .match-card {
@@ -370,6 +506,20 @@
 
     .vs {
         display: none;
+    }
+
+    .match-result {
+        margin: 8px 0;
+        min-width: auto;
+    }
+
+    .score-display {
+        font-size: 1rem;
+        padding: 6px 10px;
+    }
+
+    .score {
+        font-size: 1.1rem;
     }
 
     .match-info {

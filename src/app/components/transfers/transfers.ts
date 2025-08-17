@@ -71,7 +71,12 @@ export class Transfers implements OnInit, AfterViewInit {
     // Observe transfer cards with a slight delay to allow DOM to render
     setTimeout(() => {
       const transferCards = document.querySelectorAll('.transfer-card');
-      transferCards.forEach(card => observer.observe(card));
+      transferCards.forEach(card => {
+        // Ensure cards are visible by default
+        (card as HTMLElement).style.opacity = '1';
+        (card as HTMLElement).style.transform = 'translateY(0)';
+        observer.observe(card);
+      });
     }, 100);
   }
 
@@ -84,11 +89,24 @@ export class Transfers implements OnInit, AfterViewInit {
       
       // Re-apply scroll animations after data loads
       setTimeout(() => this.addScrollAnimations(), 100);
+      
+      // Fallback: ensure all cards are visible after a delay
+      setTimeout(() => this.ensureCardsVisible(), 500);
     } catch (error) {
       console.error('Error loading transfers:', error);
       this.error = true;
       this.loading = false;
     }
+  }
+
+  private ensureCardsVisible(): void {
+    const transferCards = document.querySelectorAll('.transfer-card');
+    transferCards.forEach(card => {
+      const element = card as HTMLElement;
+      element.style.opacity = '1';
+      element.style.transform = 'translateY(0)';
+      element.style.visibility = 'visible';
+    });
   }
 
   setFilter(filter: string) {

@@ -89,8 +89,8 @@ export class Standings implements OnInit {
   getTotalMatches(): string {
     if (this.standings.length === 0) return '0/0';
     const totalTeams = this.standings.length;
-    const matchesPerTeam = this.standings[0]?.played || 0;
-    const totalMatches = (totalTeams * (totalTeams - 1)) / 2;
-    return `${matchesPerTeam * totalTeams}/${totalMatches}`;
+    const totalMatchesPlayed = this.standings.reduce((sum, team) => sum + (team.matchesPlayed || 0), 0);
+    const totalMatches = (totalTeams/2) * 34;
+    return `${totalMatchesPlayed/2}/${totalMatches}`;
   }
 }

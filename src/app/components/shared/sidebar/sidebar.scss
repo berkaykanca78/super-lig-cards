@@ -85,8 +85,8 @@ body {
 .team-item {
     border: none;
     margin: 0;
-    height: calc((100vh - 70px) / 18);
-    /* Her takım için eşit yükseklik */
+    height: calc((100vh - 70px) / 20);
+    /* Her takım için eşit yükseklik - 20 takım için güncellendi */
     display: flex;
 }
 
@@ -137,7 +137,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc((100vh - 70px) / 18);
+    height: calc((100vh - 70px) / 20);
+    /* 20 takım için güncellendi */
     padding: 0 12px;
 }
 
@@ -185,7 +186,7 @@ body {
     top: 0;
     left: 0;
     width: 100vw;
-        height: 100vh;
+    height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
     display: none;
@@ -535,7 +536,8 @@ body {
 }
 
 .team-item {
-    height: calc((100vh - 110px) / 18);
+    height: calc((100vh - 110px) / 20);
+    /* 20 takım için güncellendi */
 }
 
 /* Mobile responsive navbar */
@@ -550,7 +552,8 @@ body {
     }
 
     .team-item {
-        height: calc((100vh - 105px) / 18);
+        height: calc((100vh - 105px) / 20);
+        /* 20 takım için güncellendi */
     }
 
     .header {
@@ -744,6 +747,112 @@ body {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
+/* iPhone 16 and mobile specific optimizations */
+@media (max-width: 430px) {
+    /* iPhone 16 and similar devices */
+    .sidebar {
+        width: 100vw;
+        max-width: 320px;
+        top: 30px;
+        height: calc(100vh - 30px);
+    }
+
+    .teams-list {
+        height: calc(100vh - 130px);
+        padding: 8px 0;
+    }
+
+    .team-item {
+        margin: 0 8px 4px 8px;
+        height: calc((100vh - 130px) / 20);
+        /* 20 takım için optimize edildi */
+    }
+
+    .team-button {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+        gap: 10px;
+    }
+
+    .team-logo {
+        width: 22px;
+        height: 22px;
+    }
+
+    .league-header {
+        padding: 16px;
+        height: 60px;
+    }
+
+    .league-header h1 {
+        font-size: 0.75rem;
+    }
+
+    .league-logo {
+        width: 50px;
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 375px) {
+    /* iPhone SE and smaller devices */
+    .sidebar {
+        width: 100vw;
+        max-width: 300px;
+    }
+
+    .team-button {
+        padding: 10px 12px;
+        font-size: 0.8rem;
+        gap: 8px;
+    }
+
+    .team-logo {
+        width: 20px;
+        height: 20px;
+    }
+
+    .teams-list {
+        padding: 6px 0;
+    }
+
+    .team-item {
+        margin: 0 6px 3px 6px;
+    }
+}
+
+@media (max-width: 320px) {
+    /* Very small devices */
+    .sidebar {
+        width: 100vw;
+        max-width: 280px;
+    }
+
+    .team-button {
+        padding: 8px 10px;
+        font-size: 0.75rem;
+        gap: 6px;
+    }
+
+    .team-logo {
+        width: 18px;
+        height: 18px;
+    }
+
+    .league-header {
+        padding: 12px;
+        height: 55px;
+    }
+
+    .league-header h1 {
+        font-size: 0.7rem;
+    }
+
+    .league-logo {
+        width: 45px;
+        margin-bottom: 6px;
+    }
+}
 
 /* Mobile responsive navbar */
 
@@ -767,6 +876,11 @@ body {
 
     .teams-list {
         height: calc(100vh - 135px);
+    }
+
+    .team-item {
+        height: calc((100vh - 135px) / 20);
+        /* 20 takım için güncellendi */
     }
 
     .menu-toggle {
