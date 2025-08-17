@@ -48,7 +48,7 @@
     </div>
 
     <!-- Fixture grid -->
-    <div class="fixture-grid" *ngIf="!isLoading && !error">
+    <div class="fixture-grid mb-5" *ngIf="!isLoading && !error">
         <!-- Loading state for no matches -->
         <div *ngIf="getFilteredMatches().length === 0" class="loading">
             <i class="fas fa-spinner fa-spin"></i>

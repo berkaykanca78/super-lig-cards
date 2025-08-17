@@ -94,6 +94,8 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     margin-bottom: 20px;
+    overflow-y: auto;
+    flex: 1;
 }
 
 .match-card {
@@ -385,123 +387,185 @@
 /* Mobile responsive navbar */
 @media (max-width: 768px) {
     :host {
-        padding: 10px;
+        padding: 5px;
+        height: 100vh;
+        overflow: hidden;
     }
 
     .fixtures-container {
         max-width: 100%;
-        padding: 0 10px;
+        padding: 0 5px;
+        height: 100%;
+        overflow: hidden;
     }
 
     .fixture-header h1 {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
+        margin-bottom: 2px;
+    }
+
+    .fixture-header p {
+        font-size: 0.8rem;
+        margin-bottom: 2px;
+    }
+
+    .season-info {
+        margin-bottom: 6px;
+        font-size: 0.7rem;
     }
 
     .week-selector {
-        gap: 12px;
+        gap: 6px;
+        margin-bottom: 10px;
     }
 
     .week-row {
-        gap: 8px;
+        gap: 4px;
     }
 
     .week-button {
-        padding: 6px 10px;
-        min-width: 45px;
-        font-size: 0.8rem;
-    }
-
-    .fixture-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-    }
-
-    .match-card {
-        padding: 12px;
-    }
-
-    .team-logo {
-        width: 25px;
-        height: 25px;
-    }
-
-    .team-name {
-        font-size: 0.8rem;
-    }
-
-    .vs {
-        font-size: 0.9rem;
-        margin: 0 8px;
+        padding: 3px 5px;
+        min-width: 32px;
+        font-size: 0.65rem;
     }
 
     .navigation-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
+        margin-bottom: 6px;
+    }
+
+    .fixture-grid {
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+        padding: 15px 3px 25px 3px;
+        margin-bottom: 20px;
+        max-height: calc(100vh - 140px);
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .match-card {
+        padding: 20px;
+        min-height: 280px;
+        margin-bottom: 15px;
+    }
+
+    .team-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .team-name {
+        font-size: 1rem;
+    }
+
+    .vs {
+        font-size: 1.2rem;
+        margin: 0 15px;
+    }
+
+    .match-header {
+        margin-bottom: 20px;
+    }
+
+    .teams-container {
+        margin-bottom: 20px;
+    }
+
+    .match-info {
+        margin-top: 20px;
     }
 
     .nav-button {
         width: 100%;
         max-width: 200px;
         justify-content: center;
+        padding: 8px 14px;
     }
 }
 
 @media (max-width: 480px) {
+    :host {
+        padding: 2px;
+        height: 100vh;
+        overflow: hidden;
+    }
+
     .fixtures-container {
-        padding: 0 5px;
+        padding: 0 1px;
+        height: 100%;
+        overflow: hidden;
     }
 
     .fixture-header h1 {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
+        margin-bottom: 1px;
+    }
+
+    .fixture-header p {
+        font-size: 0.7rem;
+        margin-bottom: 1px;
+    }
+
+    .season-info {
+        margin-bottom: 4px;
+        font-size: 0.65rem;
     }
 
     .week-selector {
-        gap: 10px;
+        gap: 4px;
+        margin-bottom: 8px;
     }
 
     .week-row {
-        gap: 6px;
+        gap: 3px;
     }
 
     .week-button {
-        padding: 5px 8px;
-        min-width: 40px;
-        font-size: 0.75rem;
+        padding: 2px 4px;
+        min-width: 30px;
+        font-size: 0.6rem;
+    }
+
+    .navigation-buttons {
+        margin-bottom: 4px;
     }
 
     .fixture-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+        padding: 20px 1px 30px 1px;
+        margin-bottom: 20px;
+        max-height: calc(100vh - 110px);
+        -webkit-overflow-scrolling: touch;
     }
 
     .match-card {
-        padding: 10px;
+        padding: 18px;
+        min-height: 300px;
+        margin-bottom: 20px;
     }
 
     .team-logo {
-        width: 22px;
-        height: 22px;
+        width: 35px;
+        height: 35px;
     }
 
     .team-name {
-        font-size: 0.75rem;
+        font-size: 0.9rem;
     }
 
     .match-header {
         flex-direction: column;
-        gap: 5px;
         align-items: flex-start;
     }
 
     .teams-container {
         flex-direction: column;
-        gap: 10px;
     }
 
     .team {
         justify-content: center !important;
         flex-direction: row !important;
+        padding: 12px;
     }
 
     .vs {
@@ -509,22 +573,28 @@
     }
 
     .match-result {
-        margin: 8px 0;
+        margin: 5px 0;
         min-width: auto;
     }
 
     .score-display {
-        font-size: 1rem;
-        padding: 6px 10px;
+        font-size: 1.2rem;
+        padding: 10px 15px;
     }
 
     .score {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
 
     .match-info {
-        flex-direction: column;
-        gap: 5px;
         align-items: flex-start;
+    }
+
+    .nav-button {
+        width: 100%;
+        max-width: 160px;
+        justify-content: center;
+        padding: 6px 10px;
+        font-size: 0.75rem;
     }
 }
