@@ -15,6 +15,12 @@ interface Player {
   points: number;
   cards?: number;
   goalsConceded?: number;
+  cleanSheets?: number;
+  yellowCards?: number;
+  redCards?: number;
+  totalCards?: number;
+  nationality?: string;
+  age?: number;
 }
 
 interface Team {
@@ -42,12 +48,13 @@ export class Stats implements OnInit {
   topAssisters: Player[] = [];
   mostCards: Player[] = [];
   mostGoalsConceded: Player[] = [];
-  
+  cleanSheets: Player[] = [];
+
   // Current active data
   currentPlayers: Player[] = [];
   teams: Team[] = [];
   filteredPlayers: Player[] = [];
-  
+
   // UI state
   selectedStatType: string = 'goals';
   selectedPosition: string = '';
@@ -57,7 +64,7 @@ export class Stats implements OnInit {
   error: string = '';
   activeTab: string = 'goal-kings';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.loadGoalKings();
@@ -71,7 +78,7 @@ export class Stats implements OnInit {
     this.selectedStatType = 'goals';
     this.selectedPosition = '';
     this.selectedTeam = '';
-    
+
     this.http.get<Player[]>(`${environment.apiUrl}/api/Stats/top-scorers`).subscribe({
       next: (data) => {
         console.log(data);
@@ -107,7 +114,7 @@ export class Stats implements OnInit {
     this.selectedStatType = 'assists';
     this.selectedPosition = '';
     this.selectedTeam = '';
-    
+
     this.http.get<Player[]>(`${environment.apiUrl}/api/Stats/top-assisters`).subscribe({
       next: (data) => {
         this.topAssisters = data.map(player => ({
@@ -138,12 +145,11 @@ export class Stats implements OnInit {
     this.isLoading = true;
     this.error = '';
     this.activeTab = 'most-cards';
-    this.selectedStatType = 'cards';
+    this.selectedStatType = 'totalCards';
     this.selectedPosition = '';
     this.selectedTeam = '';
     
-    // Assuming you have an API endpoint for most cards
-    this.http.get<Player[]>(`${environment.apiUrl}/api/Stats/most-cards`).subscribe({
+    this.http.get<Player[]>(`${environment.apiUrl}/api/Stats/card-stats`).subscribe({
       next: (data) => {
         this.mostCards = data.map(player => ({
           id: player.id || 0,
@@ -154,12 +160,15 @@ export class Stats implements OnInit {
           goals: player.goals || 0,
           assists: player.assists || 0,
           points: player.points || 0,
-          cards: player.cards || 0
+          yellowCards: player.yellowCards || 0,
+          redCards: player.redCards || 0,
+          totalCards: player.totalCards || 0,
         }));
         this.currentPlayers = [...this.mostCards];
         this.filteredPlayers = [...this.mostCards];
         this.updateAvailableTeams();
-        this.applyFilters();
+        // Sort by total cards by default
+        this.filteredPlayers.sort((a, b) => (b.totalCards || 0) - (a.totalCards || 0));
         this.isLoading = false;
       },
       error: (error) => {
@@ -177,7 +186,7 @@ export class Stats implements OnInit {
     this.selectedStatType = 'goals_conceded';
     this.selectedPosition = 'GK';
     this.selectedTeam = '';
-    
+
     // Assuming you have an API endpoint for most goals conceded
     this.http.get<Player[]>(`${environment.apiUrl}/api/Stats/most-goals-conceded`).subscribe({
       next: (data) => {
@@ -206,6 +215,77 @@ export class Stats implements OnInit {
     });
   }
 
+  loadCleanSheets() {
+    this.isLoading = true;
+    this.error = '';
+    this.activeTab = 'clean-sheets';
+    this.selectedStatType = 'clean_sheets';
+    this.selectedPosition = 'GK';
+    this.selectedTeam = '';
+
+    this.http.get<any[]>(`${environment.apiUrl}/api/Stats/clean-sheets`).subscribe({
+      next: (data) => {
+        this.cleanSheets = data.map(player => ({
+          id: player.id || 0,
+          playerName: player.playerName || 'Bilinmeyen Oyuncu',
+          club: player.club || 'Bilinmeyen Takım',
+          position: player.position || 'UNK',
+          matches: player.matches || 0,
+          goals: player.goals || 0,
+          assists: player.assists || 0,
+          points: player.points || 0,
+          cleanSheets: player.cleanSheets || 0,
+          goalsConceded: this.parseGoalsConceded(player.goalsConceded),
+        }));
+        this.currentPlayers = [...this.cleanSheets];
+        this.filteredPlayers = [...this.cleanSheets];
+        this.updateAvailableTeams();
+        //this.applyFilters();
+        // Sort by selected stat type
+        this.filteredPlayers.sort((a, b) => {
+          switch (this.selectedStatType) {
+            case 'goals':
+              return b.goals - a.goals;
+            case 'assists':
+              return b.assists - a.assists;
+            case 'cards':
+              return (b.cards || 0) - (a.cards || 0);
+            case 'goals_conceded':
+              return (b.goalsConceded || 0) - (a.goalsConceded || 0);
+            case 'clean_sheets':
+              return (b.cleanSheets || 0) - (a.cleanSheets || 0);
+            case 'saves':
+              return b.points - a.points;
+            case 'passes':
+              return b.points - a.points;
+            default:
+              return b.goals - a.goals;
+          }
+        });
+        this.isLoading = false;
+      },
+      error: (error) => {
+        console.error('Error loading clean sheets:', error);
+        this.error = 'Temiz maçlar verileri yüklenirken hata oluştu';
+        this.isLoading = false;
+      }
+    });
+  }
+
+  private parseGoalsConceded(goalsConceded: any): number {
+    if (typeof goalsConceded === 'number') {
+      return goalsConceded;
+    }
+    if (typeof goalsConceded === 'string') {
+      // Handle "0.0 %" format
+      const match = goalsConceded.match(/(\d+\.?\d*)/);
+      if (match) {
+        return parseFloat(match[1]);
+      }
+    }
+    return 0;
+  }
+
   loadTeamStats() {
     // You can implement team stats loading here when the API is available
     // this.http.get<Team[]>(`${environment.apiUrl}/api/Stats/team-stats`).subscribe({...});
@@ -219,11 +299,11 @@ export class Stats implements OnInit {
     tabButtons.forEach(button => {
       button.addEventListener('click', () => {
         const targetTab = button.getAttribute('data-tab');
-        
+
         // Remove active class from all buttons and contents
         tabButtons.forEach(btn => btn.classList.remove('active'));
         tabContents.forEach(content => content.classList.remove('active'));
-        
+
         // Add active class to clicked button and target content
         button.classList.add('active');
         const targetContent = document.getElementById(targetTab!);
@@ -251,6 +331,9 @@ export class Stats implements OnInit {
       case 'most-goals-conceded':
         this.loadMostGoalsConceded();
         break;
+      case 'clean-sheets':
+        this.loadCleanSheets();
+        break;
     }
   }
 
@@ -277,6 +360,8 @@ export class Stats implements OnInit {
       return positionMatch && teamMatch;
     });
 
+    console.log(this.filteredPlayers);
+
     // Sort by selected stat type
     this.filteredPlayers.sort((a, b) => {
       switch (this.selectedStatType) {
@@ -286,10 +371,16 @@ export class Stats implements OnInit {
           return b.assists - a.assists;
         case 'cards':
           return (b.cards || 0) - (a.cards || 0);
+        case 'totalCards':
+          return (b.totalCards || 0) - (a.totalCards || 0);
+        case 'yellowCards':
+          return (b.yellowCards || 0) - (a.yellowCards || 0);
+        case 'redCards':
+          return (b.redCards || 0) - (a.redCards || 0);
         case 'goals_conceded':
           return (b.goalsConceded || 0) - (a.goalsConceded || 0);
         case 'clean_sheets':
-          return b.points - a.points;
+          return (b.cleanSheets || 0) - (a.cleanSheets || 0);
         case 'saves':
           return b.points - a.points;
         case 'passes':
@@ -308,6 +399,12 @@ export class Stats implements OnInit {
         return 'Asist';
       case 'cards':
         return 'Kart';
+      case 'totalCards':
+        return 'Toplam Kart';
+      case 'yellowCards':
+        return 'Sarı Kart';
+      case 'redCards':
+        return 'Kırmızı Kart';
       case 'goals_conceded':
         return 'Gol Kaptı';
       case 'clean_sheets':
@@ -329,9 +426,16 @@ export class Stats implements OnInit {
         return player.assists;
       case 'cards':
         return player.cards || 0;
+      case 'totalCards':
+        return player.totalCards || 0;
+      case 'yellowCards':
+        return player.yellowCards || 0;
+      case 'redCards':
+        return player.redCards || 0;
       case 'goals_conceded':
         return player.goalsConceded || 0;
       case 'clean_sheets':
+        return player.cleanSheets || 0;
       case 'saves':
       case 'passes':
         return player.points;
@@ -373,6 +477,8 @@ export class Stats implements OnInit {
         return 'Gol Krallığı';
       case 'assist-kings':
         return 'Asist Krallığı';
+      case 'clean-sheets':
+        return 'Kalesini Gole Kapatanlar';
       case 'most-cards':
         return 'En Çok Kart Görenler';
       case 'most-goals-conceded':
